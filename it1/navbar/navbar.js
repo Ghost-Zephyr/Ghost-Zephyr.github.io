@@ -10,3 +10,4 @@ function oppgaver() {
         <h3><a href="/it1/bibliotek/index.html">Bibliotek</a></h3>
     `)
 }
+
