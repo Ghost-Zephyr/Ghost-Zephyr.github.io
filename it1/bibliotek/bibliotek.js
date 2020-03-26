@@ -7,9 +7,9 @@ var add = function() {
         terningkast: $('#rating')[0].value,
         utgitt: $('#published')[0].value
     }).then(function() {
-        $('#status').html('<p style="color: green;">La til bok '+$('#title').value+'!</p>')
+        $('#status').html('<p style="color: green;">La til bok '+$('#title')[0].value+'!</p>')
     }).catch(function() {
-        $('#status').html('<p style="color: red;">Problem med å legge til bok '+$('#title').value+'!</p>')
+        $('#status').html('<p style="color: red;">Problem med å legge til bok '+$('#title')[0].value+'!</p>')
     })
 }
 
