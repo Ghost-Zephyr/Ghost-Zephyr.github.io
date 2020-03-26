@@ -2,16 +2,41 @@
 <html>
 <head>
     <title>Firebase basert bibliotek</title>
+    <meta charset="utf-8">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" crossorigin="anonymous">
-    <script defer src="https://www.gstatic.com/firebasejs/7.11.0/firebase-app.js"></script>
-    <script defer src="https://www.gstatic.com/firebasejs/7.11.0/firebase-firestore.js"></script>
+    <link rel="stylesheet" href="/it1/bibliotek/bibliotek.css">
+    <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-firestore.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script type="text/javascript" src="/it1/init-firebase.js"></script>
 </head>
-<bod>
-    <iframe id="navbar" width="100%" height="60px" src="/it1/navbar/navbar.html" style="border: 0px"></iframe>
+<body>
+    <script type="text/javascript" id="navbar" src="/it1/navbar/navbar.js"></script>
     <div id="content">
-        <form></form>
+        <form action="#" method="POST" id="form">
+            <div class="form-group">
+                <div class="row">
+                    <div class="col"><input type="name" class="form-control" id="title" placeholder="Tittel"></div>
+                    <div class="col"><input type="name" class="form-control" id="author" placeholder="Forfatter"></div>
+                </div>
+                <input type="name" class="form-control" id="publisher" placeholder="Forlag">
+                <select type="number" class="form-control form-control-sm" id="rating" placeholder="Terningkast">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                </select>
+                <label>Utgitt</label>
+                <input type="date" class="form-control" id="published" placeholder="Utgitt">
+            </div>
+            <a type="submit" class="btn btn-primary" href="javascript: add()">Legg til</a>
+        </form>
+        <div id="status">
+            <p></p>
+        </div>
     </div>
     <script type="text/javascript" src="/it1/bibliotek/bibliotek.js"></script>
-</bod>
+</body>
 </html>

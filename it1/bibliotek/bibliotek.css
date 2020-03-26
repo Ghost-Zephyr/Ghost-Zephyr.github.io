@@ -1,0 +1,27 @@
+
+#content {
+    margin: 2vh;
+}
+
+#content > * {
+    margin-top: 9vh;
+    margin-left: 13vw;
+    margin-right: 42.0vw;
+}
+
+#status {
+    margin-top: 1vh;
+}
+
+#form {
+    width: 25%;
+}
+
+#form > div > * {
+    margin-bottom: 1vh;
+}
+
+#form > div > label {
+    margin-bottom: 0.33vh;
+}
+
