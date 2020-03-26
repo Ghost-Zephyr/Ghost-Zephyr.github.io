@@ -5,7 +5,7 @@ var add = function() {
         forfatter: $('#author')[0].value,
         forlag: $('#publisher')[0].value,
         terningkast: $('#rating')[0].value,
-        utgitt: $('#published')[0].value
+        utgitt: $('#published')[0].value // new firebase.firestore.Timestamp(Date.parse(Date($('#published')[0].value))/1000)
     }).then(function() {
         $('#status').html('<p style="color: green;">La til bok '+$('#title')[0].value+'!</p>')
     }).catch(function() {
