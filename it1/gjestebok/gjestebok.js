@@ -9,7 +9,7 @@ var list = function() {
             html = '<br/>'
             query.forEach(function(doc) {
                 book = doc.data()
-                html += book.toHtml()
+                html += book.toHtml(firebase.auth().currentUser)
             })
             $('#kommentarer').html(html)
         }).catch(function(error) {
@@ -34,11 +34,14 @@ var add = function() {
         })
 }
 
-list()
+var remove = function(id) {
+    db.collection("gjestebok").doc(id)
+        .delete().then(function() {
+            list()
+        }).catch(function(error) {
+            alert("Error removing document: ", error)
+        })
+}
 
-/*
-$(document).ready(function() {
-    list(firebase.auth().currentUser)
-})
-*/
+list()
 

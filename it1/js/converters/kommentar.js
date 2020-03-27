@@ -1,14 +1,16 @@
 
 class Comment {
-    constructor(name, message) {
+    constructor(name, message, id=0) {
         this.name = name,
-        this.message = message
+        this.message = message,
+        this.cfid = id
     }
     toString() {
         return this.name+': '+this.message
     }
-    toHtml() {
-        return '<p id="kommentar">'+this.name+': '+this.message+'</p>'
+    toHtml(user) {
+        return '<p id="kommentar">'+this.name+': '+this.message
+            +(user?' &nbsp; <a class="btn btn-primary" href="javascript: remove(\''+this.cfid+'\')">Slett</a>':'')+'</p>'
     }
 }
 
@@ -23,7 +25,8 @@ commentConverter = {
         const data = snapshot.data(options)
         return new Comment(
             data.navn,
-            data.melding
+            data.melding,
+            snapshot.id
         )
     }
 }

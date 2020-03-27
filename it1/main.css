@@ -4,7 +4,13 @@ body {
     color: rgb(218, 215, 210);
 }
 
-li.right > ul { /* TODO: FIX! */
+#content {
+    margin: 2vh;
+    margin-left: 13vw;
+    margin-right: 42.0vw;
+}
+
+li.right > ul {
     align-content: right;
 }
 
