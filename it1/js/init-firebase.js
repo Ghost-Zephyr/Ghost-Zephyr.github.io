@@ -8,5 +8,3 @@ firebase.initializeApp({
     messagingSenderId: "206703382262",
     appId: "1:206703382262:web:be48f32d11a15fa28f26d7"
 })
-var db = firebase.firestore()
-

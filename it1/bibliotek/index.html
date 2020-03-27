@@ -4,16 +4,18 @@
     <title>Firebase basert bibliotek</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" crossorigin="anonymous">
-    <link rel="stylesheet" href="/it1/bibliotek/bibliotek.css">
-    <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-firestore.js"></script>
+    <link rel="stylesheet" href="/it1/main.css">
+    <link rel="stylesheet" href="/it1/css/form.css">
+    <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-firestore.js"></script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script type="text/javascript" src="/it1/init-firebase.js"></script>
+    <script type="text/javascript" src="/it1/js/init-firebase.js"></script>
     <script type="text/javascript" src="/it1/bibliotek/bok.js"></script>
 </head>
 <body>
-    <script type="text/javascript" id="navbar" src="/it1/navbar/navbar.js"></script>
-    <div id="content" class="middle">
+    <script type="text/javascript" id="navbar" src="/it1/js/navbar.js"></script>
+    <div id="content">
         <form action="#" method="POST" id="form" class="top">
             <div class="form-group">
                 <div class="row">
@@ -37,7 +39,7 @@
         <div id="status">
             <p>&nbsp;</p>
         </div>
-        <a type="submit" class="btn btn-primary" href="javascript: list()">Hent bøker</a>
+        <a type="submit" class="btn btn-primary" href="javascript: list(firebase.auth().currentUser)">Hent bøker</a>
         <div id="books">
         </div>
     </div>

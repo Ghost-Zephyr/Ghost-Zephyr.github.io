@@ -1,4 +1,9 @@
 
+body {
+    background-color: rgb(24, 26, 27);
+    color: lime;
+}
+
 div#content > * {
     padding: 2vh;
     margin: 4vh;
