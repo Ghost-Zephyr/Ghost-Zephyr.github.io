@@ -32,7 +32,7 @@ firebase.auth().onAuthStateChanged(function(user) {
         $('#login-btn').attr('href', 'javascript: signout()')
         $('#login-btn').html('Logout')
     } else {
-        $('#login-btn').attr('href', '/it1/bruker/login')
+        $('#login-btn').attr('href', '/it1/bruker/')
         $('#login-btn').html('Login')
     }
 })
