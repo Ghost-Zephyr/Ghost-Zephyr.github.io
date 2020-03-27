@@ -41,7 +41,7 @@ bookConverter = {
             data.terningkast,
             data.utgitt.toDate(),
             snapshot.id
-            )
+        )
     }
 }
 

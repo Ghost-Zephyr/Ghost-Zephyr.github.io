@@ -2,9 +2,7 @@
 var db = firebase.firestore()
 
 var list = function(user) {
-    // db.collection('bibliotek').doc("8ZBX5gmIaRwQBCjgLLg0").get().then(function(doc){console.log(doc.data())})
-    // db.collection('bibliotek').get().then(function(query){query.forEach(function(doc){console.log(doc.data())})})
-    db.collection('bibliotek')
+    db.collection("bibliotek")
         .withConverter(bookConverter)
         .get()
         .then(function(query) {
@@ -51,10 +49,4 @@ var remove = function(id) {
 firebase.auth().onAuthStateChanged(function(user) {
     list(user)
 })
-
-/*
-$(document).ready(function() {
-    list(firebase.auth().currentUser)
-})
-*/
 

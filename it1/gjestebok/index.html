@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Firebase basert bibliotek</title>
+    <title>Firebase basert gjestebok</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" crossorigin="anonymous">
     <link rel="stylesheet" href="/it1/main.css">
     <link rel="stylesheet" href="/it1/css/form.css">
+    <link rel="stylesheet" href="/it1/css/gjestebok.css">
     <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-firestore.js"></script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script type="text/javascript" src="/it1/js/init-firebase.js"></script>
-    <script type="text/javascript" src="/it1/js/converters/bok.js"></script>
+    <script type="text/javascript" src="/it1/js/converters/kommentar.js"></script>
 </head>
 <body>
     <script type="text/javascript" id="navbar" src="/it1/js/navbar.js"></script>
@@ -19,30 +20,19 @@
         <form action="#" method="POST" id="form" class="top">
             <div class="form-group">
                 <div class="row">
-                    <div class="col"><input type="name" class="form-control" id="title" placeholder="Tittel"></div>
-                    <div class="col"><input type="name" class="form-control" id="author" placeholder="Forfatter"></div>
+                    <div class="col col-sm-3"><input type="name" class="form-control" id="navn" placeholder="Navn"></div>
+                    <div class="col col-sm-9"><input type="name" class="form-control" id="melding" placeholder="Melding"></div>
                 </div>
-                <input type="name" class="form-control" id="publisher" placeholder="Forlag">
-                <select type="number" class="form-control form-control-sm" id="rating" placeholder="Terningkast">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                    <option>6</option>
-                </select>
-                <label>Utgitt</label>
-                <input type="date" class="form-control" id="published" placeholder="Utgitt">
             </div>
             <a type="submit" class="btn btn-primary" href="javascript: add()">Legg til</a>
         </form>
         <div id="status">
             <p>&nbsp;</p>
         </div>
-        <a type="submit" class="btn btn-primary" href="javascript: list(firebase.auth().currentUser)">Hent bøker</a>
-        <div id="books">
+        <!-- <a type="submit" class="btn btn-primary" href="javascript: list()">Hent kommentarer</a> -->
+        <div id="kommentarer">
         </div>
     </div>
-    <script type="text/javascript" src="/it1/bibliotek/bibliotek.js"></script>
+    <script type="text/javascript" src="/it1/gjestebok/gjestebok.js"></script>
 </body>
 </html>
