@@ -9,11 +9,12 @@
     <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-firestore.js"></script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script type="text/javascript" src="/it1/init-firebase.js"></script>
+    <script type="text/javascript" src="/it1/bibliotek/bok.js"></script>
 </head>
 <body>
     <script type="text/javascript" id="navbar" src="/it1/navbar/navbar.js"></script>
-    <div id="content">
-        <form action="#" method="POST" id="form">
+    <div id="content" class="middle">
+        <form action="#" method="POST" id="form" class="top">
             <div class="form-group">
                 <div class="row">
                     <div class="col"><input type="name" class="form-control" id="title" placeholder="Tittel"></div>
@@ -34,7 +35,10 @@
             <a type="submit" class="btn btn-primary" href="javascript: add()">Legg til</a>
         </form>
         <div id="status">
-            <p></p>
+            <p>&nbsp;</p>
+        </div>
+        <a type="submit" class="btn btn-primary" href="javascript: list()">Hent bøker</a>
+        <div id="books">
         </div>
     </div>
     <script type="text/javascript" src="/it1/bibliotek/bibliotek.js"></script>

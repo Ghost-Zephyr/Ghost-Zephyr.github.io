@@ -3,18 +3,17 @@
     margin: 2vh;
 }
 
-#content > * {
+.top {
     margin-top: 9vh;
+}
+
+.middle {
     margin-left: 13vw;
     margin-right: 42.0vw;
 }
 
 #status {
     margin-top: 1vh;
-}
-
-#form {
-    width: 25%;
 }
 
 #form > div > * {
