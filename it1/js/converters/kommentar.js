@@ -8,9 +8,13 @@ class Comment {
     toString() {
         return this.name+': '+this.message
     }
-    toHtml(user) {
-        return '<p id="kommentar">'+this.name+': '+this.message
-            +(user?' &nbsp; <a class="btn btn-primary" href="javascript: remove(\''+this.cfid+'\')">Slett</a>':'')+'</p>'
+    toHtml(elm) {
+        let user = firebase.auth().currentUser
+        elm.append('<p class="kommentar"></p>')
+        $($('.kommentar')[$('.kommentar').length-1]).text(this.toString())
+        if (user) {
+            $($('.kommentar')[$('.kommentar').length-1]).append(' &nbsp; <a class="btn btn-primary" href="javascript: remove(\''+this.cfid+'\')">Slett</a>')
+        }
     }
 }
 

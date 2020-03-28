@@ -6,12 +6,11 @@ var list = function(user) {
         .withConverter(bookConverter)
         .get()
         .then(function(query) {
-            html = '<br/>'
+            $('#books').html('<br/>')
             query.forEach(function(doc) {
                 book = doc.data()
-                html += book.toHtml(user)
+                book.toHtml($('#books'))
             })
-            $('#books').html(html)
         }).catch(function(error) {
             $('#books').html('<h3>Kunne ikke hente bøker!</h3><br/><p>'+error+'</p>')
             $('#books').css('color', 'red')
@@ -30,7 +29,7 @@ var add = function() {
         )).then(function() {
             $('#status').html('<p>La til bok '+$('#title')[0].value+'!</p>')
             $('#status').css('color', 'green')
-            list(firebase.auth().currentUser)
+            list()
         }).catch(function() {
             $('#status').html('<p>Problem med å legge til bok '+$('#title')[0].value+'!</p>')
             $('#status').css('color', 'red')
@@ -40,7 +39,7 @@ var add = function() {
 var remove = function(id) {
     db.collection("bibliotek").doc(id)
         .delete().then(function() {
-            list(firebase.auth().currentUser)
+            list()
         }).catch(function(error) {
             alert("Error removing document: ", error)
         })

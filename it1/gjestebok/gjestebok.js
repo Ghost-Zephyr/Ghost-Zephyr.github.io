@@ -6,15 +6,14 @@ var list = function() {
         .withConverter(commentConverter)
         .get()
         .then(function(query) {
-            html = '<br/>'
+            $('#kommentarer').html('<br/>')
             query.forEach(function(doc) {
                 book = doc.data()
-                html += book.toHtml(firebase.auth().currentUser)
+                book.toHtml($('#kommentarer'))
             })
-            $('#kommentarer').html(html)
         }).catch(function(error) {
-            $('#kommentarer').html('<h3>Kunne ikke hente bøker!</h3><br/><p>'+error+'</p>')
-            $('#kommentarer').css('color', 'red')
+            $('#status').html('<h3>Kunne ikke hente kommentarer!</h3><br/><p>'+error.message+'</p>')
+            $('#status').css('color', 'red')
         })
 }
 
@@ -27,6 +26,7 @@ var add = function() {
         )).then(function() {
             $('#status').html('<p>La til melding med navn '+$('#navn')[0].value+'!</p>')
             $('#status').css('color', 'green')
+            $('#kommentarer').html('')
             list()
         }).catch(function() {
             $('#status').html('<p>Problem med å legge til melding med navn '+$('#navn')[0].value+'!</p>')
@@ -37,6 +37,7 @@ var add = function() {
 var remove = function(id) {
     db.collection("gjestebok").doc(id)
         .delete().then(function() {
+            $('#kommentarer').html('')
             list()
         }).catch(function(error) {
             alert("Error removing document: ", error)
