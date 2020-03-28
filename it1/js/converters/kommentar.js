@@ -9,12 +9,9 @@ class Comment {
         return this.name+': '+this.message
     }
     toHtml(elm) {
-        let user = firebase.auth().currentUser
         elm.append('<p class="kommentar"></p>')
         $($('.kommentar')[$('.kommentar').length-1]).text(this.toString())
-        if (user) {
-            $($('.kommentar')[$('.kommentar').length-1]).append(' &nbsp; <a class="btn btn-primary" href="javascript: remove(\''+this.cfid+'\')">Slett</a>')
-        }
+        firebase.auth().currentUser?$($('.kommentar')[$('.kommentar').length-1]).append(' &nbsp; <a class="btn btn-primary" href="javascript: remove(\''+this.cfid+'\')">Slett</a>'):undefined
     }
 }
 
