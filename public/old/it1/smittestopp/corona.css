@@ -1,0 +1,19 @@
+
+table, th, td {
+    border: 2px solid gray;
+}
+th, td {
+    padding: 0.3rem;
+}
+table {
+    width: 100%;
+}
+
+#title {
+    margin-left: 3vw;
+    margin-bottom: 4rem;
+    margin-top: 4rem;
+}
+footer {
+    margin-top: 5rem;
+}

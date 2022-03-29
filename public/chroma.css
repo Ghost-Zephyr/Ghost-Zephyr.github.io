@@ -1,0 +1,34 @@
+.chroma { background-color: #ffffff }
+.chroma .lntd { vertical-align: top; padding: 0; margin: 0; border: 0; }
+.chroma .lntable { border-spacing: 0; padding: 0; margin: 0; border: 0; width: auto; overflow: auto; display: block; }
+.chroma .hl { display: block; width: 100%;background-color: #ffffcc }
+.chroma .lnt { margin-right: 0.4em; padding: 0 0.4em 0 0.4em;color: #7f7f7f }
+.chroma .ln { margin-right: 0.4em; padding: 0 0.4em 0 0.4em;color: #7f7f7f }
+.chroma .k { color: #0000ff }
+.chroma .kc { color: #0000ff }
+.chroma .kd { color: #0000ff }
+.chroma .kn { color: #0000ff }
+.chroma .kp { color: #0000ff }
+.chroma .kr { color: #0000ff }
+.chroma .kt { color: #0000ff }
+.chroma .s { color: #009c00 }
+.chroma .sa { color: #009c00 }
+.chroma .sb { color: #009c00 }
+.chroma .sc { color: #009c00 }
+.chroma .dl { color: #009c00 }
+.chroma .sd { color: #009c00 }
+.chroma .s2 { color: #009c00 }
+.chroma .se { color: #009c00 }
+.chroma .sh { color: #009c00 }
+.chroma .si { color: #009c00 }
+.chroma .sx { color: #009c00 }
+.chroma .sr { color: #009c00 }
+.chroma .s1 { color: #009c00 }
+.chroma .ss { color: #009c00 }
+.chroma .c { color: #ff0000; font-style: italic }
+.chroma .ch { color: #ff0000; font-style: italic }
+.chroma .cm { color: #ff0000; font-style: italic }
+.chroma .c1 { color: #ff0000; font-style: italic }
+.chroma .cs { color: #ff0000; font-style: italic }
+.chroma .cp { color: #ff0000; font-style: italic }
+.chroma .cpf { color: #ff0000; font-style: italic }

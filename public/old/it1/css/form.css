@@ -1,0 +1,28 @@
+
+.top {
+    margin-top: 9vh;
+}
+
+#status {
+    margin-top: 1vh;
+}
+
+#form > div > * {
+    margin-bottom: 1vh;
+}
+
+#form > div > label {
+    margin-bottom: 0.33vh;
+}
+
+.form-control {
+    background-color: #333;
+    border-color: #222;
+    color: lime;
+}
+.form-control:focus {
+    background-color: #555;
+    border-color: #333;
+    color: lime;
+}
+
