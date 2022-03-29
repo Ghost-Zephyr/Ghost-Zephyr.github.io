@@ -1,0 +1,12 @@
+en:
+  title: Sivert Does Stuff Online!
+  languageName: English
+  weight: 0
+'no':
+  title: Sivert Gjør Ting På Nett!
+  languageName: Norsk
+  weight: 2
+nl:
+  title: Sivert Doen Dingen Online!
+  languageName: Nederlands
+  weight: 3

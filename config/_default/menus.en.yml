@@ -1,0 +1,13 @@
+main:
+- name: Blog
+  url: /blog
+  weight: 10
+- name: About
+  url: /about
+  weight: 3
+# - name: Old GitHub.io
+#   url: /old
+#   weight: 2
+- name: My Humble Homepage
+  url: https://sivert.pw
+  weight: 1

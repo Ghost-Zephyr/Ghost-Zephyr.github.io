@@ -1,0 +1,13 @@
+[translations]
+other = 'Oversettelser'
+[languages]
+other = 'Språk'
+
+[readMore]
+other = 'Les Mer'
+
+[wordCount]
+other = 'Denne artikelen har {{ .WordCount }} ord.'
+[readingTime]
+other = '{{ .Count }} minutters lesetid.'
+one = 'Ett minutts lesetid.'

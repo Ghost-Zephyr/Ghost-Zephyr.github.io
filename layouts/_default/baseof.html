@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name=”robots” content="index,follow">
+  {{ block "meta" . }}
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  {{ end }}
+  <meta name="twitter:card" content="summary">
+  <meta property="og:title" content="{{ site.Title }}" />
+  <meta property="og:url" content="{{ site.BaseURL }}" />
+  <meta property="og:site_name" content="{{ site.Title }}" />
+  <!-- <meta property="og:image" content=""> -->
+  {{ range .AlternativeOutputFormats -}}
+  {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+  {{ end -}}
+  <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css' crossorigin='anonymous'>
+  {{ if isset .Params "title" }}
+  <title>{{ site.Title }} - {{ .Title }}</title>
+  {{ else }}
+  <title>{{ site.Title }}</title>
+  {{ end }}{{ if .Description }}
+  <meta name='description' content='{{ .Description }}'>
+  {{ end }}
+  {{ block "head" . }}
+  <link href='/main.css' rel='stylesheet'>
+  {{ end }}
+</head>
+<body>
+  <header>
+  {{ partial "nav.html" . }}
+  </header>
+  <div id="content">
+    <main>{{ block "main" . }}{{ end }}</main>
+  </div>
+  <!-- {{ partial "i18n/list.html" . }} -->
+  <footer>
+  {{ partial "footer.html" . }}
+  </footer>
+</body>
+{{ block "bottom" . }}{{ end }}
+</html>

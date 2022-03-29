@@ -1,3 +1,6 @@
 # My github.io
 
-I dunno what to host here, prolly will add someting cool later some time.
+I've converted this page to a hugo generated static webpage.
+
+Will hopefully use it as a portfolio and blog.
+How exciting?

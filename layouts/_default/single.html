@@ -1,0 +1,15 @@
+{{ define "main" }}
+<div class='row'>
+  <div class='col-md-2'>
+    {{ partial "toc.html" . }}
+  </div>
+  <div class='col-md-10'>
+    <article>
+      <header>
+        <h1>{{ .Title }}</h1>
+      </header>
+      {{ .Content }}
+    </article>
+  </div>
+</div>
+{{ end }}

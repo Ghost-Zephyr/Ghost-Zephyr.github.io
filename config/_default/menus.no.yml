@@ -1,0 +1,13 @@
+main:
+- name: Blogg
+  url: /no/blog
+  weight: 10
+- name: Om websiden
+  url: /no/about
+  weight: 3
+- name: IT1 vgs
+  url: /old/it1
+  weight: 2
+- name: Hjemmeside
+  url: https://sivert.pw
+  weight: 1

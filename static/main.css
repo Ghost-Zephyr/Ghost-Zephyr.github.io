@@ -1,0 +1,51 @@
+
+body {
+  background-color: rgb(18, 20, 21);
+  color: lime;
+}
+#content main {
+  background-color: rgb(24, 26, 27);
+  margin: 3% 10%;
+  padding: 3%;
+}
+
+#navbar {
+  background-color: #222;
+}
+#navbar li a:hover {
+  background-color: #333;
+}
+#navbar .link-group li {
+  float: right;
+}
+#navbar li {
+  display: inline;
+  float: left;
+}
+#navbar ul {
+  list-style-type: none;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+}
+#navbar a {
+  text-decoration: none;
+  text-align: center;
+  padding: 14px 16px;
+  display: block;
+  color: lime;
+}
+
+#lang-menu ul {
+  background-color: #222;
+  position: absolute;
+  min-width: 160px;
+  display: none;
+  z-index: 1;
+}
+#lang-menu a {
+  display: block;
+}
+#lang-menu:hover ul {
+  display: block;
+}

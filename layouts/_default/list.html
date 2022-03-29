@@ -1,0 +1,24 @@
+{{ define "main" }}
+<div class='row'>
+  <div class='col-md-2'>
+    <aside id="meta">
+      {{ .TableOfContents }}
+    </aside>
+  </div>
+  <div class='col-md-10'>
+    <article>
+      <header>
+        <h1>{{ .Title }}</h1>
+      </header>
+      {{ .Content }}
+      <ul class="contents">
+      {{ range .Pages }}
+        <li>
+        {{ partial "summary.html" . }}
+        </li>
+      {{ end }}
+      </ul>
+    </article>
+  </div>
+</div>
+{{ end }}

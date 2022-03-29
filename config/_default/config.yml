@@ -1,0 +1,10 @@
+defaultContentLanguage: en
+enableRobotsTXT: true
+author:
+  name: Sivert V. Sæther
+  email: gmail@sivert.pw
+copyright: GPL-3
+taxonomies:
+  category: categories
+  series: series
+  tag: tags
