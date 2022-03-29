@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Firebase basert bibliotek</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="../main.css">
+    <link rel="stylesheet" href="../css/form.css">
+    <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-auth.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="../js/init-firebase.js"></script>
+    <script type="text/javascript" src="../js/auth.js"></script>
+</head>
+<body>
+    <script type="text/javascript" id="navbar" src="../js/navbar.js"></script>
+    <div id="content">
+        <form action="#" method="POST" id="form" class="top">
+            <div class="form-group">
+                <input type="name" class="form-control" id="mail" placeholder="Epost">
+                <input type="password" class="form-control" id="password" placeholder="Passord">
+            </div>
+            <a type="submit" class="btn btn-primary" id="login" onclick="signin()">Logg inn</a>
+        </form>
+        <div id="status">
+        </div>
+    </div>
+    <script type="text/javascript" src="../js/auth.js"></script>
+</body>
+</html>
