@@ -23,15 +23,31 @@
   <meta name='description' content='{{ .Description }}'>
   {{ end }}
   {{ block "head" . }}
-  <link href='/main.css' rel='stylesheet'>
   {{ end }}
+  {{ if .Param "chroma" }}
+  <link href='/chroma.css' rel='stylesheet'>
+  {{ end }}
+  <link href='/main.css' rel='stylesheet'>
 </head>
 <body>
   <header>
   {{ partial "nav.html" . }}
   </header>
   <div id="content">
-    <main>{{ block "main" . }}{{ end }}</main>
+    <main>
+      {{ if .Param "toc" }}
+      <div class='row'>
+        <div class='col-md-2'>
+          {{ partial "toc.html" . }}
+        </div>
+        <div class='col-md-10'>
+          {{ block "main" . }}{{ end }}
+        </div>
+      </div>
+      {{ else }}
+      {{ block "main" . }}{{ end }}
+      {{ end }}
+    </main>
   </div>
   <!-- {{ partial "i18n/list.html" . }} -->
   <footer>

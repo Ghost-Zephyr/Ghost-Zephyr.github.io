@@ -1,8 +1,10 @@
 <li id='lang-menu'>
   <a id='lang-menu-btn' href='#'>{{ T "translations" }}</a>
   <ul>
-    {{ range $.Site.Home.AllTranslations }}
-    <li><a href='{{ .Permalink }}'>{{ .Language.LanguageName }}</a></li>
+    {{ range .AllTranslations }}
+    {{ if ne .Language.Lang $.Page.Language.Lang }}
+    <li><a href='{{ .RelPermalink }}'>{{ .Language.LanguageName }}</a></li>
+    {{ end }}
     {{ end }}
   </ul>
 </li>

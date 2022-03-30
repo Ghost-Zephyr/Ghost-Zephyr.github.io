@@ -1,6 +1,6 @@
 <nav id="navbar">
   <ul class="top-nav">
-    <li class=""><a href="/">{{ site.Title }}</a></li>
+    <li class=""><a href="/{{ .Language.Lang }}">{{ site.Title }}</a></li>
     {{ partial "i18n/nav.html" . }}
     <div class="link-group">
     {{ $currentPage := . }}

@@ -3,11 +3,15 @@ other = 'Translations'
 [languages]
 other = 'Languages'
 
+[published]
+other = 'Published'
+[modified]
+other = 'Updated'
 [readMore]
 other = 'Read More'
 
 [wordCount]
-other = 'This article has {{ .WordCount }} words.'
+other = 'This article has {{ . }} words'
 [readingTime]
-one = 'One minute to read.'
-other = '{{ .Count }} minutes to read.'
+other = '{{ . }} minutes to read'
+one = 'One minute to read'

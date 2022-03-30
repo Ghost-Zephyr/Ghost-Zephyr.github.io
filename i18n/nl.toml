@@ -2,3 +2,16 @@
 other = 'Vertalingen'
 [languages]
 other = 'Talen'
+
+[published]
+other = 'Gepubliceerd'
+[modified]
+other = 'Bijgewerkt'
+[readMore]
+other = 'Lees verder'
+
+[wordCount]
+other = 'Dit artikel heeft {{ . }} woorden'
+[readingTime]
+other = '{{ . }} minuut om te lezen'
+one = 'Een minuut om te lezen'

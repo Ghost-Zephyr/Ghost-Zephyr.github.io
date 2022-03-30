@@ -1,11 +1,17 @@
+{{- $pubdate := .PublishDate.Format "02/01/2006" }}
+{{- $lastmod := .Lastmod.Format "02/01/2006" }}
 <article>
   <div>
-    <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+    <h3><a href='{{ .RelPermalink }}'>{{ .Title }}</a></h3>
+    {{ i18n "published" }} {{ $pubdate }}
+    {{ if ne $pubdate $lastmod }}
+    {{ i18n "modified" }} {{ $lastmod }}
+    {{ end }}<br />
     {{ .Summary }}
   </div>
   {{ if .Truncated }}
   <div>
-    <a href="{{ .RelPermalink }}">{{ i18n "readMore" }}…</a>
+    <a href='{{ .RelPermalink }}'>{{ i18n "readMore" }}…</a>
   </div>
   {{ end }}
 </article>

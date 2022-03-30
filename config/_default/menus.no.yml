@@ -8,6 +8,6 @@ main:
 - name: IT1 vgs
   url: /old/it1
   weight: 2
-- name: Hjemmeside
+- name: Min ydmyke hjemmeside
   url: https://sivert.pw
   weight: 1

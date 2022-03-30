@@ -1,0 +1,10 @@
+main:
+# - name: Blog
+#   url: /nl/blog
+#   weight: 10
+# - name: Om deze website
+#   url: /nl/about
+#   weight: 3
+- name: Mijn nederig startpagina
+  url: https://sivert.pw
+  weight: 1

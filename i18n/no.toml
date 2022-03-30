@@ -3,11 +3,15 @@ other = 'Oversettelser'
 [languages]
 other = 'Språk'
 
+[published]
+other = 'Lagt ut'
+[modified]
+other = 'Oppdatert'
 [readMore]
 other = 'Les Mer'
 
 [wordCount]
-other = 'Denne artikelen har {{ .WordCount }} ord.'
+other = 'Denne artikelen har {{ . }} ord'
 [readingTime]
-other = '{{ .Count }} minutters lesetid.'
-one = 'Ett minutts lesetid.'
+other = '{{ . }} minutters lesetid'
+one = 'Ett minutts lesetid'

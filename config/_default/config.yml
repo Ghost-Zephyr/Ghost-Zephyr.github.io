@@ -1,5 +1,8 @@
 defaultContentLanguage: en
 enableRobotsTXT: true
+enableGitInfo: true
+frontmatter:
+  lastmod: ["lastmod", ":git", "date", "publishDate"]
 author:
   name: Sivert V. Sæther
   email: gmail@sivert.pw

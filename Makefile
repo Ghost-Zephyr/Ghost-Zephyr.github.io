@@ -1,15 +1,12 @@
 HUGO := hugo
 
-.PHONY: publish build create
+.PHONY: build create clean
 
-publish: build
-	git add public/
-	git commit -m'public/ autocommit'
-	git push
-
-build:
-	rm -fr public/
-	$(HUGO) --gc --minify
+build: clean
+	$(HUGO) --gc
 
 create:
-	$(HUGO) server --bind 0.0.0.0
+	$(HUGO) server -D --bind 0.0.0.0 --disableFastRender
+
+clean:
+	rm -fr public/
