@@ -32,3 +32,4 @@
 .chroma .cs { color: #ff0000; font-style: italic }
 .chroma .cp { color: #ff0000; font-style: italic }
 .chroma .cpf { color: #ff0000; font-style: italic }
+.highlight pre { padding: 1rem; max-width: 75%; }

@@ -39,7 +39,6 @@ body {
 #lang-menu ul {
   background-color: #222;
   position: absolute;
-  min-width: 160px;
   display: none;
   z-index: 1;
 }
