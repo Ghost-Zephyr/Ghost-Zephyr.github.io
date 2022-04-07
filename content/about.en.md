@@ -1,5 +1,4 @@
 ---
-publishdate: 2022-03-27T18:08:24Z
 date: 2022-03-27T18:08:24Z
 draft: false
 aliases: []
@@ -11,6 +10,6 @@ title: About
 description: About page for the website!
 ---
 
-This webpage is my portfolio webpage and blog.
+This webpage is my portfolio webpage and blog. :cyclone:
 
-It's build with hugo and hosted on github.io with GitHub Pages!
+It's build with hugo and hosted on github.io with GitHub Pages! :sunglasses:

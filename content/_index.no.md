@@ -1,5 +1,4 @@
 ---
-publishdate: 2022-03-27T18:08:24Z
 date: 2022-03-27T18:08:24Z
 draft: false
 aliases: []
@@ -11,4 +10,4 @@ title: Velkommen!
 description: Landings side for Siverts GitHub Pages blog og portefølje.
 ---
 
-Så jeg har visst endelig kommet runt til å oppdatere min github.io side. Kult!
+Så jeg har visst endelig kommet runt til å oppdatere min github.io side. Kult! :grin:

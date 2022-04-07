@@ -1,8 +1,8 @@
-<nav id="navbar">
-  <ul class="top-nav">
-    <li class=""><a href="/{{ .Language.Lang }}">{{ site.Title }}</a></li>
+<nav id='navbar'>
+  <ul class='top-nav'>
+    <li><a href='/{{ .Language.Lang }}'>{{ site.Title }}</a></li>
     {{ partial "i18n/nav.html" . }}
-    <div class="link-group">
+    <div class='link-group'>
     {{ $currentPage := . }}
     {{ range .Site.Menus.main }}
       {{ if .HasChildren }}
@@ -25,8 +25,8 @@
       </li>
       {{ end }}
     {{ end }}
-      <!-- <li class="top-nav__link"><a href="#">
-          <img class="icons" src="/search-icon.svg">
+      <!-- <li class='top-nav'><a href='#'>
+          <img class='icons' src='/search-icon.svg'>
         </a>
       </li> -->
     </div>

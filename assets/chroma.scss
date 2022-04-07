@@ -1,0 +1,37 @@
+.highlight pre { padding: 1rem; max-width: 75%; }
+.chroma {
+  background-color: #ffffff;
+  .lntd { vertical-align: top; padding: 0; margin: 0; border: 0; }
+  .lntable { border-spacing: 0; padding: 0; margin: 0; border: 0; width: auto; overflow: auto; display: block; }
+  .hl { display: block; width: 100%;background-color: #ffffcc }
+  .lnt { margin-right: 0.4em; padding: 0 0.4em 0 0.4em;color: #7f7f7f }
+  .ln { margin-right: 0.4em; padding: 0 0.4em 0 0.4em;color: #7f7f7f }
+  .k { color: #0000ff }
+  .kc { color: #0000ff }
+  .kd { color: #0000ff }
+  .kn { color: #0000ff }
+  .kp { color: #0000ff }
+  .kr { color: #0000ff }
+  .kt { color: #0000ff }
+  .s { color: #009c00 }
+  .sa { color: #009c00 }
+  .sb { color: #009c00 }
+  .sc { color: #009c00 }
+  .dl { color: #009c00 }
+  .sd { color: #009c00 }
+  .s2 { color: #009c00 }
+  .se { color: #009c00 }
+  .sh { color: #009c00 }
+  .si { color: #009c00 }
+  .sx { color: #009c00 }
+  .sr { color: #009c00 }
+  .s1 { color: #009c00 }
+  .ss { color: #009c00 }
+  .c { color: #ff0000; font-style: italic }
+  .ch { color: #ff0000; font-style: italic }
+  .cm { color: #ff0000; font-style: italic }
+  .c1 { color: #ff0000; font-style: italic }
+  .cs { color: #ff0000; font-style: italic }
+  .cp { color: #ff0000; font-style: italic }
+  .cpf { color: #ff0000; font-style: italic }
+}

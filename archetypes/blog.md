@@ -1,5 +1,4 @@
 ---
-publishdate: {{ .Date }}
 date: {{ .Date }}
 draft: true
 aliases: []

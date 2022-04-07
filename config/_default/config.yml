@@ -1,8 +1,12 @@
 defaultContentLanguage: en
+# enableInlineShortcodes: true
 enableRobotsTXT: true
 enableGitInfo: true
+enableEmoji: true
 frontmatter:
   lastmod: ["lastmod", ":git", "date", "publishDate"]
+build:
+  writeStats: true
 author:
   name: Sivert V. Sæther
   email: gmail@sivert.pw
@@ -11,3 +15,8 @@ taxonomies:
   category: categories
   series: series
   tag: tags
+module:
+  hugoVersion:
+    extended: true
+    max: "0.95"
+    min: "0.69"

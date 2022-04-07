@@ -1,8 +1,9 @@
 <aside id='meta'>
   <header>
-    <h4>{{ .Title }}</h4>
+    <h4>{{ or (.Param "tit") .Title }}</h4>
     {{ i18n "wordCount" .WordCount }}.
     {{ i18n "readingTime" .ReadingTime }}.
   </header>
   {{ .TableOfContents }}
+  {{ partial "i18n/list.html" . }}
 </aside>

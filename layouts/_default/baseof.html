@@ -1,21 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
 <head>
-  <meta charset="UTF-8">
-  <meta name=”robots” content="index,follow">
+  <meta charset='UTF-8'>
+  <meta name='robots' content='index,follow'>
   {{ with resources.Get "favicon.ico" | resources.Fingerprint }}
-    <link rel="icon" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" />
+    <link rel='icon' href='{{ .RelPermalink }}' integrity='{{ .Data.Integrity }}' />
   {{ end }}
   {{ block "meta" . }}
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name='viewport' content='width=device-width,initial-scale=1.0'>
   {{ end }}
-  <meta name="twitter:card" content="summary">
-  <meta property="og:title" content="{{ site.Title }}" />
-  <meta property="og:url" content="{{ site.BaseURL }}" />
-  <meta property="og:site_name" content="{{ site.Title }}" />
-  <!-- <meta property="og:image" content=""> -->
+  <meta name='twitter:card' content='summary'>
+  <meta property='og:title' content='{{ site.Title }}' />
+  <meta property='og:url' content='{{ site.BaseURL }}' />
+  <meta property='og:site_name' content='{{ site.Title }}' />
+  <!-- <meta property='og:image' content=''> -->
   {{ range .AlternativeOutputFormats -}}
-    {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+    {{ printf `<link rel='%s' type='%s' href='%s' title='%s' />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
   {{ end -}}
   <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css' crossorigin='anonymous'>
   {{ if isset .Params "title" }}
@@ -28,19 +28,19 @@
   {{ end }}
   {{ block "head" . }}{{ end }}
   {{ if .Param "chroma" }}
-    {{ with resources.Get "chroma.css" | resources.Minify | resources.Fingerprint }}
-      <link href='{{ .Rel }}' integrity="{{ .Data.Integrity }}" rel='stylesheet'>
+    {{ with resources.Get "chroma.scss" | toCSS | postCSS | minify | fingerprint | resources.PostProcess }}
+      <link href='{{ .RelPermalink }}' integrity="{{ .Data.Integrity }}" rel='stylesheet'>
     {{ end }}
   {{ end }}
-  {{ with resources.Get "main.scss" | resources.ToCSS (dict "outputStyle" "expanded" "enableSourceMap" false) | resources.Fingerprint }}
-    <link href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" rel="stylesheet">
+  {{ with resources.Get "main.scss" | toCSS | postCSS | minify | fingerprint | resources.PostProcess }}
+    <link href='{{ .RelPermalink }}' integrity="{{ .Data.Integrity }}" rel='stylesheet'>
   {{ end }}
 </head>
 <body>
   <header>
     {{ partial "nav.html" . }}
   </header>
-  <div id="content">
+  <div id='content'>
     <main>
       {{ if .Param "toc" }}
       <div class='row'>
@@ -56,7 +56,6 @@
       {{ end }}
     </main>
   </div>
-  <!-- {{ partial "i18n/list.html" . }} -->
   <footer>
   {{ partial "footer.html" . }}
   </footer>

@@ -12,10 +12,10 @@ HUGO := hugo --printI18nWarnings --printPathWarnings --printUnusedTemplates --te
 SERV := server --bind 0.0.0.0 --liveReloadPort 80 --appendPort=false --disableFastRender --printMemoryUsage --noHTTPCache --renderToDisk --navigateToChanged
 DEV := $(HUGO) -e dev $(SERV)
 
-build: # clean
+build: clean_pub
 	$(HUGO) -e prod
 
-check:
+check: clean_pub
 	$(HUGO) -e prod $(SERV)
 
 create:
@@ -24,5 +24,8 @@ create:
 debug:
 	$(DEV) --debug
 
-clean:
-	rm -fr public/ resources/
+clean: clean_pub
+	rm -fr resources/ hugo_stats.json
+
+clean_pub:
+	rm -fr public/
