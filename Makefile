@@ -1,12 +1,28 @@
-HUGO := hugo
+.PHONY: help build create debug clean
 
-.PHONY: build create clean
+help:
+	@echo '= Make targets:'
+	@echo 'build: creates a public/ folder with the built static files'
+	@echo 'create: runs the development server serving the built static files'
+	@echo 'check: like create but production environment'
+	@echo 'debug: like create without drafts and with --debug'
+	@echo 'clean: deletes the public/ folder'
 
-build: clean
-	$(HUGO) --gc
+HUGO := hugo --printI18nWarnings --printPathWarnings --printUnusedTemplates --templateMetricsHints # --templateMetrics --cleanDestinationDir --gc
+SERV := server --bind 0.0.0.0 --liveReloadPort 80 --appendPort=false --disableFastRender --printMemoryUsage --noHTTPCache --renderToDisk --navigateToChanged
+DEV := $(HUGO) -e dev $(SERV)
+
+build: # clean
+	$(HUGO) -e prod
+
+check:
+	$(HUGO) -e prod $(SERV)
 
 create:
-	$(HUGO) server -D --bind 0.0.0.0 --disableFastRender
+	$(DEV) -D
+
+debug:
+	$(DEV) --debug
 
 clean:
-	rm -fr public/
+	rm -fr public/ resources/

@@ -1,0 +1,66 @@
+h1,h2,h3,h4,h5,h6 {
+  @extend %headings !optional;
+}
+
+body {
+  background-color: rgb(18, 20, 21);
+  color: lime;
+}
+
+#content {
+  main {
+    background-color: rgb(24, 26, 27);
+    margin: 3% 10%;
+    padding: 3%;
+  }
+  a:hover %headings {
+    text-decoration: underline;
+    color: blue;
+  }
+  a {
+    text-decoration: none;
+    color: lime;
+  }
+}
+
+#navbar {
+  background-color: #222;
+  li a:hover {
+    background-color: #333;
+  }
+  .link-group li {
+    float: right;
+  }
+  li {
+    display: inline;
+    float: left;
+  }
+  ul {
+    list-style-type: none;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+  }
+  a {
+    text-decoration: none;
+    text-align: center;
+    padding: 14px 16px;
+    display: block;
+    color: lime;
+  }
+}
+
+#lang-menu {
+  ul {
+    background-color: #222;
+    position: absolute;
+    display: none;
+    z-index: 1;
+  }
+  a {
+    display: block;
+  }
+}
+#lang-menu:hover ul {
+  display: block;
+}

@@ -1,5 +1,4 @@
 ---
-deprecated: false
 publishdate: {{ .Date }}
 date: {{ .Date }}
 draft: true

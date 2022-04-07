@@ -6,9 +6,10 @@
   {{ .Content }}
   <ul class="contents">
   {{ range .Pages }}
-    <li>
-    {{ partial "summary.html" . }}
-    </li>
+    <br />
+    <a href='{{ .RelPermalink }}'>
+      <li>{{ partial "summary.html" . }}</li>
+    </a>
   {{ end }}
   </ul>
 </article>
