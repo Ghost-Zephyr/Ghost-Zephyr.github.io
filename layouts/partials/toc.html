@@ -1,8 +1,13 @@
 <aside id='meta'>
   <header>
     <h4>{{ or (.Param "tit") .Title }}</h4>
-    {{ i18n "wordCount" .WordCount }}.
-    {{ i18n "readingTime" .ReadingTime }}.
+    <p>
+      {{ i18n "readingTime" .ReadingTime }}.
+      {{ i18n "wordCount" .WordCount }}.
+    </p>
+    {{ with .Param "git" }}
+      <p>Check out the git repo; <a href='{{ .url }}'>{{ .name }}</a>!</p>
+    {{ end }}
   </header>
   {{ .TableOfContents }}
   {{ partial "i18n/list.html" . }}

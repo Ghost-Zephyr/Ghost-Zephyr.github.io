@@ -9,10 +9,6 @@
     {{ i18n "modified" }} {{ $lastmod }}
     {{ end }}<br />
     {{ .Summary }}
+    {{ if .Truncated }}{{ i18n "readMore" }}...{{ end }}
   </div>
-  {{ if .Truncated }}
-  <div>
-    <a href='{{ .RelPermalink }}'>{{ i18n "readMore" }}…</a>
-  </div>
-  {{ end }}
 </article>
