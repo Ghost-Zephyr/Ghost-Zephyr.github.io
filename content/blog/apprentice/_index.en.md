@@ -16,8 +16,15 @@ It also serves the purpose of the required documentation Apprentices in Norway a
 
 Here are lists of stuff I'll be writing about here;
 
+### Programming
+#### Python
+- Flask :baby_bottle:
+- SQLAlchemy :sake:
+#### Browser JavaScript
+- jQuery :calling:
+- Handlebars.js :wavy_dash:
+
 ### Programs
-- Wordpress :shit:
 - FreeRADIUS :crystal_ball:
 - Postgres :floppy_disk:
 - Ansible :gun:
@@ -26,3 +33,8 @@ Here are lists of stuff I'll be writing about here;
 - Debian :dolls:
 - Mikrotik :package:
 - Cisco Meraki :cloud:
+
+### The WHM saga (shortie)
+- Wordpress :eyes:
+- cPanel :shit:
+- WHM :ok_hand:
