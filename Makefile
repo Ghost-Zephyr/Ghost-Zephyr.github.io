@@ -1,6 +1,6 @@
 .PHONY: help build create debug clean up down
 
-BASE := --baseURL http://1313.proxy.blacktarheroin.no/
+BASE := --baseURL https://1313.proxy.blacktarheroin.no/
 
 help:
 	@echo '= Make targets:'

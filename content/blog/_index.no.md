@@ -11,3 +11,5 @@ description: Landingsside for Siverts Teknologi Evenetyr Blog!
 ---
 
 Her er du velkommen til å ta en titt på alle mine blog innlegg! :cyclone:
+
+Hint; sjekk den engelske utgaven.

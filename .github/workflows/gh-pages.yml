@@ -1,9 +1,9 @@
-name: github pages
+name: GitHub Pages
 on:
   push:
     branches:
     - master
-  pull_request:
+
 jobs:
   deploy:
     runs-on: ubuntu-20.04
@@ -13,15 +13,19 @@ jobs:
         with:
           # submodules: true
           fetch-depth: 0
+
       - name: npm install
         uses: bahmutov/npm-install@v1
+
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
           hugo-version: 'latest'
           extended: true
+
       - name: Build
-        run: hugo -e prod --minify
+        run: hugo -e prod --minify --baseURL https://io.sivert.pw
+
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         if: github.ref == 'refs/heads/master'
