@@ -2,9 +2,9 @@
 date: 2022-03-29T21:00:24Z
 draft: false
 aliases: []
-categories: ["Meta"]
+categories: ['meta']
 series: []
-tags: ["Info","Meta"]
+tags: ['info','meta']
 toc: false
 title: Siverts Teknologi Evenetyr Blog
 description: Landingsside for Siverts Teknologi Evenetyr Blog!

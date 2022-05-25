@@ -2,9 +2,9 @@
 date: 2022-04-09T21:56:08Z
 draft: true
 aliases: []
-categories: ["tech"]
-series: ["opsec"]
-tags: ["tech", "devices"]
+categories: ['tech']
+series: ['opsec']
+tags: ['tech', 'devices']
 toc: true
 git:
   url: https://git.sivert.pw/siv/liveusb

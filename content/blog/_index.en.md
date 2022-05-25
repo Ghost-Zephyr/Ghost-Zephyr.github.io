@@ -2,9 +2,9 @@
 date: 2022-03-27T18:08:24Z
 draft: false
 aliases: []
-categories: ["Meta"]
+categories: ['meta']
 series: []
-tags: ["Info","Meta"]
+tags: ['Info','Meta']
 toc: false
 title: Siverts Tech Adventure Blog
 description: Landing page for Sivers Tech Adventure Blog!

@@ -2,9 +2,9 @@
 date: 2022-04-07T22:00:52Z
 draft: false
 aliases: []
-categories: ["tech", "docker"]
-series: ["opsec", "docker"]
-tags: ["tech", "social", "chat", "docker"]
+categories: ['tech', 'docker']
+series: ['opsec', 'docker']
+tags: ['tech', 'social', 'chat', 'docker']
 toc: true
 tit: Matrix.org
 title: Matrix, secure and decentralized communications

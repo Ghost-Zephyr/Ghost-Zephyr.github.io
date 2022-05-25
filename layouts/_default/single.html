@@ -1,7 +1,7 @@
 {{ define "main" }}
 <article>
   <header>
-    <h1>{{ .Title }}</h1>
+    <h1>{{ .Title | humanize }}</h1>
   </header>
   {{ .Content }}
 </article>

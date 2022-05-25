@@ -18,5 +18,4 @@ taxonomies:
 module:
   hugoVersion:
     extended: true
-    max: "0.95"
     min: "0.69"

@@ -2,9 +2,9 @@
 date: 2022-04-05T18:33:08Z
 draft: false
 aliases: []
-categories: ["apprentice", "indices", "meta"]
-series: ["apprentice"]
-tags: ["apprentice"]
+categories: ['apprentice', 'indices', 'meta']
+series: ['apprentice']
+tags: ['apprentice']
 toc: false
 title: IT Apprentice
 description: This part of my blog is a collection of things I've learned as an apprentice working in IT.

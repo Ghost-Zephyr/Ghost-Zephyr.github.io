@@ -2,9 +2,9 @@
 date: 2022-03-30T12:04:24Z
 draft: true
 aliases: []
-categories: ["Meta"]
+categories: ['meta']
 series: []
-tags: ["Info","Meta"]
+tags: ['info','meta']
 toc: false
 title: Siverts Technisch Avontuur Blog
 description: Bestemmingspagina voor Siverts Siverts Technisch Avontuur Blog!

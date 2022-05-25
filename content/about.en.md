@@ -2,9 +2,9 @@
 date: 2022-03-27T18:08:24Z
 draft: false
 aliases: []
-categories: ["Meta"]
+categories: ['meta']
 series: []
-tags: ["Info","Meta"]
+tags: ['info', 'meta']
 toc: false
 title: About
 description: About page for the website!

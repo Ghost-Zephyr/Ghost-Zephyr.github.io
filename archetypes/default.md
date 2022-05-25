@@ -2,9 +2,9 @@
 date: {{ .Date }}
 draft: true
 aliases: []
-categories: ["meta"]
+categories: ['meta']
 series: []
-tags: ["info","meta"]
+tags: ['meta','meta']
 toc: true
 title: {{ replace .Name "-" " " | title }}
 description: 

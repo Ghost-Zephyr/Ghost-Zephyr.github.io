@@ -2,7 +2,7 @@
 date: 2022-03-27T18:08:24Z
 draft: false
 aliases: []
-categories: ["Meta"]
+categories: ['meta']
 series: []
 tags: ["Info","Meta"]
 toc: false
