@@ -1,7 +1,9 @@
 <nav id='navbar'>
   <ul class='top-nav'>
-    <li><a href='/{{ .Language.Lang }}'>{{ site.Title }}</a></li>
+    <li><a href='/{{ if ne .Language.Lang "en" }}{{ .Language.Lang }}{{ end }}'>{{ site.Title }}</a></li>
+    {{ if gt (len .AllTranslations) 1 }}
     {{ partial "i18n/nav.html" . }}
+    {{ end }}
     <div class='link-group'>
     {{ $currentPage := . }}
     {{ range .Site.Menus.main }}

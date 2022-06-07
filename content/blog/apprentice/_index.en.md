@@ -34,6 +34,10 @@ Here are lists of stuff I'll be writing about here;
 - Mikrotik :package:
 - Cisco Meraki :cloud:
 
+### Azure
+- App Registration :rocket:
+- Active Directory :dizzy:
+
 ### The WHM saga (shortie)
 - Wordpress :eyes:
 - cPanel :shit:

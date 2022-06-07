@@ -1,12 +1,11 @@
 ---
-date: {{ .Date }}
+date: 2022-06-07T07:15:31Z
 draft: true
 aliases: []
 categories: ['various']
 series: []
 tags: ['various']
-chroma: false
 toc: true
-title: {{ replace .Name "-" " " | title }}
+title: Freeradius
 description: 
 ---

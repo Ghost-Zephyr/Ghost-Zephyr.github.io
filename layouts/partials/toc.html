@@ -1,14 +1,21 @@
 <aside id='meta'>
   <header>
-    <h4>{{ or (.Param "tit") .Title }}</h4>
+    <h4>{{ or (.Param "tit") .Title | humanize }}</h4>
     <p>
       {{ i18n "readingTime" .ReadingTime }}.
       {{ i18n "wordCount" .WordCount }}.
     </p>
-    {{ with .Param "git" }}
-      <p>Check out the git repo; <a href='{{ .url }}'>{{ .name }}</a>!</p>
-    {{ end }}
   </header>
+  {{ if .Param "docs" }}
+  <h6>Documentation:</h6>
+  <ul>
+  {{ range .Param "docs" }}
+    <li><a href='{{ .url }}' target='_blank'>{{ .name }}</a></li>
+  {{ end }}</ul>{{ end }}
+  {{ with .Param "git" }}
+    <p>Check out the git repo; <a href='{{ .url }}'>{{ .name }}</a>!</p>
+  {{ end }}
+  <h6>Table of Contents:</h6>
   {{ .TableOfContents }}
   {{ partial "i18n/list.html" . }}
 </aside>

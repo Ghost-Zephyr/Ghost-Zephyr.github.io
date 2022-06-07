@@ -1,5 +1,5 @@
 defaultContentLanguage: en
-# enableInlineShortcodes: true
+enableInlineShortcodes: true
 enableRobotsTXT: true
 enableGitInfo: true
 enableEmoji: true

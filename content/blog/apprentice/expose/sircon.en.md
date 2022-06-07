@@ -1,12 +1,11 @@
 ---
-date: {{ .Date }}
+date: 2022-05-25T09:54:01Z
 draft: true
 aliases: []
 categories: ['various']
 series: []
 tags: ['various']
-chroma: false
 toc: true
-title: {{ replace .Name "-" " " | title }}
+title: Sircon
 description: 
 ---

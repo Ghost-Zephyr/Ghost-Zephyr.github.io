@@ -1,12 +1,11 @@
 ---
-date: {{ .Date }}
+date: 2022-06-07T07:14:28Z
 draft: true
 aliases: []
 categories: ['various']
 series: []
 tags: ['various']
-chroma: false
 toc: true
-title: {{ replace .Name "-" " " | title }}
+title: Meraki
 description: 
 ---

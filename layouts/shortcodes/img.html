@@ -1,0 +1,20 @@
+<figure {{ with .Get "class" }}class='{{.}}'{{ end }}>
+  {{ with resources.Get (.Get "src") | fingerprint }}
+  <a href='{{ with $.Get "link" }}{{ . }}{{ else }}{{ .RelPermalink }}{{ end }}' target='_blank'>
+    <img src='{{ .RelPermalink }}' integrity='{{ .Data.Integrity }}'
+      {{ if or ($.Get "alt") ($.Get "caption") }}alt='{{ with $.Get "alt" }}{{ . }}
+      {{ else }}{{ $.Get "caption" }}{{ end }}'{{ end }} />
+  </a>
+  {{ end }}
+  {{ if or (or (.Get "title") (.Get "caption")) (.Get "attr") }}
+  <figcaption>{{ if isset .Params "title" }}
+    <h4>{{ .Get "title" }}</h4>{{ end }}
+    {{ if or (.Get "caption") (.Get "attr") }}<p>
+    {{ .Get "caption" }}
+    {{ with .Get "attrlink" }}<a href="{{ . }}"> {{ end }}
+    {{ .Get "attr" }}
+    {{ if .Get "attrlink" }}</a> {{ end }}
+    </p> {{ end }}
+  </figcaption>
+  {{ end }}
+</figure>

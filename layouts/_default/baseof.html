@@ -28,11 +28,11 @@
   {{ end }}
   {{ block "head" . }}{{ end }}
   {{ if .Param "chroma" }}
-    {{ with resources.Get "chroma.scss" | toCSS | postCSS | minify | fingerprint | resources.PostProcess }}
+    {{ with resources.Get "chroma.scss" | toCSS | minify | fingerprint | resources.PostProcess }}
       <link href='{{ .RelPermalink }}' integrity="{{ .Data.Integrity }}" rel='stylesheet'>
     {{ end }}
   {{ end }}
-  {{ with resources.Get "main.scss" | toCSS | postCSS | minify | fingerprint | resources.PostProcess }}
+  {{ with resources.Get "main.scss" | toCSS | minify | fingerprint | resources.PostProcess }}
     <link href='{{ .RelPermalink }}' integrity="{{ .Data.Integrity }}" rel='stylesheet'>
   {{ end }}
 </head>

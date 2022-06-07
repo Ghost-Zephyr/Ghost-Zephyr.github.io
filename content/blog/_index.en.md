@@ -4,10 +4,10 @@ draft: false
 aliases: []
 categories: ['meta']
 series: []
-tags: ['Info','Meta']
+tags: ['info','meta']
 toc: false
 title: Siverts Tech Adventure Blog
-description: Landing page for Sivers Tech Adventure Blog!
+description: Landing page for Siverts Tech Adventure Blog!
 ---
 
 Here you are welcome to take a look at all my blog posts! :cyclone:

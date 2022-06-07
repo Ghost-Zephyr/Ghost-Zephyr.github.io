@@ -2,4 +2,5 @@
 hugo_stats.json
 node_modules/
 resources/
+yarn.lock
 public/

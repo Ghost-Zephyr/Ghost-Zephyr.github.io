@@ -1,0 +1,5 @@
+{{ $opts := slice "lineNos=table" "tabWidth=2" "noClasses=false" "style=fruity" }}
+{{ if .Get 1 }}
+  {{ $opts = $opts | append (split (.Get 1) ",") }}
+{{ end }}
+{{ transform.Highlight (htmlUnescape .Inner) (.Get 0) (delimit $opts ",") }}

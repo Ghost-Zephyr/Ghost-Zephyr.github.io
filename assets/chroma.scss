@@ -1,37 +1,53 @@
-.highlight pre { padding: 1rem; max-width: 75%; }
-.chroma {
-  background-color: #ffffff;
-  .lntd { vertical-align: top; padding: 0; margin: 0; border: 0; }
-  .lntable { border-spacing: 0; padding: 0; margin: 0; border: 0; width: auto; overflow: auto; display: block; }
-  .hl { display: block; width: 100%;background-color: #ffffcc }
-  .lnt { margin-right: 0.4em; padding: 0 0.4em 0 0.4em;color: #7f7f7f }
-  .ln { margin-right: 0.4em; padding: 0 0.4em 0 0.4em;color: #7f7f7f }
-  .k { color: #0000ff }
-  .kc { color: #0000ff }
-  .kd { color: #0000ff }
-  .kn { color: #0000ff }
-  .kp { color: #0000ff }
-  .kr { color: #0000ff }
-  .kt { color: #0000ff }
-  .s { color: #009c00 }
-  .sa { color: #009c00 }
-  .sb { color: #009c00 }
-  .sc { color: #009c00 }
-  .dl { color: #009c00 }
-  .sd { color: #009c00 }
-  .s2 { color: #009c00 }
-  .se { color: #009c00 }
-  .sh { color: #009c00 }
-  .si { color: #009c00 }
-  .sx { color: #009c00 }
-  .sr { color: #009c00 }
-  .s1 { color: #009c00 }
-  .ss { color: #009c00 }
-  .c { color: #ff0000; font-style: italic }
-  .ch { color: #ff0000; font-style: italic }
-  .cm { color: #ff0000; font-style: italic }
-  .c1 { color: #ff0000; font-style: italic }
-  .cs { color: #ff0000; font-style: italic }
-  .cp { color: #ff0000; font-style: italic }
-  .cpf { color: #ff0000; font-style: italic }
-}
+.chroma { padding: .1vh 0 0; margin: 0 0 .7vh }
+.chroma { padding: .1vh 0 0; margin: 0 0 .7vh }
+.chroma { color: #ffffff; background-color: #111111 }
+.chroma .lntd { vertical-align: top; padding: 0; margin: 0; border: 0 }
+.chroma .lntable { border-spacing: 0; padding: 0; margin: 0; border: 0 }
+.chroma .hl { background-color: #ffffcc }
+.chroma .lnt { white-space: pre; user-select: none; margin-right: 0.4em; padding: 0 0.4em 0 0.4em;color: #7f7f7f }
+.chroma .ln { white-space: pre; user-select: none; margin-right: 0.4em; padding: 0 0.4em 0 0.4em;color: #7f7f7f }
+.chroma .line { display: flex; }
+.chroma .k { color: #fb660a; font-weight: bold }
+.chroma .kc { color: #fb660a; font-weight: bold }
+.chroma .kd { color: #fb660a; font-weight: bold }
+.chroma .kn { color: #fb660a; font-weight: bold }
+.chroma .kp { color: #fb660a }
+.chroma .kr { color: #fb660a; font-weight: bold }
+.chroma .kt { color: #cdcaa9; font-weight: bold }
+.chroma .na { color: #ff0086; font-weight: bold }
+.chroma .no { color: #0086d2 }
+.chroma .nf { color: #ff0086; font-weight: bold }
+.chroma .nt { color: #fb660a; font-weight: bold }
+.chroma .nv { color: #fb660a }
+.chroma .s { color: #0086d2 }
+.chroma .sa { color: #0086d2 }
+.chroma .sb { color: #0086d2 }
+.chroma .sc { color: #0086d2 }
+.chroma .dl { color: #0086d2 }
+.chroma .sd { color: #0086d2 }
+.chroma .s2 { color: #0086d2 }
+.chroma .se { color: #0086d2 }
+.chroma .sh { color: #0086d2 }
+.chroma .si { color: #0086d2 }
+.chroma .sx { color: #0086d2 }
+.chroma .sr { color: #0086d2 }
+.chroma .s1 { color: #0086d2 }
+.chroma .ss { color: #0086d2 }
+.chroma .m { color: #0086f7; font-weight: bold }
+.chroma .mb { color: #0086f7; font-weight: bold }
+.chroma .mf { color: #0086f7; font-weight: bold }
+.chroma .mh { color: #0086f7; font-weight: bold }
+.chroma .mi { color: #0086f7; font-weight: bold }
+.chroma .il { color: #0086f7; font-weight: bold }
+.chroma .mo { color: #0086f7; font-weight: bold }
+.chroma .c { color: #008800; background-color: #0f140f; font-style: italic }
+.chroma .ch { color: #008800; background-color: #0f140f; font-style: italic }
+.chroma .cm { color: #008800; background-color: #0f140f; font-style: italic }
+.chroma .c1 { color: #008800; background-color: #0f140f; font-style: italic }
+.chroma .cs { color: #008800; background-color: #0f140f; font-style: italic }
+.chroma .cp { color: #ff0007; background-color: #0f140f; font-weight: bold; font-style: italic }
+.chroma .cpf { color: #ff0007; background-color: #0f140f; font-weight: bold; font-style: italic }
+.chroma .gh { font-weight: bold }
+.chroma .go { color: #444444; background-color: #222222 }
+.chroma .gu { font-weight: bold }
+.chroma .w { color: #888888 }

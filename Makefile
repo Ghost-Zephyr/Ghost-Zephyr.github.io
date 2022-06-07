@@ -1,6 +1,6 @@
 .PHONY: help build create debug clean up down
 
-BASE := --baseURL https://1313.proxy.blacktarheroin.no/
+BASE := --baseURL https://proxy.blacktarheroin.no/
 
 help:
 	@echo '= Make targets:'
@@ -23,7 +23,7 @@ pull:
 	$(DOCK) pull $(LANGTOOL)
 
 HUGO := hugo --printI18nWarnings --printPathWarnings --printUnusedTemplates --templateMetricsHints # --templateMetrics --cleanDestinationDir --gc
-SERV := server $(BASE) --bind 0.0.0.0 --liveReloadPort 80 --appendPort=false --disableFastRender --printMemoryUsage --noHTTPCache --renderToDisk --navigateToChanged
+SERV := server $(BASE) --bind 0.0.0.0 --liveReloadPort 443 --appendPort=false --disableFastRender --printMemoryUsage --noHTTPCache --renderToDisk --navigateToChanged
 DEV := $(HUGO) -e dev $(SERV)
 
 build: clean_pub

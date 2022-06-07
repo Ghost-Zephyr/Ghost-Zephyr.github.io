@@ -1,0 +1,3 @@
+{{ with resources.Get (.Get 0) | fingerprint }}
+<script src='{{ .RelPermalink }}' integrity='{{ .Data.Integrity }}'></script>
+{{ end }}
