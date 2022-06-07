@@ -4,29 +4,14 @@
     {{ if gt (len .AllTranslations) 1 }}
     {{ partial "i18n/nav.html" . }}
     {{ end }}
-    <div class='link-group'>
     {{ $currentPage := . }}
-    {{ range .Site.Menus.main }}
-      {{ if .HasChildren }}
-      <li class='{{ if $currentPage.HasMenuCurrent "main" . }}active{{ end }}'>
-        <a href='#'>{{ .Pre }}<span>{{ .Name }}</span></a>
-      </li>
-      <ul class='sub-menu'>
-        {{ range .Children }}
-        <li class='{{ if $currentPage.IsMenuCurrent "main" . }}active{{ end }}'>
-          <a href='{{ .URL }}'>{{ .Name }}</a>
-        </li>
-        {{ end }}
-      </ul>
-      {{ else }}
-      <li>
-        <a href='{{ .URL }}'>
-          {{ .Pre }}
-          <span>{{ .Name }}</span>
-        </a>
-      </li>
-      {{ end }}
+    {{ range .Site.Menus.left }}
+    {{ partial "menu" . }}
     {{ end }}
+    <div class='link-group'>
+      {{ range .Site.Menus.main }}
+      {{ partial "menu" . }}
+      {{ end }}
       <!-- <li class='top-nav'><a href='#'>
           <img class='icons' src='/search-icon.svg'>
         </a>

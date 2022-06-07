@@ -1,3 +1,7 @@
+left:
+- name: Lærling dokumentasjon
+  url: /blog/apprentice
+  weight: 1
 main:
 - name: Blogg
   url: /no/blog

@@ -67,8 +67,6 @@ This script is running on this page;
 
 {{< highlight js >}}{{% asset "apprentice/handlebars.js" %}}{{< /highlight >}}
 
-### Output
-
 {{< raw >}}
 <div id='example-out'></div>
 <!-- <script src='https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js'></script> -->

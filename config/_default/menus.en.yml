@@ -1,3 +1,7 @@
+left:
+- name: Apprentice docs
+  url: /blog/apprentice
+  weight: 1
 main:
 - name: Blog
   url: /blog

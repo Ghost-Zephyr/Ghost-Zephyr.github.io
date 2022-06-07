@@ -8,18 +8,34 @@ let simple = () => {
 }
 
 let nested = () => {
-
+  // This uses each for context switching and uses a nested links parameter
+  let template = Handlebars.compile(`
+<ul>
+  {{#each links}}
+  <li><a href='{{href}}' target='_blank'>{{text}}</a></li>
+  {{/each}}
+</ul>`)
+  return template({
+    links: [{
+      'href': 'https://handlebarsjs.com/guide',
+      'text': 'Handlebars official guide'
+    }, {
+      'href': 'https://io.sivert.pw',
+      'text': 'Awesome blog!'
+    }]
+  })
 }
 
-let eval = () => {
-
-}
-
-
+// This is how handlebars comments work
+let comments = Handlebars.compile(`
+{{! This comment will not show up in the output}}
+<!-- This comment will show up as HTML-comment -->
+{{!-- This comment may contain mustaches like }} --}}
+inspect element here!`)()
 
 // Simple helper
-Handlebars.registerHelper('', (str) => {
-  return ''
+Handlebars.registerHelper('censor', (str) => {
+  return str.replaceAll('fuck', 'f***').replaceAll('hell', 'h***')
 })
 
 // Block helper
@@ -35,14 +51,15 @@ inlinePartial = `
 
 {{/inline}}`
 
-
+// Calling non-existent partials with block syntax uses the block content as fallback
 let advanced = () => {
-
+  return Handlebars.compile(`
+{{censor profanity}}`)({'profanity': 'fuckin hell man!'})
 }
 
-
 // Run "main" after all is loaded
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
+  // Add a output element to the end of the Table of Contents
   let output = document.createElement('div')
   output.id = 'output'
   document.getElementById('meta').append(output)
@@ -54,9 +71,11 @@ document.addEventListener("DOMContentLoaded", function() {
 <h5>Functions:</h5>
 <p>Simple: {{{simple}}}</p>
 <p>Nested: {{{nested}}}</p>
-<p>Eval: {{{eval}}}</p></div>`)
+<p>Comments: {{{comments}}}</p>
+<p>Advanced: {{{advanced}}}</p></div>`)
 
   // Render and insert the template above
   document.getElementById('output').innerHTML = template({
-    simple: simple(), nested: nested(), eval: eval()})
+    simple: simple(), nested: nested(), comments: comments, advanced: advanced()
+  })
 })
