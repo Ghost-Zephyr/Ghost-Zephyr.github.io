@@ -1,0 +1,149 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=robots content="index,follow"><link rel=icon href=/favicon.43f6c68e5987db076e48601daac85dfba66e01168edec1e4f647d38c81d67c6b.ico integrity='sha256-Q/bGjlmH2wduSGAdqshd+6ZuARaO3sHk9kfTjIHWfGs='><meta name=viewport content="width=device-width,initial-scale=1"><meta name=twitter:card content="summary"><meta property="og:title" content="Sivert Does Stuff Online!"><meta property="og:url" content="https://io.sivert.pw"><meta property="og:site_name" content="Sivert Does Stuff Online!"><link rel=stylesheet href=https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css crossorigin=anonymous><title>Sivert Does Stuff Online! - Handlebars.js</title><meta name=description content="Handlebars.js is a (HTML) templating engine that runs mainly in the browser, but may also run on any server that has node.js installed."><link href='/chroma.min.0ef71651780c5a1aad7997907d4d97d5d16eb3ecbfb86176140edb33f6e1b7c5.css' integrity="sha256-DvcWUXgMWhqteZeQfU2X1dFus+y/uGF2FA7bM/bht8U=" rel=stylesheet><link href='/main.min.a46cbb1a91698657e2cfbd520094c1175689aae00cc63f6e60ff71c3586676a7.css' integrity="sha256-pGy7GpFphlfiz71SAJTBF1aJquAMxj9uYP9xw1hmdqc=" rel=stylesheet></head><body><header><nav id=navbar><ul class=top-nav><li><a href=/>Sivert Does Stuff Online!</a></li><div class=link-group><li><a href=https://sivert.pw><span>My Humble Homepage</span></a></li><li><a href=/old><span>Old GitHub.io</span></a></li><li><a href=/about><span>About</span></a></li><li><a href=/blog><span>Blog</span></a></li></div></ul></nav></header><div id=content><main><div class=row><div class=col-md-2><aside id=meta><header><h4>Handlebars.Js</h4><p>3 minutes to read.
+This article has 534 words.</p></header><h6>Documentation:</h6><ul><li><a href=https://handlebarsjs.com/guide/ target=_blank>Handlebars official guide</a></li></ul><h6>Table of Contents:</h6><nav id=TableOfContents><ul><li><a href=#basics>Basics</a></li><li><a href=#helpers-and-partials>Helpers and Partials</a></li><li><a href=#examples>Examples</a><ul><li><a href=#output>Output</a></li></ul></li></ul></nav></aside></div><div class=col-md-10><article><header><h1>Handlebars.Js</h1></header><p>Handlebars.js is a templating engine like jinja2, but entirely in JavaScript.</p><p>Personally I&rsquo;ve only found pug templates very nice to work with as I love the minimal syntax.</p><p>What makes handlebars cool is it&rsquo;s ability to render templates both server and client side,
+if you&rsquo;re running node.js on the server.</p><p>Running it in the frontend is super easy, check this example from the handlebars docs;</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=line><span class=cl><span class=c>&lt;!-- Include Handlebars from a CDN --&gt;</span>
+</span></span><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>script</span> <span class=na>src</span><span class=o>=</span><span class=s>&#39;https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js&#39;</span><span class=p>&gt;&lt;/</span><span class=nt>script</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>script</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>  <span class=c1>// compile the template
+</span></span></span><span class=line><span class=cl><span class=c1></span>  <span class=kd>var</span> <span class=nx>template</span> <span class=o>=</span> <span class=nx>Handlebars</span><span class=p>.</span><span class=nx>compile</span><span class=p>(</span><span class=s2>&#34;Handlebars &lt;b&gt;{{doesWhat}}&lt;/b&gt;&#34;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>  <span class=c1>// execute the compiled template and print the output to the console
+</span></span></span><span class=line><span class=cl><span class=c1></span>  <span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=nx>template</span><span class=p>({</span> <span class=nx>doesWhat</span><span class=o>:</span> <span class=s2>&#34;rocks!&#34;</span> <span class=p>}));</span>
+</span></span><span class=line><span class=cl><span class=p>&lt;/</span><span class=nt>script</span><span class=p>&gt;</span></span></span></code></pre></td></tr></table></div></div><h2 id=basics>Basics</h2><p>The arguments of this template function can be accessed within curly braces and supports full js objects that may be accessed with dot notation just like you&rsquo;d expect.</p><p>The &ldquo;evaluation context&rdquo; may be switched using &ldquo;{{#with something}}{{/with}}&rdquo; or &ldquo;{{#each something}}{{/each}}&rdquo; for looping over some list.</p><p>There is also template comments using the syntax &ldquo;{{! }}&rdquo; or &ldquo;{{!&ndash; &ndash;}}&rdquo; to allow &ldquo;mustaches like }}&rdquo;.
+Handlebars comments will be stripped when rendering, but html comments passes through.</p><h2 id=helpers-and-partials>Helpers and Partials</h2><p>Handlebars helpers enable you to register javascript functions that may run inside templates.
+To register a helper run;<div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=nx>Handlebars</span><span class=p>.</span><span class=nx>registerHelper</span><span class=p>(</span><span class=s1>&#39;name&#39;</span><span class=p>,</span> <span class=kd>function</span> <span class=p>(</span><span class=nx>string</span><span class=p>)</span> <span class=p>{</span><span class=k>return</span> <span class=s1>&#39;SomeString&#39;</span><span class=p>})</span></span></span></code></pre></div>This function may use the evaluation context as &ldquo;this&rdquo; within the function.</p><p>Or to make it a block helper, take two arguments;<div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=nx>Handlebars</span><span class=p>.</span><span class=nx>registerHelper</span><span class=p>(</span><span class=s1>&#39;name&#39;</span><span class=p>,</span> <span class=kd>function</span> <span class=p>(</span><span class=nx>items</span><span class=p>,</span> <span class=nx>options</span><span class=p>)</span> <span class=p>{</span><span class=k>return</span> <span class=s1>&#39;SomeString&#39;</span><span class=p>})</span></span></span></code></pre></div></p><p>The normal helpers are called by &ldquo;{{helpername [args&mldr;]}}&rdquo;.
+Block helpers switch the evaluation context.
+The helper function for these always take options and usually context as arguments.</p><p>You can also register partials like helpers with;<div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=nx>Handlebars</span><span class=p>.</span><span class=nx>registerPartial</span><span class=p>(</span><span class=s1>&#39;name&#39;</span><span class=p>,</span> <span class=s1>&#39;template string with {{blocks}}&#39;</span><span class=p>)</span></span></span></code></pre></div></p><p>It should be noted that handlebars by default html escapes all results from these blocks/helpers.
+If you want to avoid this then &ldquo;triple mustaches&rdquo; is what you&rsquo;re looking for.
+Calling any helper function like &ldquo;{{{helpername}}}&rdquo; will bypass the html escaping.</p><h2 id=examples>Examples</h2><p>This script is running on this page;</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span><span class=lnt>48
+</span><span class=lnt>49
+</span><span class=lnt>50
+</span><span class=lnt>51
+</span><span class=lnt>52
+</span><span class=lnt>53
+</span><span class=lnt>54
+</span><span class=lnt>55
+</span><span class=lnt>56
+</span><span class=lnt>57
+</span><span class=lnt>58
+</span><span class=lnt>59
+</span><span class=lnt>60
+</span><span class=lnt>61
+</span><span class=lnt>62
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// This does mostly the same as that example from the official docs
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=kd>let</span> <span class=nx>simple</span> <span class=o>=</span> <span class=p>()</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=kd>let</span> <span class=nx>template</span> <span class=o>=</span> <span class=nx>Handlebars</span><span class=p>.</span><span class=nx>compile</span><span class=p>(</span><span class=s2>&#34;Handlebars &lt;b&gt;{{doesWhat}}&lt;/b&gt;&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>  <span class=kd>let</span> <span class=nx>out</span> <span class=o>=</span> <span class=nx>template</span><span class=p>({</span> <span class=nx>doesWhat</span><span class=o>:</span> <span class=s2>&#34;rocks!&#34;</span> <span class=p>})</span>
+</span></span><span class=line><span class=cl>  <span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=nx>out</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=nx>out</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kd>let</span> <span class=nx>nested</span> <span class=o>=</span> <span class=p>()</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kd>let</span> <span class=nb>eval</span> <span class=o>=</span> <span class=p>()</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// Simple helper
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>Handlebars</span><span class=p>.</span><span class=nx>registerHelper</span><span class=p>(</span><span class=s1>&#39;&#39;</span><span class=p>,</span> <span class=p>(</span><span class=nx>str</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=s1>&#39;&#39;</span>
+</span></span><span class=line><span class=cl><span class=p>})</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// Block helper
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>Handlebars</span><span class=p>.</span><span class=nx>registerHelper</span><span class=p>(</span><span class=s1>&#39;&#39;</span><span class=p>,</span> <span class=p>(</span><span class=nx>items</span><span class=p>,</span> <span class=nx>options</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>})</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// Handlebars registered partial
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>Handlebars</span><span class=p>.</span><span class=nx>registerPartial</span><span class=p>(</span><span class=s1>&#39;&#39;</span><span class=p>,</span> <span class=s1>&#39;&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nx>inlinePartial</span> <span class=o>=</span> <span class=sb>`
+</span></span></span><span class=line><span class=cl><span class=sb>{{#*inline &#34;inlinePartial&#34;}}
+</span></span></span><span class=line><span class=cl><span class=sb>
+</span></span></span><span class=line><span class=cl><span class=sb>{{/inline}}`</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kd>let</span> <span class=nx>advanced</span> <span class=o>=</span> <span class=p>()</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// Run &#34;main&#34; after all is loaded
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nb>document</span><span class=p>.</span><span class=nx>addEventListener</span><span class=p>(</span><span class=s2>&#34;DOMContentLoaded&#34;</span><span class=p>,</span> <span class=kd>function</span><span class=p>()</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=kd>let</span> <span class=nx>output</span> <span class=o>=</span> <span class=nb>document</span><span class=p>.</span><span class=nx>createElement</span><span class=p>(</span><span class=s1>&#39;div&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>  <span class=nx>output</span><span class=p>.</span><span class=nx>id</span> <span class=o>=</span> <span class=s1>&#39;output&#39;</span>
+</span></span><span class=line><span class=cl>  <span class=nb>document</span><span class=p>.</span><span class=nx>getElementById</span><span class=p>(</span><span class=s1>&#39;meta&#39;</span><span class=p>).</span><span class=nx>append</span><span class=p>(</span><span class=nx>output</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=c1>// Here we use those &#34;triple mustaches&#34;!
+</span></span></span><span class=line><span class=cl><span class=c1></span>  <span class=kd>let</span> <span class=nx>template</span> <span class=o>=</span> <span class=nx>Handlebars</span><span class=p>.</span><span class=nx>compile</span><span class=p>(</span><span class=sb>`
+</span></span></span><span class=line><span class=cl><span class=sb>&lt;br /&gt;&lt;div&gt;
+</span></span></span><span class=line><span class=cl><span class=sb>&lt;h4&gt;Examples output:&lt;/h4&gt;
+</span></span></span><span class=line><span class=cl><span class=sb>&lt;h5&gt;Functions:&lt;/h5&gt;
+</span></span></span><span class=line><span class=cl><span class=sb>&lt;p&gt;Simple: {{{simple}}}&lt;/p&gt;
+</span></span></span><span class=line><span class=cl><span class=sb>&lt;p&gt;Nested: {{{nested}}}&lt;/p&gt;
+</span></span></span><span class=line><span class=cl><span class=sb>&lt;p&gt;Eval: {{{eval}}}&lt;/p&gt;&lt;/div&gt;`</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=c1>// Render and insert the template above
+</span></span></span><span class=line><span class=cl><span class=c1></span>  <span class=nb>document</span><span class=p>.</span><span class=nx>getElementById</span><span class=p>(</span><span class=s1>&#39;output&#39;</span><span class=p>).</span><span class=nx>innerHTML</span> <span class=o>=</span> <span class=nx>template</span><span class=p>({</span>
+</span></span><span class=line><span class=cl>    <span class=nx>simple</span><span class=o>:</span> <span class=nx>simple</span><span class=p>(),</span> <span class=nx>nested</span><span class=o>:</span> <span class=nx>nested</span><span class=p>(),</span> <span class=nb>eval</span><span class=o>:</span> <span class=nb>eval</span><span class=p>()})</span>
+</span></span><span class=line><span class=cl><span class=p>})</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=output>Output</h3><div id=example-out></div><script src=https://cdn.jsdelivr.net/npm/handlebars@4.7.7/dist/handlebars.js></script>
+<script src=/apprentice/handlebars.278368b5b46e0292ab54fec77af5af96922f4ec86d47931a6443b9bd1a4c9f0c.js integrity='sha256-J4NotbRuApKrVP7HevWvlpIvTshtR5MaZEO5vRpMnww='></script></article></div></div></main></div><footer><center><div class=footer-content><p>2020 - 2022 &copy; Sivert V. Sæther</p></div></center></footer></body></html>
