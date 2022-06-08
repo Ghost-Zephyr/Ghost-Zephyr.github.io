@@ -10,4 +10,4 @@ title: SQLAlchemy
 description: 
 ---
 
-[SQLAlchemy docs](https://docs.sqlalchemy.org/en/14/orm/quickstart.html)
+[SQLAlchemy docs](https://docs.sqlalchemy.org/en/latest/orm/quickstart.html)

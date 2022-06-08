@@ -3,6 +3,7 @@ enableInlineShortcodes: true
 enableRobotsTXT: true
 enableGitInfo: true
 enableEmoji: true
+unsafe: true
 frontmatter:
   lastmod: ["lastmod", ":git", "date", "publishDate"]
 build:
