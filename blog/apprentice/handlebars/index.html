@@ -1,5 +1,5 @@
-<!doctype html><html lang=en><head><meta charset=utf-8><meta name=robots content="index,follow"><link rel=icon href=/favicon.43f6c68e5987db076e48601daac85dfba66e01168edec1e4f647d38c81d67c6b.ico integrity='sha256-Q/bGjlmH2wduSGAdqshd+6ZuARaO3sHk9kfTjIHWfGs='><meta name=viewport content="width=device-width,initial-scale=1"><meta name=twitter:card content="summary"><meta property="og:title" content="Sivert Does Stuff Online!"><meta property="og:url" content="https://io.sivert.pw"><meta property="og:site_name" content="Sivert Does Stuff Online!"><link rel=stylesheet href=https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css crossorigin=anonymous><title>Sivert Does Stuff Online! - Handlebars.js</title><meta name=description content="Handlebars.js is a (HTML) templating engine that runs mainly in the browser, but may also run on any server that has node.js installed."><link href='/chroma.min.0ef71651780c5a1aad7997907d4d97d5d16eb3ecbfb86176140edb33f6e1b7c5.css' integrity="sha256-DvcWUXgMWhqteZeQfU2X1dFus+y/uGF2FA7bM/bht8U=" rel=stylesheet><link href='/main.min.a46cbb1a91698657e2cfbd520094c1175689aae00cc63f6e60ff71c3586676a7.css' integrity="sha256-pGy7GpFphlfiz71SAJTBF1aJquAMxj9uYP9xw1hmdqc=" rel=stylesheet></head><body><header><nav id=navbar><ul class=top-nav><li><a href=/>Sivert Does Stuff Online!</a></li><li><a href=/blog/apprentice><span>Apprentice docs</span></a></li><div class=link-group><li><a href=https://sivert.pw><span>My Humble Homepage</span></a></li><li><a href=/old><span>Old GitHub.io</span></a></li><li><a href=/about><span>About</span></a></li><li><a href=/blog><span>Blog</span></a></li></div></ul></nav></header><div id=content><main><div class=row><div class=col-md-2><aside id=meta><header><h4>Handlebars.Js</h4><p>4 minutes to read.
-This article has 672 words.</p></header><h6>Documentation:</h6><ul><li><a href=https://handlebarsjs.com/guide/ target=_blank>Handlebars official guide</a></li></ul><h6>Table of Contents:</h6><nav id=TableOfContents><ul><li><a href=#basics>Basics</a></li><li><a href=#helpers-and-partials>Helpers and Partials</a></li><li><a href=#examples>Examples</a></li></ul></nav></aside></div><div class=col-md-10><article><header><h1>Handlebars.Js</h1></header><p>Handlebars.js is a templating engine like jinja2, but entirely in JavaScript.</p><p>Personally I&rsquo;ve only found pug templates very nice to work with as I love the minimal syntax.</p><p>What makes handlebars cool is it&rsquo;s ability to render templates both server and client side,
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=robots content="index,follow"><link rel=icon href=/favicon.43f6c68e5987db076e48601daac85dfba66e01168edec1e4f647d38c81d67c6b.ico integrity='sha256-Q/bGjlmH2wduSGAdqshd+6ZuARaO3sHk9kfTjIHWfGs='><meta name=viewport content="width=device-width,initial-scale=1"><meta name=twitter:card content="summary"><meta property="og:title" content="Sivert Does Stuff Online!"><meta property="og:url" content="https://io.sivert.pw"><meta property="og:site_name" content="Sivert Does Stuff Online!"><link rel=stylesheet href=https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css crossorigin=anonymous><title>Sivert Does Stuff Online! - Handlebars.js</title><meta name=description content="Handlebars.js is a (HTML) templating engine that runs mainly in the browser, but may also run on any server that has node.js installed."><link href='/chroma.min.1b61fc7f9f49b868cdeb75f5ab7b83a55eec762dbe7a05f757b19ae1a9a2e8c0.css' integrity="sha256-G2H8f59JuGjN63X1q3uDpV7sdi2+egX3V7Ga4ami6MA=" rel=stylesheet><link href='/main.min.a46cbb1a91698657e2cfbd520094c1175689aae00cc63f6e60ff71c3586676a7.css' integrity="sha256-pGy7GpFphlfiz71SAJTBF1aJquAMxj9uYP9xw1hmdqc=" rel=stylesheet></head><body><header><nav id=navbar><ul class=top-nav><li><a href=/>Sivert Does Stuff Online!</a></li><li><a href=/blog/apprentice><span>Apprentice docs</span></a></li><div class=link-group><li><a href=https://sivert.pw><span>My Humble Homepage</span></a></li><li><a href=/old><span>Old GitHub.io</span></a></li><li><a href=/about><span>About</span></a></li><li><a href=/blog><span>Blog</span></a></li></div></ul></nav></header><div id=content><main><div class=row><div class=col-md-2><aside id=meta><header><h4>Handlebars.Js</h4><p>4 minutes to read.
+This article has 752 words.</p></header><h6>Documentation:</h6><ul><li><a href=https://handlebarsjs.com/guide/ target=_blank>Handlebars official guide</a></li></ul><h6>Table of Contents:</h6><nav id=TableOfContents><ul><li><a href=#basics>Basics</a></li><li><a href=#helpers-and-partials>Helpers and Partials</a></li><li><a href=#examples>Examples</a></li></ul></nav></aside></div><div class=col-md-10><article><header><h1>Handlebars.Js</h1></header><p>Handlebars.js is a templating engine like jinja2, but entirely in JavaScript.</p><p>Personally I&rsquo;ve only found pug templates very nice to work with as I love the minimal syntax.</p><p>What makes handlebars cool is it&rsquo;s ability to render templates both server and client side,
 if you&rsquo;re running node.js on the server.</p><p>Running it in the frontend is super easy, check this example from the handlebars docs;</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
@@ -21,87 +21,110 @@ To register a helper run;<div class=highlight><pre tabindex=0 class=chroma><code
 Block helpers switch the evaluation context.
 The helper function for these always take options and usually context as arguments.</p><p>You can also register partials like helpers with;<div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=nx>Handlebars</span><span class=p>.</span><span class=nx>registerPartial</span><span class=p>(</span><span class=s1>&#39;name&#39;</span><span class=p>,</span> <span class=s1>&#39;template string with {{blocks}}&#39;</span><span class=p>)</span></span></span></code></pre></div></p><p>It should be noted that handlebars by default html escapes all results from these blocks/helpers.
 If you want to avoid this then &ldquo;triple mustaches&rdquo; is what you&rsquo;re looking for.
-Calling any helper function like &ldquo;{{{helpername}}}&rdquo; will bypass the html escaping.</p><h2 id=examples>Examples</h2><p>This script is running on this page;</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span><span class=lnt>18
-</span><span class=lnt>19
-</span><span class=lnt>20
-</span><span class=lnt>21
-</span><span class=lnt>22
-</span><span class=lnt>23
-</span><span class=lnt>24
-</span><span class=lnt>25
-</span><span class=lnt>26
-</span><span class=lnt>27
-</span><span class=lnt>28
-</span><span class=lnt>29
-</span><span class=lnt>30
-</span><span class=lnt>31
-</span><span class=lnt>32
-</span><span class=lnt>33
-</span><span class=lnt>34
-</span><span class=lnt>35
-</span><span class=lnt>36
-</span><span class=lnt>37
-</span><span class=lnt>38
-</span><span class=lnt>39
-</span><span class=lnt>40
-</span><span class=lnt>41
-</span><span class=lnt>42
-</span><span class=lnt>43
-</span><span class=lnt>44
-</span><span class=lnt>45
-</span><span class=lnt>46
-</span><span class=lnt>47
-</span><span class=lnt>48
-</span><span class=lnt>49
-</span><span class=lnt>50
-</span><span class=lnt>51
-</span><span class=lnt>52
-</span><span class=lnt>53
-</span><span class=lnt>54
-</span><span class=lnt>55
-</span><span class=lnt>56
-</span><span class=lnt>57
-</span><span class=lnt>58
-</span><span class=lnt>59
-</span><span class=lnt>60
-</span><span class=lnt>61
-</span><span class=lnt>62
-</span><span class=lnt>63
-</span><span class=lnt>64
-</span><span class=lnt>65
-</span><span class=lnt>66
-</span><span class=lnt>67
-</span><span class=lnt>68
-</span><span class=lnt>69
-</span><span class=lnt>70
-</span><span class=lnt>71
-</span><span class=lnt>72
-</span><span class=lnt>73
-</span><span class=lnt>74
-</span><span class=lnt>75
-</span><span class=lnt>76
-</span><span class=lnt>77
-</span><span class=lnt>78
-</span><span class=lnt>79
-</span><span class=lnt>80
-</span><span class=lnt>81
+Calling any helper function like &ldquo;{{{helpername}}}&rdquo; will bypass the html escaping.</p><h2 id=examples>Examples</h2><p>This script is running on this page;</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>  1
+</span><span class=lnt>  2
+</span><span class=lnt>  3
+</span><span class=lnt>  4
+</span><span class=lnt>  5
+</span><span class=lnt>  6
+</span><span class=lnt>  7
+</span><span class=lnt>  8
+</span><span class=lnt>  9
+</span><span class=lnt> 10
+</span><span class=lnt> 11
+</span><span class=lnt> 12
+</span><span class=lnt> 13
+</span><span class=lnt> 14
+</span><span class=lnt> 15
+</span><span class=lnt> 16
+</span><span class=lnt> 17
+</span><span class=lnt> 18
+</span><span class=lnt> 19
+</span><span class=lnt> 20
+</span><span class=lnt> 21
+</span><span class=lnt> 22
+</span><span class=lnt> 23
+</span><span class=lnt> 24
+</span><span class=lnt> 25
+</span><span class=lnt> 26
+</span><span class=lnt> 27
+</span><span class=lnt> 28
+</span><span class=lnt> 29
+</span><span class=lnt> 30
+</span><span class=lnt> 31
+</span><span class=lnt> 32
+</span><span class=lnt> 33
+</span><span class=lnt> 34
+</span><span class=lnt> 35
+</span><span class=lnt> 36
+</span><span class=lnt> 37
+</span><span class=lnt> 38
+</span><span class=lnt> 39
+</span><span class=lnt> 40
+</span><span class=lnt> 41
+</span><span class=lnt> 42
+</span><span class=lnt> 43
+</span><span class=lnt> 44
+</span><span class=lnt> 45
+</span><span class=lnt> 46
+</span><span class=lnt> 47
+</span><span class=lnt> 48
+</span><span class=lnt> 49
+</span><span class=lnt> 50
+</span><span class=lnt> 51
+</span><span class=lnt> 52
+</span><span class=lnt> 53
+</span><span class=lnt> 54
+</span><span class=lnt> 55
+</span><span class=lnt> 56
+</span><span class=lnt> 57
+</span><span class=lnt> 58
+</span><span class=lnt> 59
+</span><span class=lnt> 60
+</span><span class=lnt> 61
+</span><span class=lnt> 62
+</span><span class=lnt> 63
+</span><span class=lnt> 64
+</span><span class=lnt> 65
+</span><span class=lnt> 66
+</span><span class=lnt> 67
+</span><span class=lnt> 68
+</span><span class=lnt> 69
+</span><span class=lnt> 70
+</span><span class=lnt> 71
+</span><span class=lnt> 72
+</span><span class=lnt> 73
+</span><span class=lnt> 74
+</span><span class=lnt> 75
+</span><span class=lnt> 76
+</span><span class=lnt> 77
+</span><span class=lnt> 78
+</span><span class=lnt> 79
+</span><span class=lnt> 80
+</span><span class=lnt> 81
+</span><span class=lnt> 82
+</span><span class=lnt> 83
+</span><span class=lnt> 84
+</span><span class=lnt> 85
+</span><span class=lnt> 86
+</span><span class=lnt> 87
+</span><span class=lnt> 88
+</span><span class=lnt> 89
+</span><span class=lnt> 90
+</span><span class=lnt> 91
+</span><span class=lnt> 92
+</span><span class=lnt> 93
+</span><span class=lnt> 94
+</span><span class=lnt> 95
+</span><span class=lnt> 96
+</span><span class=lnt> 97
+</span><span class=lnt> 98
+</span><span class=lnt> 99
+</span><span class=lnt>100
+</span><span class=lnt>101
+</span><span class=lnt>102
+</span><span class=lnt>103
+</span><span class=lnt>104
 </span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=c1>// This does mostly the same as that example from the official docs
 </span></span></span><span class=line><span class=cl><span class=c1></span><span class=kd>let</span> <span class=nx>simple</span> <span class=o>=</span> <span class=p>()</span> <span class=p>=&gt;</span> <span class=p>{</span>
@@ -111,25 +134,6 @@ Calling any helper function like &ldquo;{{{helpername}}}&rdquo; will bypass the 
 </span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=nx>out</span>
 </span></span><span class=line><span class=cl><span class=p>}</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=kd>let</span> <span class=nx>nested</span> <span class=o>=</span> <span class=p>()</span> <span class=p>=&gt;</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>  <span class=c1>// This uses each for context switching and uses a nested links parameter
-</span></span></span><span class=line><span class=cl><span class=c1></span>  <span class=kd>let</span> <span class=nx>template</span> <span class=o>=</span> <span class=nx>Handlebars</span><span class=p>.</span><span class=nx>compile</span><span class=p>(</span><span class=sb>`
-</span></span></span><span class=line><span class=cl><span class=sb>&lt;ul&gt;
-</span></span></span><span class=line><span class=cl><span class=sb>  {{#each links}}
-</span></span></span><span class=line><span class=cl><span class=sb>  &lt;li&gt;&lt;a href=&#39;{{href}}&#39; target=&#39;_blank&#39;&gt;{{text}}&lt;/a&gt;&lt;/li&gt;
-</span></span></span><span class=line><span class=cl><span class=sb>  {{/each}}
-</span></span></span><span class=line><span class=cl><span class=sb>&lt;/ul&gt;`</span><span class=p>)</span>
-</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=nx>template</span><span class=p>({</span>
-</span></span><span class=line><span class=cl>    <span class=nx>links</span><span class=o>:</span> <span class=p>[{</span>
-</span></span><span class=line><span class=cl>      <span class=s1>&#39;href&#39;</span><span class=o>:</span> <span class=s1>&#39;https://handlebarsjs.com/guide&#39;</span><span class=p>,</span>
-</span></span><span class=line><span class=cl>      <span class=s1>&#39;text&#39;</span><span class=o>:</span> <span class=s1>&#39;Handlebars official guide&#39;</span>
-</span></span><span class=line><span class=cl>    <span class=p>},</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>      <span class=s1>&#39;href&#39;</span><span class=o>:</span> <span class=s1>&#39;https://io.sivert.pw&#39;</span><span class=p>,</span>
-</span></span><span class=line><span class=cl>      <span class=s1>&#39;text&#39;</span><span class=o>:</span> <span class=s1>&#39;Awesome blog!&#39;</span>
-</span></span><span class=line><span class=cl>    <span class=p>}]</span>
-</span></span><span class=line><span class=cl>  <span class=p>})</span>
-</span></span><span class=line><span class=cl><span class=p>}</span>
-</span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=c1>// This is how handlebars comments work
 </span></span></span><span class=line><span class=cl><span class=c1></span><span class=kd>let</span> <span class=nx>comments</span> <span class=o>=</span> <span class=nx>Handlebars</span><span class=p>.</span><span class=nx>compile</span><span class=p>(</span><span class=sb>`
 </span></span></span><span class=line><span class=cl><span class=sb>{{! This comment will not show up in the output}}
@@ -137,29 +141,65 @@ Calling any helper function like &ldquo;{{{helpername}}}&rdquo; will bypass the 
 </span></span></span><span class=line><span class=cl><span class=sb>{{!-- This comment may contain mustaches like }} --}}
 </span></span></span><span class=line><span class=cl><span class=sb>inspect element here!`</span><span class=p>)()</span>
 </span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// This uses each for context switching and uses a nested links parameter
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=kd>let</span> <span class=nx>nested</span> <span class=o>=</span> <span class=nx>Handlebars</span><span class=p>.</span><span class=nx>compile</span><span class=p>(</span><span class=sb>`
+</span></span></span><span class=line><span class=cl><span class=sb>&lt;ul&gt;
+</span></span></span><span class=line><span class=cl><span class=sb>  {{#each links}}
+</span></span></span><span class=line><span class=cl><span class=sb>  &lt;li&gt;&lt;a href=&#39;{{href}}&#39; target=&#39;_blank&#39;&gt;{{text}}&lt;/a&gt;&lt;/li&gt;
+</span></span></span><span class=line><span class=cl><span class=sb>  {{/each}}
+</span></span></span><span class=line><span class=cl><span class=sb>&lt;/ul&gt;`</span><span class=p>)({</span>
+</span></span><span class=line><span class=cl>  <span class=nx>links</span><span class=o>:</span> <span class=p>[{</span>
+</span></span><span class=line><span class=cl>    <span class=s1>&#39;href&#39;</span><span class=o>:</span> <span class=s1>&#39;https://handlebarsjs.com/guide&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=s1>&#39;text&#39;</span><span class=o>:</span> <span class=s1>&#39;Handlebars official guide&#39;</span>
+</span></span><span class=line><span class=cl>  <span class=p>},</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=s1>&#39;href&#39;</span><span class=o>:</span> <span class=s1>&#39;https://io.sivert.pw&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=s1>&#39;text&#39;</span><span class=o>:</span> <span class=s1>&#39;Awesome blog!&#39;</span>
+</span></span><span class=line><span class=cl>  <span class=p>}]</span>
+</span></span><span class=line><span class=cl><span class=p>})</span>
+</span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=c1>// Simple helper
 </span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>Handlebars</span><span class=p>.</span><span class=nx>registerHelper</span><span class=p>(</span><span class=s1>&#39;censor&#39;</span><span class=p>,</span> <span class=p>(</span><span class=nx>str</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=p>{</span>
 </span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=nx>str</span><span class=p>.</span><span class=nx>replaceAll</span><span class=p>(</span><span class=s1>&#39;fuck&#39;</span><span class=p>,</span> <span class=s1>&#39;f***&#39;</span><span class=p>).</span><span class=nx>replaceAll</span><span class=p>(</span><span class=s1>&#39;hell&#39;</span><span class=p>,</span> <span class=s1>&#39;h***&#39;</span><span class=p>)</span>
 </span></span><span class=line><span class=cl><span class=p>})</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=c1>// Block helper
-</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>Handlebars</span><span class=p>.</span><span class=nx>registerHelper</span><span class=p>(</span><span class=s1>&#39;&#39;</span><span class=p>,</span> <span class=p>(</span><span class=nx>items</span><span class=p>,</span> <span class=nx>options</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>Handlebars</span><span class=p>.</span><span class=nx>registerHelper</span><span class=p>(</span><span class=s1>&#39;noop&#39;</span><span class=p>,</span> <span class=p>(</span><span class=nx>options</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=nx>options</span><span class=p>.</span><span class=nx>fn</span><span class=p>(</span><span class=k>this</span><span class=p>)</span>
 </span></span><span class=line><span class=cl><span class=p>})</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=c1>// Handlebars registered partial
-</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>Handlebars</span><span class=p>.</span><span class=nx>registerPartial</span><span class=p>(</span><span class=s1>&#39;&#39;</span><span class=p>,</span> <span class=s1>&#39;&#39;</span><span class=p>)</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=nx>inlinePartial</span> <span class=o>=</span> <span class=sb>`
-</span></span></span><span class=line><span class=cl><span class=sb>{{#*inline &#34;inlinePartial&#34;}}
-</span></span></span><span class=line><span class=cl><span class=sb>
-</span></span></span><span class=line><span class=cl><span class=sb>{{/inline}}`</span>
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>Handlebars</span><span class=p>.</span><span class=nx>registerPartial</span><span class=p>(</span><span class=s1>&#39;people&#39;</span><span class=p>,</span> <span class=sb>`
+</span></span></span><span class=line><span class=cl><span class=sb>&lt;ul&gt;
+</span></span></span><span class=line><span class=cl><span class=sb>  {{#each members}}
+</span></span></span><span class=line><span class=cl><span class=sb>  &lt;li&gt;{{name}} age {{age}} from {{home}}&lt;/li&gt;
+</span></span></span><span class=line><span class=cl><span class=sb>  {{/each}}
+</span></span></span><span class=line><span class=cl><span class=sb>  balle!
+</span></span></span><span class=line><span class=cl><span class=sb>&lt;/ul&gt;`</span><span class=p>)</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=c1>// Calling non-existent partials with block syntax uses the block content as fallback
-</span></span></span><span class=line><span class=cl><span class=c1></span><span class=kd>let</span> <span class=nx>advanced</span> <span class=o>=</span> <span class=p>()</span> <span class=p>=&gt;</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=nx>Handlebars</span><span class=p>.</span><span class=nx>compile</span><span class=p>(</span><span class=sb>`
-</span></span></span><span class=line><span class=cl><span class=sb>{{censor profanity}}`</span><span class=p>)({</span><span class=s1>&#39;profanity&#39;</span><span class=o>:</span> <span class=s1>&#39;fuckin hell man!&#39;</span><span class=p>})</span>
-</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=kd>let</span> <span class=nx>advanced</span> <span class=o>=</span> <span class=nx>Handlebars</span><span class=p>.</span><span class=nx>compile</span><span class=p>(</span><span class=sb>`
+</span></span></span><span class=line><span class=cl><span class=sb>{{censor profanity}}
+</span></span></span><span class=line><span class=cl><span class=sb>
+</span></span></span><span class=line><span class=cl><span class=sb>{{#&gt; people members}}
+</span></span></span><span class=line><span class=cl><span class=sb>  &lt;b&gt;Some thing went wrong, man!&lt;/b&gt;
+</span></span></span><span class=line><span class=cl><span class=sb>{{/people}}
+</span></span></span><span class=line><span class=cl><span class=sb>
+</span></span></span><span class=line><span class=cl><span class=sb>&lt;ul&gt;
+</span></span></span><span class=line><span class=cl><span class=sb>  {{#each members}}
+</span></span></span><span class=line><span class=cl><span class=sb>  &lt;li&gt;{{name}} age {{age}} from {{home}}&lt;/li&gt;
+</span></span></span><span class=line><span class=cl><span class=sb>  {{/each}}
+</span></span></span><span class=line><span class=cl><span class=sb>&lt;/ul&gt;`</span><span class=p>)({</span>
+</span></span><span class=line><span class=cl>  <span class=s1>&#39;profanity&#39;</span><span class=o>:</span> <span class=s1>&#39;fuckin hell man!&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=s1>&#39;members&#39;</span><span class=o>:</span> <span class=p>[{</span>
+</span></span><span class=line><span class=cl>    <span class=s1>&#39;home&#39;</span><span class=o>:</span> <span class=s1>&#39;Never Never Land&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=s1>&#39;name&#39;</span><span class=o>:</span> <span class=s1>&#39;Peter&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=s1>&#39;age&#39;</span><span class=o>:</span> <span class=mi>120</span>
+</span></span><span class=line><span class=cl>  <span class=p>},</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=s1>&#39;home&#39;</span><span class=o>:</span> <span class=s1>&#39;Trollhättan&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=s1>&#39;name&#39;</span><span class=o>:</span> <span class=s1>&#39;Clark&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=s1>&#39;age&#39;</span><span class=o>:</span> <span class=mi>75</span>
+</span></span><span class=line><span class=cl>  <span class=p>}]</span>
+</span></span><span class=line><span class=cl><span class=p>})</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=c1>// Run &#34;main&#34; after all is loaded
 </span></span></span><span class=line><span class=cl><span class=c1></span><span class=nb>document</span><span class=p>.</span><span class=nx>addEventListener</span><span class=p>(</span><span class=s2>&#34;DOMContentLoaded&#34;</span><span class=p>,</span> <span class=kd>function</span> <span class=p>()</span> <span class=p>{</span>
@@ -168,20 +208,26 @@ Calling any helper function like &ldquo;{{{helpername}}}&rdquo; will bypass the 
 </span></span><span class=line><span class=cl>  <span class=nx>output</span><span class=p>.</span><span class=nx>id</span> <span class=o>=</span> <span class=s1>&#39;output&#39;</span>
 </span></span><span class=line><span class=cl>  <span class=nb>document</span><span class=p>.</span><span class=nx>getElementById</span><span class=p>(</span><span class=s1>&#39;meta&#39;</span><span class=p>).</span><span class=nx>append</span><span class=p>(</span><span class=nx>output</span><span class=p>)</span>
 </span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=c1>// When creating a partials you may use {{&gt; @partial-block }} to capture the block content
+</span></span></span><span class=line><span class=cl><span class=c1></span>  <span class=nx>Handlebars</span><span class=p>.</span><span class=nx>registerPartial</span><span class=p>(</span><span class=s1>&#39;layout&#39;</span><span class=p>,</span> <span class=s1>&#39;&lt;br /&gt;&lt;div&gt;{{&gt; content }}&lt;/div&gt;&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl>  <span class=c1>// Here we use those &#34;triple mustaches&#34;!
 </span></span></span><span class=line><span class=cl><span class=c1></span>  <span class=kd>let</span> <span class=nx>template</span> <span class=o>=</span> <span class=nx>Handlebars</span><span class=p>.</span><span class=nx>compile</span><span class=p>(</span><span class=sb>`
-</span></span></span><span class=line><span class=cl><span class=sb>&lt;br /&gt;&lt;div&gt;
-</span></span></span><span class=line><span class=cl><span class=sb>&lt;h4&gt;Examples output:&lt;/h4&gt;
-</span></span></span><span class=line><span class=cl><span class=sb>&lt;h5&gt;Functions:&lt;/h5&gt;
-</span></span></span><span class=line><span class=cl><span class=sb>&lt;p&gt;Simple: {{{simple}}}&lt;/p&gt;
-</span></span></span><span class=line><span class=cl><span class=sb>&lt;p&gt;Nested: {{{nested}}}&lt;/p&gt;
-</span></span></span><span class=line><span class=cl><span class=sb>&lt;p&gt;Comments: {{{comments}}}&lt;/p&gt;
-</span></span></span><span class=line><span class=cl><span class=sb>&lt;p&gt;Advanced: {{{advanced}}}&lt;/p&gt;&lt;/div&gt;`</span><span class=p>)</span>
+</span></span></span><span class=line><span class=cl><span class=sb>{{#&gt; layout}}
+</span></span></span><span class=line><span class=cl><span class=sb>  {{#*inline &#34;content&#34;}}
+</span></span></span><span class=line><span class=cl><span class=sb>    &lt;h4&gt;Examples output:&lt;/h4&gt;
+</span></span></span><span class=line><span class=cl><span class=sb>    &lt;h5&gt;Functions:&lt;/h5&gt;
+</span></span></span><span class=line><span class=cl><span class=sb>    &lt;p&gt;Simple: {{{simple}}}&lt;/p&gt;
+</span></span></span><span class=line><span class=cl><span class=sb>    &lt;p&gt;Nested: {{{nested}}}&lt;/p&gt;
+</span></span></span><span class=line><span class=cl><span class=sb>    &lt;p&gt;Comments: {{{comments}}}&lt;/p&gt;
+</span></span></span><span class=line><span class=cl><span class=sb>    &lt;p&gt;Advanced: {{{advanced}}}&lt;/p&gt;
+</span></span></span><span class=line><span class=cl><span class=sb>  {{/inline}}
+</span></span></span><span class=line><span class=cl><span class=sb>{{/layout}}`</span><span class=p>)</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl>  <span class=c1>// Render and insert the template above
-</span></span></span><span class=line><span class=cl><span class=c1></span>  <span class=nb>document</span><span class=p>.</span><span class=nx>getElementById</span><span class=p>(</span><span class=s1>&#39;output&#39;</span><span class=p>).</span><span class=nx>innerHTML</span> <span class=o>=</span> <span class=nx>template</span><span class=p>({</span>
-</span></span><span class=line><span class=cl>    <span class=nx>simple</span><span class=o>:</span> <span class=nx>simple</span><span class=p>(),</span> <span class=nx>nested</span><span class=o>:</span> <span class=nx>nested</span><span class=p>(),</span> <span class=nx>comments</span><span class=o>:</span> <span class=nx>comments</span><span class=p>,</span> <span class=nx>advanced</span><span class=o>:</span> <span class=nx>advanced</span><span class=p>()</span>
+</span></span></span><span class=line><span class=cl><span class=c1></span>  <span class=nx>output</span><span class=p>.</span><span class=nx>innerHTML</span> <span class=o>=</span> <span class=nx>template</span><span class=p>({</span>
+</span></span><span class=line><span class=cl>    <span class=nx>simple</span><span class=o>:</span> <span class=nx>simple</span><span class=p>(),</span> <span class=nx>nested</span><span class=o>:</span> <span class=nx>nested</span><span class=p>,</span> <span class=nx>comments</span><span class=o>:</span> <span class=nx>comments</span><span class=p>,</span> <span class=nx>advanced</span><span class=o>:</span> <span class=nx>advanced</span>
 </span></span><span class=line><span class=cl>  <span class=p>})</span>
 </span></span><span class=line><span class=cl><span class=p>})</span>
 </span></span></code></pre></td></tr></table></div></div><div id=example-out></div><script src=https://cdn.jsdelivr.net/npm/handlebars@4.7.7/dist/handlebars.js></script>
-<script src=/apprentice/handlebars.min.1b22678be3913e843c60aeae455ffcb35379367c64b84dd63229df95be964d3b.js integrity='sha256-GyJni+ORPoQ8YK6uRV/8s1N5NnxkuE3WMinflb6WTTs='></script></article></div></div></main></div><footer><center><div class=footer-content><p>2020 - 2022 &copy; Sivert V. Sæther</p></div></center></footer></body></html>
+<script src=/apprentice/handlebars.min.56d215a82d1bb9b2b87776dc53b10b285ea2eb866f45fb53041ed2151e2c6c31.js integrity='sha256-VtIVqC0bubK4d3bcU7ELKF6i64ZvRftTBB7SFR4sbDE='></script></article></div></div></main></div><footer><center><div class=footer-content><p>2020 - 2022 &copy; Sivert V. Sæther</p></div></center></footer></body></html>
