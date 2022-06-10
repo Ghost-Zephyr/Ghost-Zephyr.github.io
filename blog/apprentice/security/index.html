@@ -1,0 +1,66 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=robots content="index,follow"><link rel=icon href=/favicon.43f6c68e5987db076e48601daac85dfba66e01168edec1e4f647d38c81d67c6b.ico integrity='sha256-Q/bGjlmH2wduSGAdqshd+6ZuARaO3sHk9kfTjIHWfGs='><meta name=viewport content="width=device-width,initial-scale=1"><meta name=twitter:card content="summary"><meta property="og:title" content="Sivert Does Stuff Online!"><meta property="og:url" content="https://io.sivert.pw"><meta property="og:site_name" content="Sivert Does Stuff Online!"><link rel=stylesheet href=https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css crossorigin=anonymous><title>Sivert Does Stuff Online! - Security issues</title><meta name=description content="Various security issues I found, disclosed and got fixed as an apprentice!"><link href='/chroma.min.441f443ab488ade4080ca3f59db319af275cb62bfa227ba03fe5bdd683e1012c.css' integrity="sha256-RB9EOrSIreQIDKP1nbMZrydctiv6InugP+W91oPhASw=" rel=stylesheet><link href='/main.min.d7865e7436d6f9542f85735b761002c1891c1b7d24843961e3597f52cd32cbfd.css' integrity="sha256-14ZedDbW+VQvhXNbdhACwYkcG30khDlh41l/Us0yy/0=" rel=stylesheet></head><body><header><nav id=navbar><ul class=top-nav><li><a href=/>Sivert Does Stuff Online!</a></li><li><a href=/blog/apprentice><span>Apprentice docs</span></a></li><div class=link-group><li><a href=https://sivert.pw><span>My Humble Homepage</span></a></li><li><a href=/old><span>Old GitHub.io</span></a></li><li><a href=/about><span>About</span></a></li><li><a href=/blog><span>Blog</span></a></li></div></ul></nav></header><div id=content><main><div class=row><div class=col-md-2><aside id=meta><header><h4>Security issues</h4><p>This article has 966 words.
+5 minutes to read.</p></header><h6>Table of Contents:</h6><nav id=TableOfContents><ul><li><a href=#skylabs>SkyLabs</a><ul><li><a href=#sky-id-admin>Sky ID Admin</a></li><li><a href=#servers>Servers</a></li></ul></li><li><a href=#sircon>Sircon</a><ul><li><a href=#servers-1>Servers</a></li><li><a href=#wordpress>WordPress</a></li></ul></li></ul></nav></aside></div><div class=col-md-10><article><header><h1>Security issues</h1></header><p>Here is a collection of security issues I found, disclosed and got fixed as an apprentice!
+At SkyLabs I fixed the issues myself, but at Sircon they delegated all the boring support to me and the previous apprentice.
+So there I just disclosed the issue to the responsible person and both of them fixed their respective issues within an hour.</p><h2 id=skylabs>SkyLabs</h2><p>SkyLabs has surprisingly good stability compared to expectations based on the codebase.
+I&rsquo;m guessing it&rsquo;s a byproduct of Python that let&rsquo;s us fail pretty safely on almost all endpoints.
+The in-house development is mainly four services, two JS frontends and two Python Flask backends, all web.</p><p>These services are a captive portal, it&rsquo;s API and an admin interface web app and it&rsquo;s API.</p><p>We support lots of interesting <a href=https://wiki.skylabs.no/partner:authentication target=_blank>authentication</a> methods!~</p><h3 id=sky-id-admin>Sky ID Admin</h3><p>And so far the only real security related issue I&rsquo;ve found in the in-house codebase is that the Access Control was missing a check.
+The problem is that API keys that are associated with a deleted account is valid.
+Allowed methods are by x-api-key Authorization header, api-key as an url parameter or by Json Web Token.
+The JWT is passed in an Authorization Bearer header, which is wrong, <a href=https://datatracker.ietf.org/doc/html/rfc6750 target=_blank>Bearer</a> Auth header prefix should be reserved for <a href=https://datatracker.ietf.org/doc/html/rfc6749 target=_blank>OAuth 2</a>.</p><p>Anyway when using API keys, not JWT, the server just fetches the API key record from the database.
+The function calls for this goes from the Access Control controller class through an API key controller.
+Problem is the API key controller class only checks if the associated user exists, not if it&rsquo;s been marked as deleted.
+So if you have an API key, you may have your accounts full access after it&rsquo;s supposedly been deleted.</p><p>And the fix for it was super easy!~</p><p>We use a custom endpoint decorator, like flasks own @app.route, but we control what happens.
+It&rsquo;s here the authentication is implemented, on all requests that go to routes defined with this decorator will run the Access Control controller.
+Access Control goes through the auth options in it&rsquo;s dunder init function and sets self.current_user to some admin user from the database.
+To fix the problem I could&rsquo;ve made this check specific to the API keys by putting it in the API key controller that also has a user getter function.
+But I chose to add an if statement to the Access Control user getter, this is called by our endpoint decorator.
+So I literally just changed this.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-py data-lang=py><span class=line><span class=cl><span class=k>class</span> <span class=nc>AccessControl</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>  <span class=n>current_user</span> <span class=o>=</span> <span class=kc>None</span>
+</span></span><span class=line><span class=cl>  <span class=o>...</span>
+</span></span><span class=line><span class=cl>  <span class=k>def</span> <span class=nf>get_current_user</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=bp>self</span><span class=o>.</span><span class=n>current_user</span>
+</span></span></code></pre></td></tr></table></div></div><p>To that!</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-py data-lang=py><span class=line><span class=cl><span class=k>class</span> <span class=nc>AccessControl</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>  <span class=n>current_user</span> <span class=o>=</span> <span class=kc>None</span>
+</span></span><span class=line><span class=cl>  <span class=o>...</span>
+</span></span><span class=line><span class=cl>  <span class=k>def</span> <span class=nf>get_current_user</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=bp>self</span><span class=o>.</span><span class=n>current_user</span><span class=o>.</span><span class=n>deleted</span> <span class=ow>is</span> <span class=kc>None</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>      <span class=k>return</span> <span class=bp>self</span><span class=o>.</span><span class=n>current_user</span>
+</span></span><span class=line><span class=cl>    <span class=k>else</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>      <span class=k>raise</span> <span class=n>Forbidden</span>
+</span></span></code></pre></td></tr></table></div></div><p>To fix this issue.</p><h3 id=servers>Servers</h3><p>On the other side, the cloud servers had some bigger problems.
+Here I did find a <em>BIG</em> security issue. Ancient ssh keys.
+We use Ansible to manage the servers and deploy code updates.
+There is an Ansible var file that has a list of user accounts with options for shell and ssh pubkey.
+That file also has a list of old accounts that should be deleted.
+These are per employee users.
+But the intrauser and ansible users have existed since 2016&mldr;
+using the same keys that they were created with.
+The reason this is such a big threat is the fact that intrauser, ansible and all employee accounts has sudo access without password.</p><p>So check it; these screenshots are from SkyLabs&rsquo; Ansible git log!~</p><p><figure><a href=/apprentice/skyid/old-intrauser-key.93e5801e848443e9558cea05053c97a838086d4ce272f163f30a54a32fabd4bf.png target=_blank><img src=/apprentice/skyid/old-intrauser-key.93e5801e848443e9558cea05053c97a838086d4ce272f163f30a54a32fabd4bf.png integrity='sha256-k+WAHoSEQ+lVjOoFBTyXqDgIbUzicvFj8wpUoy+r1L8=' alt='The old intrauser ssh key'></a><figcaption><p>The old intrauser ssh key</p></figcaption></figure><figure><a href=/apprentice/skyid/intrauser-key.d7734c343167f73c12546d149c36208343bd82b154abe6bad558dba804c5bda0.png target=_blank><img src=/apprentice/skyid/intrauser-key.d7734c343167f73c12546d149c36208343bd82b154abe6bad558dba804c5bda0.png integrity='sha256-13NMNDFn9zwSVG0UnDYgg0O9grFUq+a61VjbqATFvaA=' alt='Me finally updating the key'></a><figcaption><p>Me finally updating the key</p></figcaption></figure></p><h2 id=sircon>Sircon</h2><p>These guys has a few beefy ass physical servers in their own rack in a supposedly EMP and fire safe room in the basement of their offices.
+Those physical machines run virtual machines that run WHM/cPanel and whatever PHP app the customer would like.
+But >90% of their customers are non-technical and just only interact with the default WordPress setup and maybe the e-mail service that comes with their cPanel.
+Most of the people calling in to their support line has problems using their e-mail, and it&rsquo;s usually the end user who fucked up.</p><h3 id=servers-1>Servers</h3><p>Have you ever used Apache httpd? Have you ever used its .htaccess config?
+Well it&rsquo;s pretty cool, but may pose a threat on shared &ldquo;web hotels&rdquo; like WHM servers running a whole lot of cPanel accounts.
+If using .htaccess is allowed users may set their own configuration options for httpd.</p><p>And the issue I identified here was the fact that cgi configuration options where allowed in .htaccess.
+So I had some fun making wired cgi scripts in python, perl and bash.</p><p>The last thing I did before disclosing it to Sircons server guy was to make a proof of concept script that gave me a shell on the server.
+As they don&rsquo;t allow ssh access and PHP is configured to not allow anything dangerous, like the system() function, that would allow you to create shells.</p><p>Example .htaccess to run cgi scripts.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-apache data-lang=apache><span class=line><span class=cl><span class=nb>Options</span> +ExecCGI
+</span></span><span class=line><span class=cl><span class=nb>AddHandler</span> cgi-script .cgi .pl .py .sh .rb
+</span></span></code></pre></td></tr></table></div></div><p>The fix for this is the <a href=https://httpd.apache.org/docs/current/mod/core.html#allowoverride target=_blank>AllowOverride</a> directive.
+Just make sure it does not include &ldquo;FileInfo&rdquo;.</p><h3 id=wordpress>WordPress</h3><p>I found a bug on their homepage <a href=https://sircon.no target=_blank>sircon.no</a> where they have a simple WordPress shop with a couple of cool features, like <a href=https://sircon.no/sjekk-om-din-nettbutikk-nettsted-driftes-miljovennlig/ target=_blank>this</a> where you supposedly can check how green a web page is. As in green energy.</p><p>The bug I found was missing server side validation and a shopping cart that&rsquo;s stored in the browsers local storage with price specified.
+This is a pretty minor issue however, as they don&rsquo;t do automatic provisioning, and it only gets added to some internal webpage they use to keep track of everything.
+But whatever you posted as the price would show up in that tool.
+You could even post negative prices!</p></article></div></div></main></div><footer><center><div class=footer-content><p>2020 - 2022 &copy; Sivert V. Sæther</p></div></center></footer></body></html>

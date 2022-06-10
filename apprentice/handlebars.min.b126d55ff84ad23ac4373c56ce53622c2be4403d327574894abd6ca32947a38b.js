@@ -12,7 +12,6 @@ inspect element here!`)(),nested=Handlebars.compile(`
   {{#each members}}
   <li>{{name}} age {{age}} from {{home}}</li>
   {{/each}}
-  balle!
 </ul>`);let advanced=Handlebars.compile(`
 {{censor profanity}}
 
