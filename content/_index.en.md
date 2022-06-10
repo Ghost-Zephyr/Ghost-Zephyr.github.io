@@ -5,7 +5,7 @@ aliases: []
 categories: ['meta']
 series: []
 tags: ['info', 'meta']
-toc: false
+toc: true
 title: Welcome!
 description: Landing page for Siverts GitHub Pages blog and portfolio.
 ---

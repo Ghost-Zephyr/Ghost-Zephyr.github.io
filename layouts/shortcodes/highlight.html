@@ -2,4 +2,9 @@
 {{ if .Get 1 }}
   {{ $opts = $opts | append (split (.Get 1) ",") }}
 {{ end }}
-{{ transform.Highlight (htmlUnescape .Inner) (.Get 0) (delimit $opts ",") }}
+{{ $content := .Inner }}
+{{ $in := split .Inner "\n" }}
+{{ if gt (len $in) 1 }}
+{{ $content = (delimit (after 1 $in) "\n") }}
+{{ end }}
+{{ transform.Highlight (htmlUnescape $content) (.Get 0) (delimit $opts ",") }}

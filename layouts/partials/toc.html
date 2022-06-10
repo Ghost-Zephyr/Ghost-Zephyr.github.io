@@ -1,21 +1,32 @@
 <aside id='meta'>
   <header>
-    <h4>{{ or (.Param "tit") .Title | humanize }}</h4>
+    <h4>{{ or (.Param "tit") .Title }}</h4>
     <p>
-      {{ i18n "readingTime" .ReadingTime }}.
       {{ i18n "wordCount" .WordCount }}.
+      {{ i18n "readingTime" .ReadingTime }}.
     </p>
   </header>
   {{ if .Param "docs" }}
-  <h6>Documentation:</h6>
+  <h5>Documentation:</h5>
   <ul>
   {{ range .Param "docs" }}
-    <li><a href='{{ .url }}' target='_blank'>{{ .name }}</a></li>
+  <li><a href='{{ .url }}' target='_blank'>{{ .name }}</a></li>
   {{ end }}</ul>{{ end }}
   {{ with .Param "git" }}
     <p>Check out the git repo; <a href='{{ .url }}'>{{ .name }}</a>!</p>
   {{ end }}
-  <h6>Table of Contents:</h6>
-  {{ .TableOfContents }}
+  {{ $toc := .TableOfContents }}
+  {{ if ne $toc "<nav id=\"TableOfContents\"></nav>" }}
+    <h6>Table of Contents:</h6>
+    {{ $toc }}
+  {{ end }}
   {{ partial "i18n/list.html" . }}
+  {{ if and (ne (len .Pages) 0) $.IsNode }}
+  <h5>Posts:</h5>
+  <ul>
+  {{ range .Pages }}
+    <li><a href='{{ .RelPermalink }}' target='_top'>{{ .Title }}</a></li>
+  {{ end }}
+  </ul>
+  {{ end }}
 </aside>

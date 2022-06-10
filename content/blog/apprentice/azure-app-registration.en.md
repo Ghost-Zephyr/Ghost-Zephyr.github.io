@@ -67,3 +67,6 @@ If it's a tenant admin that's logging in that person may click the check for gra
 Small and simple powershell script for adding the "service principal" to a tenant;
 
 {{< highlight powershell >}}{{% asset "/apprentice/azure/service-principal.ps1" %}}{{< /highlight >}}
+
+After the service principal is created in the Azure AD tenant with users that's going to consume the app.
+Admins may set "App Roles" per user under "Enterprise Applications" in Azure.

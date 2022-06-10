@@ -5,7 +5,7 @@ aliases: []
 categories: ['meta']
 series: []
 tags: ['info','meta']
-toc: false
+toc: true
 title: Siverts Tech Adventure Blog
 description: Landing page for Siverts Tech Adventure Blog!
 ---

@@ -2,8 +2,7 @@
 {{- $lastmod := .Lastmod.Format "02/01/2006" }}
 <article>
   <div>
-    <!-- <h3><a href='{{ .RelPermalink }}'>{{ .Title }}</a></h3> -->
-    <h3>{{ .Title | humanize }}</h3>
+    <h3>{{ .Title }}</h3>
     {{ i18n "published" }} {{ $pubdate }}
     {{ if ne $pubdate $lastmod }}
     {{ i18n "modified" }} {{ $lastmod }}

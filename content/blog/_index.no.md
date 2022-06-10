@@ -5,7 +5,7 @@ aliases: []
 categories: ['meta']
 series: []
 tags: ['info','meta']
-toc: false
+toc: true
 title: Siverts Teknologi Evenetyr Blog
 description: Landingsside for Siverts Teknologi Evenetyr Blog!
 ---

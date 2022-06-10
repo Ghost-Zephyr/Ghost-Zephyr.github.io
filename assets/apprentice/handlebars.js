@@ -46,7 +46,6 @@ Handlebars.registerPartial('people', `
   {{#each members}}
   <li>{{name}} age {{age}} from {{home}}</li>
   {{/each}}
-  balle!
 </ul>`)
 
 // Calling non-existent partials with block syntax uses the block content as fallback

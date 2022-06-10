@@ -5,7 +5,7 @@ aliases: []
 categories: ['meta']
 series: []
 tags: ['info','meta']
-toc: false
+toc: true
 title: Siverts Technisch Avontuur Blog
 description: Bestemmingspagina voor Siverts Siverts Technisch Avontuur Blog!
 ---

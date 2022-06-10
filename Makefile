@@ -36,5 +36,7 @@ debug:
 	$(DEV) --debug
 clean: clean_pub
 	rm -fr resources/ hugo_stats.json .hugo_build.lock
+clean_js: clean
+	rm -fr node_modules/ yarn.lock
 clean_pub:
 	rm -fr public/
