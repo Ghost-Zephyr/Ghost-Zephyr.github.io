@@ -5,7 +5,7 @@ aliases: []
 categories: ['meta']
 series: []
 tags: ['info', 'meta']
-toc: false
+toc: true
 title: Velkommen!
 description: Landings side for Siverts GitHub Pages blog og portefølje.
 ---

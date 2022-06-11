@@ -1,6 +1,6 @@
 {{ if .IsTranslated }}<h6>{{ T "translations" }}:</h6>
 <ul>{{ range .Translations }}
   <li>
-    <a href='{{ .RelPermalink }}'>{{ .Lang }}: {{ .Title }}{{ if .IsPage }} ({{ i18n "wordCount" . }}){{ end }}</a>
+    <a href='{{ .RelPermalink }}'>{{ .Language.LanguageName }}: {{ .Title }}{{ if .IsPage }} ({{ i18n "wordCount" . }}){{ end }}</a>
   </li>{{ end }}
 </ul>{{ end }}

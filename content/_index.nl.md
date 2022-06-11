@@ -5,7 +5,7 @@ aliases: []
 categories: ['meta']
 series: []
 tags: ["Info","Meta"]
-toc: false
+toc: true
 title: Welkom!
 description: Bestemmingspagina voor Siverts GitHub Pages blog en portfolio.
 ---
