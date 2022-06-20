@@ -12,7 +12,7 @@ description: This part of my blog is a collection of things I've learned as an a
 
 This section of my blog serves as an index of technologies I've learned or became better at as an apprentice working in IT. :grinning:
 
-It also serves the purpose of the required documentation Apprentices in Norway are supposed to do. :flushed:
+It also serves the purpose of the required documentation apprentices in Norway are supposed to do. :flushed:
 
 Here are lists of stuff I'll be writing about here;
 
@@ -26,6 +26,7 @@ Here are lists of stuff I'll be writing about here;
 - Handlebars.js :wavy_dash:
 
 ## Programs / Tools
+- Docker :smiling_face_with_hearts:
 - FreeRADIUS :crystal_ball:
 - Postgres :floppy_disk:
 - Ansible :gun:

@@ -5,6 +5,6 @@
 {{ $content := .Inner }}
 {{ $in := split .Inner "\n" }}
 {{ if gt (len $in) 1 }}
-{{ $content = (delimit (after 1 $in) "\n") }}
+{{ $content = (delimit (after 2 $in) "\n") }}
 {{ end }}
 {{ transform.Highlight (htmlUnescape $content) (.Get 0) (delimit $opts ",") }}

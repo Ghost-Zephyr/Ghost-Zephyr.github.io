@@ -1,0 +1,5 @@
+<div class='block'>
+{{ range (after 1 (split .Inner "\n")) }}
+<p>{{ markdownify . }}</p>
+{{ end }}
+</div>

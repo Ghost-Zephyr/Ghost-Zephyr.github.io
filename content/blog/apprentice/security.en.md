@@ -67,7 +67,29 @@ class AccessControl:
 
 To fix this issue.
 
+If you wonder why we "raise Forbidden".
+It has to do with the endpoint decorator which will catch all errors.
+And will report them to us by e-mail and a slack bot.
+The HTTP response will be error 500 if it's a Python error.
+But if it's one of our own error classes that's been raised.
+Then an error code, description and status code will be taken from that exception class and sent as the response.
+
+#### Funny
+Something I find kinda funny is the fact that those exception descriptions are in English, but the admin frontend is entirely in Norwegian only.
+It's even got a big ass JavaScript file that maps all the error codes to messages.
+And the best part about that whole situation is the fact that my boss/the sales guy at the company wants to sell our services outside Norway...
+The only part that supports multiple languages is the actual captive portal, but even that has a bug which makes it so that only two languages can be active at one time.
+
+#### Minor
+One minor issue I found in our production system is the password for the "system" account.
+The password for that account is a real shitty one that I've seen used several palaces at the company.
+It's even been used as a Wi-Fi password.
+To fix this one very easily I just enabled 2FA on the account.
+But the whole account should probably just be deleted as nobody ever uses it.
+
 ### Servers
+{{< img src="apprentice/skyid/old-intrauser-key.png" caption="The old intrauser ssh key" >}}
+
 On the other side, the cloud servers had some bigger problems.
 Here I did find a *BIG* security issue. Ancient ssh keys.
 We use Ansible to manage the servers and deploy code updates.
@@ -80,7 +102,6 @@ The reason this is such a big threat is the fact that intrauser, ansible and all
 
 So check it; these screenshots are from SkyLabs' Ansible git log!~
 
-{{< img src="apprentice/skyid/old-intrauser-key.png" caption="The old intrauser ssh key" >}}
 {{< img src="apprentice/skyid/intrauser-key.png" caption="Me finally updating the key" >}}
 
 ## Sircon

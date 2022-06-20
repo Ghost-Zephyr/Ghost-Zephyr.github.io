@@ -12,6 +12,9 @@ footer {
 }
 
 figure {
+  width: 42%;
+  float: right;
+  margin: 0 16px;
   figcaption {
     font-style: italic;
   }
@@ -82,4 +85,8 @@ figure {
 }
 #lang-menu:hover ul {
   display: block;
+}
+
+.block p {
+  margin: 0;
 }
