@@ -3,4 +3,4 @@ The Azure App Registration page The first thing to do now is &amp;ldquo;Branding
 Personally I&amp;rsquo;ve only found pug templates very nice to work with as I love the minimal syntax.
 What makes handlebars cool is it&amp;rsquo;s ability to render templates both server and client side, if you&amp;rsquo;re running node.js on the server.
 Running it in the frontend is super easy, check this example from the handlebars docs;
-1 2 3 4 5 6 &amp;lt;script&amp;gt; // compile the template var template = Handlebars.</description></item></channel></rss>
+1 2 3 4 5 6 7 &amp;lt;script src=&amp;#39;https://cdn.</description></item></channel></rss>
