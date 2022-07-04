@@ -7,5 +7,7 @@ series: ['apprentice', 'expose']
 tags: ['apprentice', 'expose', 'various']
 toc: true
 title: Sircon
-description: 
+description: My experience as an apprentice working for the hosting company Sircon
 ---
+
+

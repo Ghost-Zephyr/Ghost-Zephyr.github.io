@@ -13,6 +13,7 @@ docs:
 - url: https://handlebarsjs.com/guide/
   name: Handlebars official guide
 ---
+
 Handlebars.js is a templating engine like jinja2, but entirely in JavaScript.
 
 Personally I've only found pug templates very nice to work with as I love the minimal syntax.

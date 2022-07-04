@@ -7,5 +7,6 @@ series: []
 tags: ['various']
 toc: true
 title: Meraki
-description: 
+description: Cisco Meraki basics and captive portal setup
 ---
+

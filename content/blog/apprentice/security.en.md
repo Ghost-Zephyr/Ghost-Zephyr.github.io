@@ -39,31 +39,16 @@ And the fix for it was super easy!~
 
 We use a custom endpoint decorator, like flasks own @app.route, but we control what happens.
 It's here the authentication is implemented, on all requests that go to routes defined with this decorator will run the Access Control controller.
-Access Control goes through the auth options in it's dunder init function and sets self.current_user to some admin user from the database.
+Access Control goes through the auth options in its dunder init function and sets self.current_user to some admin user from the database.
 To fix the problem I could've made this check specific to the API keys by putting it in the API key controller that also has a user getter function.
 But I chose to add an if statement to the Access Control user getter, this is called by our endpoint decorator.
 So I literally just changed this.
 
-{{< highlight py >}}
-class AccessControl:
-  current_user = None
-  ...
-  def get_current_user(self):
-    return self.current_user
-{{< /highlight >}}
+{{< highlight py >}}{{% asset "apprentice/security/accesscontrol.py" %}}{{< /highlight >}}
 
 To that!
 
-{{< highlight py >}}
-class AccessControl:
-  current_user = None
-  ...
-  def get_current_user(self):
-    if self.current_user.deleted is None:
-      return self.current_user
-    else:
-      raise Forbidden
-{{< /highlight >}}
+{{< highlight py >}}{{% asset "apprentice/security/accesscontrol-fix.py" %}}{{< /highlight >}}
 
 To fix this issue.
 
@@ -73,6 +58,12 @@ And will report them to us by e-mail and a slack bot.
 The HTTP response will be error 500 if it's a Python error.
 But if it's one of our own error classes that's been raised.
 Then an error code, description and status code will be taken from that exception class and sent as the response.
+
+There is also the case of the JWT secret key that's wayyy too small.
+And not changed since it was introduced in the admin API.
+Old keys is a theme on SkyLabs servers.
+
+I'm surprised no one, as far as we know anyway, has broken into the servers yet.
 
 #### Funny
 Something I find kinda funny is the fact that those exception descriptions are in English, but the admin frontend is entirely in Norwegian only.
@@ -96,13 +87,26 @@ We use Ansible to manage the servers and deploy code updates.
 There is an Ansible var file that has a list of user accounts with options for shell and ssh pubkey.
 That file also has a list of old accounts that should be deleted.
 These are per employee users.
-But the intrauser and ansible users have existed since 2016...
+But the intrauser and Ansible users have existed since 2016...
 using the same keys that they were created with.
-The reason this is such a big threat is the fact that intrauser, ansible and all employee accounts has sudo access without password.
+The reason this is such a big threat is the fact that the Ansible and all employee accounts has sudo access without password.
+
+The intrauser does actually have a password set, but it may use sudo without password when running rsync.
+And the thing is, [gtfobins](https://gtfobins.github.io/) has a privilege escalation exploit for rsync that our servers are vulnerable to.
 
 So check it; these screenshots are from SkyLabs' Ansible git log!~
 
 {{< img src="apprentice/skyid/intrauser-key.png" caption="Me finally updating the key" >}}
+
+And it's even worse... as it turns out the OpenVPN setup also has keys from guess when!
+That's right! 2016...
+So even if you only got access to the intrauser, it's super easy getting local privilege escalation on the servers.
+
+To be honest I'm quite surprised the servers hasn't been pwnd big time!
+
+As I've in fact proven that any ex-employee that has a copy of our Ansible repo could easily forge OpenVPN client keys and certificates.
+And also got full root access over ssh anyway.
+Just add a little [Tor](https://torproject.org/) magic on top of that, and you got full access to all the servers without us being able to trace it back...
 
 ## Sircon
 These guys has a few beefy ass physical servers in their own rack in a supposedly EMP and fire safe room in the basement of their offices.
@@ -123,10 +127,7 @@ As they don't allow ssh access and PHP is configured to not allow anything dange
 
 Example .htaccess to run cgi scripts.
 
-{{< highlight apache >}}
-Options +ExecCGI
-AddHandler cgi-script .cgi .pl .py .sh .rb
-{{< /highlight >}}
+{{< highlight apache >}}{{% asset "apprentice/security/htaccess" %}}{{< /highlight >}}
 
 The fix for this is the [AllowOverride](https://httpd.apache.org/docs/current/mod/core.html#allowoverride) directive.
 Just make sure it does not include "FileInfo".

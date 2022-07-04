@@ -6,6 +6,7 @@ categories: ['various']
 series: []
 tags: ['various']
 toc: true
-title: Freeradius
-description: 
+title: FreeRADIUS
+description: FreeRADIUS basics and some bad production configs I've had to work with
 ---
+

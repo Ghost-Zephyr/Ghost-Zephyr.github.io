@@ -1,0 +1,9 @@
+<video
+  width='{{ with.Get 2 }}{{ . }}{{ else }}100%{{ end }}'
+  height='{{ with .Get 3 }}{{ . }}{{ else }}100%{{ end }}'
+  {{ with .Get 1 }}{{ . }}{{ else }}controls{{ end }}>
+  {{ with resources.Get (.Get 0) }}
+  <source src='{{ .RelPermalink }}' type='{{ .MediaType }}'>
+  {{ end }}
+  <b>Your browser does not support the video tag!</b>
+</video>
