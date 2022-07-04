@@ -1,0 +1,65 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=robots content="index,follow"><link rel=icon href=/favicon.43f6c68e5987db076e48601daac85dfba66e01168edec1e4f647d38c81d67c6b.ico integrity='sha256-Q/bGjlmH2wduSGAdqshd+6ZuARaO3sHk9kfTjIHWfGs='><meta name=viewport content="width=device-width,initial-scale=1"><meta name=twitter:card content="summary"><meta property="og:title" content="Sivert Does Stuff Online!"><meta property="og:url" content="https://io.sivert.pw"><meta property="og:site_name" content="Sivert Does Stuff Online!"><meta name=generator content="Hugo 0.101.0"><link rel=stylesheet href=https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css crossorigin=anonymous><title>Sivert Does Stuff Online! - Azure App Registration</title><meta name=description content="How to register apps that consume the Microsoft API's in Azure"><link href='/chroma.min.b7cbccb1554b70a7ffff2ffa00c8ce8e6cc8506a98c47088b8ec08515e93d4b9.css' integrity="sha256-t8vMsVVLcKf//y/6AMjOjmzIUGqYxHCIuOwIUV6T1Lk=" rel=stylesheet><link href='/main.min.abc3f15c52621b3d8bc1c4c12f409eae9e459cf3703963b8b2d7bb5372658ea2.css' integrity="sha256-q8PxXFJiGz2LwcTBL0Cerp5FnPNwOWO4ste7U3JljqI=" rel=stylesheet></head><body><header><nav id=navbar><ul class=top-nav><li><a href=/>Sivert Does Stuff Online!</a></li><li><a href=/blog/apprentice><span>Apprentice docs</span></a></li><div class=link-group><li><a href=https://sivert.pw><span>My Humble Homepage</span></a></li><li><a href=/old><span>Old GitHub.io</span></a></li><li><a href=/about><span>About</span></a></li><li><a href=/blog><span>Blog</span></a></li></div></ul></nav></header><div id=content><main><div class=row><div class=col-md-2><aside id=meta><header><h4>Azure App Registration</h4><p>This article has 706 words.
+4 minutes to read.</p></header><h6>Table of Contents:</h6><nav id=TableOfContents><ul><li><a href=#microsoft-partner-network-id>Microsoft Partner Network ID</a></li><li><a href=#certificates--secrets>Certificates & secrets</a></li><li><a href=#api-permissions>API permissions</a></li><li><a href=#service-principals>Service principals</a></li></ul></nav></aside></div><div class=col-md-10><article><header><h1>Azure App Registration</h1></header><p>You can find the App Registrations in Azure under Azure AD or directly by search.
+Once there you can click the &ldquo;New registration&rdquo; button on the top left.
+Then you&rsquo;ll need to fill in name, account types and optionally a redirect URI.</p><figure><a href=/apprentice/azure/app-registry.a561abf932397fe28b7852077204812fefb3475ccab079b07557eec3d5eb0d75.png target=_blank><img src=/apprentice/azure/app-registry.a561abf932397fe28b7852077204812fefb3475ccab079b07557eec3d5eb0d75.png integrity='sha256-pWGr+TI5f+KLeFIHcgSBL++zR1zKsHmwdVfuw9XrDXU=' alt='The Azure App Registration page'></a><figcaption><p>The Azure App Registration page</p></figcaption></figure><p>The first thing to do now is &ldquo;Branding & properties&rdquo;&mldr; haha.
+The app authenticates towards Microsoft with either a certificate or app secrets.
+So the actual first thing to do is to go over the &ldquo;Authentication&rdquo; tab, just check that all looks good.</p><h2 id=microsoft-partner-network-id>Microsoft Partner Network ID</h2><p>This is needed for newly created apps after 9th of November 2020 to prevent abuse.
+For this you&rsquo;ll need to add a &ldquo;verified publisher domain&rdquo; to the Azure Active Directory.
+This is the same as &ldquo;Custom domain names&rdquo; in Azure AD.
+They&rsquo;re usually added by TXT or MX DNS records.
+But may be added pretty easily with a simple .well-known/ http challenge.
+Although when doing the http challenge the domain won&rsquo;t become a custom domain name for the Azure AD tenant.
+But rather bound to the specific app in question.</p><p>After that the actual MPN ID comes from the MPN, Microsoft Partner Network.
+To get it you&rsquo;ll need to go to the <a href=https://partner.microsoft.com/ target=_blank>Microsoft Partner Center</a> and register your organization.
+You&rsquo;ll get verified after a week or two and then able to find this MPN ID under Account settings > Organization profile > Identifiers in the <a href=https://partner.microsoft.com/ target=_blank>Microsoft Partner Center</a>.</p><p>If you ever need to do this then <a href=https://docs.microsoft.com/en-us/azure/active-directory/develop/troubleshoot-publisher-verification target=_blank>this</a> may be very useful.</p><h2 id=certificates--secrets>Certificates & secrets</h2><p>After that go to &ldquo;Certificates & secrets&rdquo;.
+Microsoft always recommends using certificates for getting access codes.
+But the normal secrets are easier to configure.</p><p>Using certificates is best if your app has good support so that all you need to do is download a cert from the server and upload that to Azure.
+So either do that or add a &ldquo;New client secret&rdquo;.
+The client secrets will have both the secret and an id, both are needed for authorization.
+When you create these you&rsquo;ll need to store them safely and put them wherever the app gets them from.</p><h2 id=api-permissions>API permissions</h2><p>And the last thing we need to configure in Azure are the API permissions for the app.
+When adding a permission for the app you&rsquo;ll first need to choose what API you need access to.
+And then what permissions that are needed for that API.
+For apps that integrate with Microsoft services the &ldquo;Microsoft Graph&rdquo; API is likely where you&rsquo;ll find most needed permissions.
+There is also the difference of &ldquo;Application&rdquo; and &ldquo;Delegated&rdquo; permissions.
+The Application permissions is for the app itself and need to be granted by the owner of the app.
+Whereas Delegated permissions are the ones that add stuff to the consent form, these lets the app do API requests on behalf of the end user and need to be granted by the end user or through admin consent.</p><figure><a href=/apprentice/azure/api-permissions.9e549611ebc325c0c44789200c47ea90365d7e8e552126b50548f0170967da29.png target=_blank><img src=/apprentice/azure/api-permissions.9e549611ebc325c0c44789200c47ea90365d7e8e552126b50548f0170967da29.png integrity='sha256-nlSWEevDJcDER4kgDEfqkDZdfo5VISa1BUjwFwln2ik=' alt='Azure API permissions'></a><figcaption><p>Azure API permissions</p></figcaption></figure><h2 id=service-principals>Service principals</h2><p>Now to the hard part I guess.
+You&rsquo;ll need a &ldquo;service principal&rdquo; for the app in your tenant to authenticate with it.
+This will get created on first login if it&rsquo;s not done already.
+Automatic creation happens when you get that consent thing after logging in telling the end user what permissions the app requires.
+If it&rsquo;s a tenant admin that&rsquo;s logging in that person may click the check for granting the permissions &ldquo;On behalf of Organization, this is &ldquo;admin consent&rdquo; and makes it so individual users in that tenant don&rsquo;t need to consent when logging in.</p><p>Small and simple powershell script for adding the &ldquo;service principal&rdquo; to a tenant;</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-powershell data-lang=powershell><span class=line><span class=cl><span class=k>param</span><span class=p>(</span><span class=no>[String]</span><span class=nv>$tid</span><span class=p>=</span><span class=s1>&#39;&#39;</span><span class=p>,</span> <span class=no>[String]</span><span class=nv>$app</span><span class=p>=</span><span class=s1>&#39;&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>if</span> <span class=p>(</span><span class=nv>$tid</span> <span class=o>-eq</span> <span class=s1>&#39;&#39;</span> <span class=n>or</span> <span class=nv>$app</span> <span class=o>-eq</span> <span class=s1>&#39;&#39;</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nv>$name</span> <span class=p>=</span> <span class=no>[Environment]</span><span class=p>::</span><span class=n>GetCommandLineArgs</span><span class=p>()[</span><span class=n>0</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>  <span class=nb>Write-Host</span> <span class=s2>&#34;Usage: pwsh $name -tid [tenant id] -app [app id]&#34;</span>
+</span></span><span class=line><span class=cl>  <span class=n>exit</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nb>Set-ExecutionPolicy</span> <span class=n>-ExecutionPolicy</span> <span class=n>RemoteSigned</span> <span class=n>-Scope</span> <span class=k>Process</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>if</span> <span class=p>((</span><span class=nb>Get-module</span> <span class=n>-ListAvailable</span> <span class=n>-name</span> <span class=s1>&#39;AzureAD&#39;</span><span class=p>)</span> <span class=o>-eq</span> <span class=nv>$null</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nb>Install-Module</span> <span class=s1>&#39;AzureAD&#39;</span> <span class=n>-Scope</span> <span class=n>CurrentUser</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nb>Import-Module</span> <span class=n>AzureAD</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nb>Connect-AzureAD</span> <span class=n>-TenantID</span> <span class=s2>&#34;$tid&#34;</span>
+</span></span><span class=line><span class=cl><span class=nb>New-AzureADServicePrincipal</span> <span class=n>-AppId</span> <span class=s2>&#34;$app&#34;</span></span></span></code></pre></td></tr></table></div></div><p>After the service principal is created in the Azure AD tenant with users that&rsquo;s going to consume the app.
+Admins may set &ldquo;App Roles&rdquo; per user under &ldquo;Enterprise Applications&rdquo; in Azure.</p></article></div></div></main></div><footer><center><div class=footer-content><p>2020 - 2022 &copy; Sivert V. Sæther</p></div></center></footer></body></html>
