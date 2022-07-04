@@ -6,16 +6,6 @@ Allow: /categories/exploit/
 Allow: /series/hacking/
 Allow: /series/
 Allow: /tags/
-Allow: /categories/apprentice/
-Allow: /tags/apprentice/
-Allow: /series/security/
-Allow: /blog/apprentice/security/
-Allow: /tags/tech/
-Allow: /series/apprentice/
-Allow: /blog/apprentice/azure-app-registration/
-Allow: /categories/documentation/
-Allow: /tags/javascript/
-Allow: /blog/apprentice/handlebars/
 Allow: /tags/chat/
 Allow: /categories/docker/
 Allow: /series/docker/
@@ -24,9 +14,7 @@ Allow: /blog/matrix/
 Allow: /series/opsec/
 Allow: /tags/social/
 Allow: /categories/tech/
-Allow: /categories/indices/
-Allow: /blog/apprentice/
-Allow: /categories/meta/
+Allow: /tags/tech/
 Allow: /no/categories/
 Allow: /no/tags/info/
 Allow: /no/categories/meta/
@@ -38,6 +26,7 @@ Allow: /about/
 Allow: /nl/categories/
 Allow: /tags/info/
 Allow: /nl/tags/info/
+Allow: /categories/meta/
 Allow: /tags/meta/
 Allow: /nl/categories/meta/
 Allow: /nl/tags/meta/
