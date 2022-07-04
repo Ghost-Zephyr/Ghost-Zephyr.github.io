@@ -1,6 +1,6 @@
 ---
 date: 2022-06-07T07:15:51Z
-draft: false
+draft: true
 aliases: []
 categories: ['apprentice']
 series: ['hacking', 'security']

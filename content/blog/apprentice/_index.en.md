@@ -1,6 +1,6 @@
 ---
 date: 2022-04-05T18:33:08Z
-draft: true
+draft: false
 aliases: []
 categories: ['apprentice', 'indices', 'meta']
 series: ['apprentice']
