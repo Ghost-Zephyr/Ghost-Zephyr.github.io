@@ -15,32 +15,34 @@ This section of my blog serves as an index of technologies I've learned or becam
 It also serves the purpose of the required documentation apprentices in Norway are supposed to do. :flushed:
 
 Here are lists of stuff I'll be writing about here;
+:x: not started :construction: marks work in progress :white_check_mark: marks complete!
 
 ## Programming
 ### Python
-- Flask :baby_bottle:
-- SQLAlchemy :sake:
-- MSAL (Microsoft Authentication Library) :banjo:
+- :x: Flask :baby_bottle:
+- :x: SQLAlchemy :sake:
+- :construction: MSAL (Microsoft Authentication Library) :banjo:
 ### Browser JavaScript
-- jQuery :calling:
-- Handlebars.js :wavy_dash:
+- :x: jQuery :calling:
+- :construction: Handlebars.js :wavy_dash:
 
 ## Programs / Tools
-- Docker :smiling_face_with_hearts:
-- FreeRADIUS :crystal_ball:
-- Postgres :floppy_disk:
-- Ansible :gun:
+- :construction: Fail2ban :hammer:
+- :construction: Docker :smiling_face_with_hearts:
+- :x: FreeRADIUS :crystal_ball:
+- :x: Postgres :floppy_disk:
+- :construction: Ansible :gun:
 
 ## OS / Networking
-- Debian :dolls:
-- Mikrotik :package:
-- Cisco Meraki :cloud:
+- :x: Debian :dolls:
+- :construction: Mikrotik :package:
+- :x: Cisco Meraki :cloud:
 
 ## Azure
-- App Registration :rocket:
-- Active Directory :dizzy:
+- :white_check_mark: App Registration :rocket:
+- :x: Active Directory :dizzy:
 
 ## The WHM saga (shortie)
-- Wordpress :eyes:
-- cPanel :shit:
-- WHM :ok_hand:
+- :construction: Wordpress :eyes:
+- :construction: cPanel :shit:
+- :construction: WHM :ok_hand:

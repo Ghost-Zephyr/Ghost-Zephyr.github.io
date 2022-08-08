@@ -11,3 +11,4 @@ title: cPanel
 description: cPanel is a server interface provided by many hosting providers for web based management of the servers by their customers
 ---
 
+I think anyone who uses cPanel should be aware of [WHM](../whm).

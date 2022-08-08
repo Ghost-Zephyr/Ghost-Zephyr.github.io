@@ -19,7 +19,7 @@ As in Norway the company needs to be registered, with one guy who is supposed to
 And another one whom which the apprentices may go to if any issue in the workplace should appear.
 
 All of this was for sure very lacking in both companies.
-And it feels like I was just a normal employee that got payed like :poop:.
+And it feels like I was just a normal employee that got pay'd like :poop:.
 
 ## Timeline
 In chronological order I got approved at Sircon kinda late, after we were done at school and most of the class already working.
@@ -32,7 +32,7 @@ That was kinda nice actually, and I probably should've just gone through with it
 Cause then I'd have my papers after only one year.
 Whereas a normal apprenticeship in Norway is two years in almost all fields.
 This alternative was also pretty fun.
-Because my teacher let me work on whatever, as long as it was IT focused and I documented it.
+Because my teacher let me work on whatever, as long as it was IT focused, and I documented it.
 
 The reason I still went to SkyLabs after all that is mostly money...
 Which also happens to seem like the root of my biggest problems at that company...

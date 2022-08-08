@@ -11,3 +11,4 @@ title: WHM
 description: Web Host Manager, this is the secret sauce for many companies that do shared Linux server web hosting with cPanel
 ---
 
+WHM/Web Host Manager is the partner/backend admin panel for [cPanel](../cpanel).
