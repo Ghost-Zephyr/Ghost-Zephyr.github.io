@@ -15,7 +15,7 @@ This section of my blog serves as an index of technologies I've learned or becam
 It also serves the purpose of the required documentation apprentices in Norway are supposed to do. :flushed:
 
 Here are lists of stuff I'll be writing about here;
-:x: not started :construction: marks work in progress :white_check_mark: marks complete!
+:x: marks not started :construction: marks work in progress :white_check_mark: marks complete!
 
 ## Programming
 ### Python
@@ -43,6 +43,6 @@ Here are lists of stuff I'll be writing about here;
 - :x: Active Directory :dizzy:
 
 ## The WHM saga (shortie)
-- :construction: Wordpress :eyes:
-- :construction: cPanel :shit:
-- :construction: WHM :ok_hand:
+- :white_check_mark: Wordpress :eyes:
+- :white_check_mark: cPanel :shit:
+- :white_check_mark: WHM :ok_hand:

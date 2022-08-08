@@ -1,11 +1,11 @@
 ---
 date: 2022-06-20T14:06:54Z
-draft: true
+draft: false
 aliases: []
 categories: ['documentation']
 series: ['apprentice', 'cms']
 tags: ['wordpress', 'tech', 'cms']
-chroma: false
+chroma: true
 toc: true
 title: WordPress
 description: The worlds most popular and whackiest web page Content Management System
@@ -45,3 +45,9 @@ When it comes to securing a WordPress setup, it's important to make sure the act
 Here I'll showcase some example nginx and Apache configs for a hardened WordPress installation.
 If your WordPress is installed in some shared hosting solution.
 Then it's up to the hosting provider to configure the web server and potentially php-fpm or something properly.
+
+Nginx site for hardened WordPress;
+{{< highlight nginx >}}{{% asset "apprentice/wordpress/nginx.conf" %}}{{< /highlight >}}
+
+Apache virtual host directives for a simillar setup;
+{{< highlight aconf >}}{{% asset "apprentice/wordpress/apache.conf" %}}{{< /highlight >}}
