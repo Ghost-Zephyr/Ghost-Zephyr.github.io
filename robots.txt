@@ -18,6 +18,14 @@ Allow: /blog/apprentice/security/
 Allow: /tags/cloud/
 Allow: /blog/apprentice/msal/
 Allow: /series/programming/
+Allow: /series/hosing/
+Allow: /tags/hosting/
+Allow: /blog/apprentice/whm/
+Allow: /blog/apprentice/cpanel/
+Allow: /series/cms/
+Allow: /tags/cms/
+Allow: /tags/wordpress/
+Allow: /blog/apprentice/wordpress/
 Allow: /blog/apprentice/docker-fix/
 Allow: /categories/various/
 Allow: /tags/various/
@@ -26,7 +34,6 @@ Allow: /categories/docker/
 Allow: /tags/docker/
 Allow: /blog/apprentice/docker/
 Allow: /tags/programming/
-Allow: /blog/apprentice/mikrotik/
 Allow: /blog/duolingo-xp-exploit/
 Allow: /categories/exploit/
 Allow: /blog/apprentice/ansible/
