@@ -9,8 +9,9 @@
   <h3>Posts</h3>
   <ul class='contents'>
   {{ range .Pages }}
-    <br />
-    <a href='{{ .RelPermalink }}'><li>{{ partial "summary.html" . }}</li></a>
+  <li><a href='{{ .RelPermalink }}'>
+    {{ partial "summary.html" . }}
+  </a></li>
   {{ end }}
   </ul>
   {{ end }}

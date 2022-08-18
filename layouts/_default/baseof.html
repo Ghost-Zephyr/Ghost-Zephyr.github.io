@@ -1,13 +1,27 @@
 <!DOCTYPE html>
-<html lang='en'>
+<html lang='{{ .Language.Lang }}'>
 <head>
   <meta charset='UTF-8'>
   <meta name='robots' content='index,follow'>
-  {{ with resources.Get "favicon.ico" | resources.Fingerprint }}
-    <link rel='icon' href='{{ .RelPermalink }}' integrity='{{ .Data.Integrity }}' />
+  {{ if isset .Params "title" }}
+    <title>{{ site.Title }} - {{ .Title }}</title>
+  {{ else }}
+    <title>{{ site.Title }}</title>
   {{ end }}
+  {{ if .Description }}
+    <meta name='description' content='{{ .Description }}'>
+  {{ end }}
+  {{ with resources.Get "favicon.png" }}
+    {{ with . | fingerprint }}
+      <link rel='icon' href='{{ .RelPermalink }}' integrity='{{ .Data.Integrity }}' />
+    {{ end }}
+    {{ with .Resize "192x192 png" | fingerprint }}
+      <link rel="apple-touch-icon" href="{{ .RelPermalink }}"  integrity='{{ .Data.Integrity }}' />
+    {{ end }}
+  {{ end }}
+  <meta name='viewport' content='width=device-width,initial-scale=1.0'>
+  <meta name="theme-color" content="#00FF00" />
   {{ block "meta" . }}
-    <meta name='viewport' content='width=device-width,initial-scale=1.0'>
   {{ end }}
   <meta name='twitter:card' content='summary'>
   <meta property='og:title' content='{{ site.Title }}' />
@@ -19,14 +33,6 @@
     {{ printf `<link rel='%s' type='%s' href='%s' title='%s' />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
   {{ end -}}
   <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css' crossorigin='anonymous'>
-  {{ if isset .Params "title" }}
-    <title>{{ site.Title }} - {{ .Title }}</title>
-  {{ else }}
-    <title>{{ site.Title }}</title>
-  {{ end }}
-  {{ if .Description }}
-    <meta name='description' content='{{ .Description }}'>
-  {{ end }}
   {{ block "head" . }}{{ end }}
   {{ if .Param "chroma" }}
     {{ with resources.Get "chroma.scss" | toCSS | minify | fingerprint | resources.PostProcess }}

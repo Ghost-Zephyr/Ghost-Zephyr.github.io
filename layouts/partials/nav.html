@@ -8,7 +8,8 @@
     {{ range .Site.Menus.left }}
     {{ partial "menu" . }}
     {{ end }}
-    <div class='link-group'>
+    <li id='right'>
+      <ul>
       {{ range .Site.Menus.main }}
       {{ partial "menu" . }}
       {{ end }}
@@ -16,6 +17,7 @@
           <img class='icons' src='/search-icon.svg'>
         </a>
       </li> -->
-    </div>
+      </ul>
+    </li>
   </ul>
 </nav>

@@ -1,13 +1,11 @@
 {{- $pubdate := .PublishDate.Format "02/01/2006" }}
 {{- $lastmod := .Lastmod.Format "02/01/2006" }}
 <article>
-  <div>
-    <h3>{{ .Title }}</h3>
-    {{ i18n "published" }} {{ $pubdate }}
-    {{ if ne $pubdate $lastmod }}
-    {{ i18n "modified" }} {{ $lastmod }}
-    {{ end }}<br />
-    {{ .Summary }}
-    {{ if .Truncated }}{{ i18n "readMore" }}...{{ end }}
-  </div>
+  <p class="heading">{{ .Title }}</p>
+  {{ i18n "published" }} {{ $pubdate }}
+  {{ if ne $pubdate $lastmod }}
+  {{ i18n "modified" }} {{ $lastmod }}
+  {{ end }}<br />
+  {{ .Summary }}
+  {{ if .Truncated }}{{ i18n "readMore" }}...{{ end }}
 </article>
