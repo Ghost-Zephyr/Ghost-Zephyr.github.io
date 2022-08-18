@@ -49,5 +49,5 @@ Then it's up to the hosting provider to configure the web server and potentially
 Nginx site for hardened WordPress;
 {{< highlight nginx >}}{{% asset "apprentice/wordpress/nginx.conf" %}}{{< /highlight >}}
 
-Apache virtual host directives for a simillar setup;
+Apache/LiteSpeed virtual host directives for a simillar setup;
 {{< highlight aconf >}}{{% asset "apprentice/wordpress/apache.conf" %}}{{< /highlight >}}
