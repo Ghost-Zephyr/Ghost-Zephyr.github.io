@@ -1,5 +1,6 @@
+{{ $img := resources.Get (.Get "src") }}
 <figure {{ with .Get "class" }}class='{{.}}'{{ end }}>
-  {{ with resources.Get (.Get "src") | fingerprint }}
+  {{ with $img.Resize (printf "%dx webp q69" $img.Width) | fingerprint }}
   <a href='{{ with $.Get "link" }}{{ . }}{{ else }}{{ .RelPermalink }}{{ end }}' target='_blank'>
     <img src='{{ .RelPermalink }}' integrity='{{ .Data.Integrity }}'
       {{ if or ($.Get "alt") ($.Get "caption") }}alt='{{ with $.Get "alt" }}{{ . }}
