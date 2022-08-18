@@ -2,9 +2,13 @@ User-agent: *
 Allow: /series/apprentice/
 Allow: /categories/
 Allow: /categories/documentation/
-Allow: /blog/apprentice/linux-password-reset/
+Allow: /tags/net/
+Allow: /categories/networking/
+Allow: /tags/os/
 Allow: /series/
 Allow: /tags/
+Allow: /blog/apprentice/tzsp2pcap/
+Allow: /blog/apprentice/linux-password-reset/
 Allow: /tags/useful/
 Allow: /categories/various/
 Allow: /tags/various/
@@ -19,6 +23,8 @@ Allow: /series/hacking/
 Allow: /blog/apprentice/security/skylabs/
 Allow: /blog/apprentice/security/sircon/
 Allow: /blog/apprentice/security/
+Allow: /blog/apprentice/debian/
+Allow: /tags/linux/
 Allow: /tags/cloud/
 Allow: /blog/apprentice/msal/
 Allow: /series/programming/
@@ -37,9 +43,6 @@ Allow: /tags/docker/
 Allow: /blog/apprentice/docker/
 Allow: /tags/programming/
 Allow: /blog/apprentice/mikrotik/
-Allow: /tags/net/
-Allow: /categories/networking/
-Allow: /tags/os/
 Allow: /blog/duolingo-xp-exploit/
 Allow: /categories/exploit/
 Allow: /blog/apprentice/ansible/
