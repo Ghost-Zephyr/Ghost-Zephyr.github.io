@@ -15,7 +15,7 @@ You can find the App Registrations in Azure under Azure AD or directly by search
 Once there you can click the "New registration" button on the top left.
 Then you'll need to fill in name, account types and optionally a redirect URI.
 
-{{< img src="apprentice/azure/app-registry.png" caption="The Azure App Registration page" >}}
+{{< img src="apprentice/azure/app-registry.png" caption="The Azure App Registration page" hint=text >}}
 
 The first thing to do now is "Branding & properties"... haha.
 The app authenticates towards Microsoft with either a certificate or app secrets.
@@ -26,8 +26,8 @@ This is needed for newly created apps after 9th of November 2020 to prevent abus
 For this you'll need to add a "verified publisher domain" to the Azure Active Directory.
 This is the same as "Custom domain names" in Azure AD.
 They're usually added by TXT or MX DNS records.
-But may be added pretty easily with a simple .well-known/ http challenge.
-Although when doing the http challenge the domain won't become a custom domain name for the Azure AD tenant.
+But may be added pretty easily with a simple .well-known/ HTTP challenge.
+Although when doing the HTTP challenge the domain won't become a custom domain name for the Azure AD tenant.
 But rather bound to the specific app in question.
 
 After that the actual MPN ID comes from the MPN, Microsoft Partner Network.
@@ -41,7 +41,7 @@ After that go to "Certificates & secrets".
 Microsoft always recommends using certificates for getting access codes.
 But the normal secrets are easier to configure.
 
-Using certificates is best if your app has good support so that all you need to do is download a cert from the server and upload that to Azure.
+Using certificates is the best if your app has good support so that all you need to do is download a cert from the server and upload that to Azure.
 So either do that or add a "New client secret".
 The client secrets will have both the secret and an id, both are needed for authorization.
 When you create these you'll need to store them safely and put them wherever the app gets them from.
@@ -55,7 +55,7 @@ There is also the difference of "Application" and "Delegated" permissions.
 The Application permissions is for the app itself and need to be granted by the owner of the app.
 Whereas Delegated permissions are the ones that add stuff to the consent form, these lets the app do API requests on behalf of the end user and need to be granted by the end user or through admin consent.
 
-{{< img src="apprentice/azure/api-permissions.png" caption="Azure API permissions" >}}
+{{< img src="apprentice/azure/api-permissions.png" caption="Azure API permissions" hint=text >}}
 
 ## Service principals
 Now to the hard part I guess.
@@ -66,7 +66,7 @@ If it's a tenant admin that's logging in that person may click the check for gra
 
 Small and simple powershell script for adding the "service principal" to a tenant;
 
-{{< highlight powershell >}}{{% asset "/apprentice/azure/service-principal.ps1" %}}{{< /highlight >}}
+{{< highlight powershell >}}{{% asset "apprentice/azure/service-principal.ps1" %}}{{< /highlight >}}
 
 After the service principal is created in the Azure AD tenant with users that's going to consume the app.
 Admins may set "App Roles" per user under "Enterprise Applications" in Azure.

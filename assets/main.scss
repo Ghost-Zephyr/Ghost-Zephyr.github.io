@@ -9,9 +9,11 @@ footer {
 }
 
 figure {
-  width: 42%;
+  max-width: 42%;
+  min-width: 13%;
   float: right;
   margin: 0 16px;
+  text-align: center;
   figcaption {
     font-style: italic;
   }

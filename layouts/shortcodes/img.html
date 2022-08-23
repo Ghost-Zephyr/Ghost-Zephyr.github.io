@@ -1,6 +1,31 @@
 {{ $img := resources.Get (.Get "src") }}
+{{ $hint := "photo" }}
+{{ $q := 69 }}
+{{ if (.Get "quality" )}}
+  {{ $q = .Get "quality" }}
+{{ end }}
+{{ if (.Get "hint" )}}
+  {{ $hint = .Get "hint" }}
+{{ end }}
+
+{{ if ne $img.MediaType.SubType "svg" }}
+  {{ $w := "" }}
+  {{ $h := "" }}
+
+  {{ if (.Get "width") }}
+    {{ $w = .Get "width" }}
+  {{ else }}
+    {{ $w = $img.Width | string }}
+  {{ end }}
+  {{ if (.Get "height") }}
+    {{ $h = .Get "height" }}
+  {{ end }}
+
+  {{ $img = $img.Resize (printf "%sx%s webp %s q%d"  $w $h $hint $q) }}
+{{ end }}
+
 <figure {{ with .Get "class" }}class='{{.}}'{{ end }}>
-  {{ with $img.Resize (printf "%dx webp q69" $img.Width) | fingerprint }}
+  {{ with $img | fingerprint }}
   <a href='{{ with $.Get "link" }}{{ . }}{{ else }}{{ .RelPermalink }}{{ end }}' target='_blank'>
     <img src='{{ .RelPermalink }}' integrity='{{ .Data.Integrity }}'
       {{ if or ($.Get "alt") ($.Get "caption") }}alt='{{ with $.Get "alt" }}{{ . }}
@@ -11,7 +36,7 @@
   <figcaption>{{ if isset .Params "title" }}
     <h4>{{ .Get "title" }}</h4>{{ end }}
     {{ if or (.Get "caption") (.Get "attr") }}<p>
-    {{ .Get "caption" }}
+    {{ .Get "caption" | markdownify }}
     {{ with .Get "attrlink" }}<a href="{{ . }}"> {{ end }}
     {{ .Get "attr" }}
     {{ if .Get "attrlink" }}</a> {{ end }}

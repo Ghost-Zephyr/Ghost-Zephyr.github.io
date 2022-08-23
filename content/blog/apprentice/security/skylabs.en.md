@@ -73,12 +73,8 @@ It's even been used as a Wi-Fi password.
 To fix this one very easily I just enabled 2FA on the account.
 But the whole account should probably just be deleted as nobody ever uses it.
 
-{{< raw >}}
-<!-- You cheecky bastard! -->
-{{< /raw >}}
-<!--
 ## Servers
-{{< img src="apprentice/skyid/old-intrauser-key.png" caption="The old intrauser ssh key" >}}
+{{< img src="apprentice/skyid/old-intrauser-key.png" caption="The old intrauser ssh key" hint=text >}}
 
 On the other side, the cloud servers had some bigger problems.
 Here I did find a *BIG* security issue. Ancient ssh keys.
@@ -95,7 +91,7 @@ And the thing is, [gtfobins](https://gtfobins.github.io/) has a privilege escala
 
 So check it; these screenshots are from SkyLabs' Ansible git log!~
 
-{{< img src="apprentice/skyid/intrauser-key.png" caption="Me finally updating the key" >}}
+{{< img src="apprentice/skyid/intrauser-key.png" caption="Me finally updating the key" hint=text >}}
 
 And it's even worse... as it turns out the OpenVPN setup also has keys from guess when!
 That's right! 2016...
@@ -106,7 +102,3 @@ To be honest I'm quite surprised the servers hasn't been pwnd big time!
 As I've in fact proven that any ex-employee that has a copy of our Ansible repo could easily forge OpenVPN client keys and certificates.
 And also got full root access over ssh anyway.
 Just add a little [Tor](https://torproject.org/) magic on top of that, and you got full access to all the servers without us being able to trace it back...
--->
-{{< raw >}}
-<!-- Grep my github.io repo for secrets located here! -->
-{{< /raw >}}
