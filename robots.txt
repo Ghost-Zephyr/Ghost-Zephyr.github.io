@@ -1,4 +1,11 @@
 User-agent: *
+Allow: /no/tags/bug/
+Allow: /no/categories/
+Allow: /no/blog/duolingo-xp-exploit/
+Allow: /no/categories/exploit/
+Allow: /no/series/hacking/
+Allow: /no/series/
+Allow: /no/tags/
 Allow: /series/apprentice/
 Allow: /categories/
 Allow: /categories/documentation/
@@ -60,12 +67,10 @@ Allow: /categories/tech/
 Allow: /categories/indices/
 Allow: /blog/apprentice/
 Allow: /categories/meta/
-Allow: /no/categories/
 Allow: /no/tags/info/
 Allow: /no/categories/meta/
 Allow: /no/tags/meta/
 Allow: /no/about/
-Allow: /no/tags/
 Allow: /no/blog/
 Allow: /about/
 Allow: /nl/categories/
@@ -80,4 +85,3 @@ Allow: /no/
 Allow: /
 Allow: /nl/
 Allow: /nl/series/
-Allow: /no/series/
