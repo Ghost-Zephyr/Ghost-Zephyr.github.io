@@ -31,16 +31,14 @@ This is fine for passwd, but for system repair operations you'd want to unmount 
 For a system repair chroot setup use these additional mounts to make sure tools interacting with the system work.
 Assuming you mounted the rootfs and potentially the boot/EFI partition to /boot or /boot/efi.
 
-{{< highlight sh >}}mount -R /sys /mnt/sys
-mount -R /dev /mnt/dev
-mount -B /run /mnt/run
-mount --make-rslave /mnt/sys
+{{< highlight sh >}}mount -R /dev /mnt/dev
 mount --make-rslave /mnt/dev
-mount --make-slave /mnt/run
-mount --types proc /proc /mnt/proc
+mount -t proc proc /mnt/proc
+mount -t sysfs sysfs /mnt/sys
+mount -t tmpfs tmpfs /mnt/run
 {{< /highlight >}}
 
-The options -R and -B for mount are short hands for \-\-rbind and \-\-bind.
+The options -R and -t for mount are short hands for \-\-rbind and \-\-types respectively.
 
 ## Fixing
 For doing the password reset or other operations on the installation other than simple file edits, you just chroot into the installation.

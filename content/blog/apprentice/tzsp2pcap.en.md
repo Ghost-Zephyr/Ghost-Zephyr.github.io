@@ -9,6 +9,9 @@ chroma: true
 toc: true
 title: Tzsp2pcap
 description: TaZmen Sniffer Protocol to Packet CAPture utility program.
+git:
+  name: thefloweringash/tzsp2pcap
+  url: https://github.com/thefloweringash/tzsp2pcap
 ---
 
 This is a very useful tool when working with Mikrotiks.
