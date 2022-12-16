@@ -1,6 +1,6 @@
 <center>
   <div class='footer-content'>
-    <p>2020 - {{ now.Format "2006" }} &copy;{{ with .Site.Author }} {{ .name }}{{ end }}</p>
+    <p>2020 - {{ (now.AddDate 0 1 0).Format "2006" }} &copy;{{ with .Site.Author }} {{ .name }}{{ end }}</p>
   </div>
   <!-- <div class='footer-social'>
     <a href='#' class='icons'><img src='/facebook-icon.svg'></a>
