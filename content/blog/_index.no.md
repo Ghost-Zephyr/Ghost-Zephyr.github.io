@@ -1,6 +1,5 @@
 ---
 date: 2022-03-29T21:00:24Z
-draft: false
 aliases: []
 categories: ['meta']
 series: []
