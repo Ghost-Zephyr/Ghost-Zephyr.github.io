@@ -5,7 +5,7 @@ body {
 }
 
 footer {
-  padding: 1rem 3rem;
+  padding: 1rem 3rem 0;
 }
 
 figure {
@@ -25,10 +25,13 @@ figure {
 #content {
   main {
     background-color: rgb(24, 26, 27);
-    margin: 3% 10%;
+    margin: 3% 10% 0;
     padding: 3%;
     article {
       max-width: 90%;
+    }
+    .float {
+      float: right;
     }
   }
   a:hover .heading {

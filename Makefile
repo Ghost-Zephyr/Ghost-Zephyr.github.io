@@ -16,7 +16,7 @@ LANGTOOL := silviof/docker-languagetool:latest
 DOCK := docker # maybe podman?
 
 up:
-	$(DOCK) run --rm -dn langtool p127.0.0.1:8010:8010 $(LANGTOOL)
+	$(DOCK) run --rm -dn langtool -p127.0.0.1:8010:8010 $(LANGTOOL)
 down:
 	$(DOCK) kill langtool
 pull:
