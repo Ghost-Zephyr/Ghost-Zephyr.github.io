@@ -42,6 +42,7 @@
   {{ with resources.Get "main.scss" | toCSS | minify | fingerprint | resources.PostProcess }}
     <link href='{{ .RelPermalink }}' integrity="{{ .Data.Integrity }}" rel='stylesheet'>
   {{ end }}
+  <script defer data-domain="io.sivert.pw" src="https://anal.42069.no/js/script.js"></script>
 </head>
 <body>
   <header>
