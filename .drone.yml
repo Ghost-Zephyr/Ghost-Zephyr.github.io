@@ -5,7 +5,7 @@ name: build and publish
 
 steps:
 - name: build
-  image: gohugoio/hugo
+  image: mbentley/hugo
   commands:
   - hugo -e prod --printI18nWarnings --printPathWarnings --printUnusedTemplates --templateMetricsHints
 
