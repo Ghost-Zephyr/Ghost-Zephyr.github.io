@@ -15,7 +15,7 @@ steps:
     - ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
     - git clone --branch gh-pages git@github.com:Ghost-Zephyr/Ghost-Zephyr.github.io.git github
     - cp -r public/* github/
-    - cd github/ && git add -A && git commit -m "Drone CI!~ [$(git rev-parse --short HEAD)](https://github.com/Ghost-Zephyr/Ghost-Zephyr.github.io/commit/$(git rev-parse HEAD))" && git push
+    - cd github/ && git add -A && git commit -m "Drone CI!~ $(git rev-parse --short HEAD)" && git push
 
 image_pull_secrets:
 - registry
