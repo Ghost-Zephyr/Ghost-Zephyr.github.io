@@ -3,18 +3,16 @@ kind: pipeline
 type: docker
 name: build and publish
 
-steps:
-- name: build
-  image: registry.42069.no/build/hugo
-  environment:
-    KEY:
-      from_secret: key
-  commands:
-    - echo "$KEY" > ~/.ssh/id_rsa
-    - hugo -e prod --printI18nWarnings --printPathWarnings --printUnusedTemplates --templateMetricsHints
-    - git clone --branch gh-pages git@github.com:Ghost-Zephyr/Ghost-Zephyr.github.io.git github
-    - cp -r public/* github/
-    - cd github/ && git add -A && git commit -m 'Drone CI!~'
+image: registry.42069.no/build/hugo
+environment:
+  KEY:
+    from_secret: key
+commands:
+  - mkdir ~/.ssh && echo "$KEY" > ~/.ssh/id_rsa && chmod 600 -R ~/.ssh
+  - hugo -e prod --printI18nWarnings --printPathWarnings --printUnusedTemplates --templateMetricsHints
+  - git clone --branch gh-pages git@github.com:Ghost-Zephyr/Ghost-Zephyr.github.io.git github
+  - cp -r public/* github/
+  - cd github/ && git add -A && git commit -m 'Drone CI!~'
 
 image_pull_secrets:
 - registry
