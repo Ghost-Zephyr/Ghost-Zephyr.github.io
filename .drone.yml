@@ -5,9 +5,7 @@ name: build and publish
 
 steps:
 - name: build
-  image: plugins/hugo
-  settings:
-    hugo_version: 0.110.0
+  image: gohugoio/hugo
 
 - name: publish
   image: plugins/gh-pages
