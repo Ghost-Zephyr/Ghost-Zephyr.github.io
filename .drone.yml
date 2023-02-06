@@ -6,16 +6,27 @@ name: build and publish
 steps:
 - name: build
   image: registry.42069.no/build/hugo
+  volumes:
+  - name: public
+    path: /work/public
   commands:
   - hugo -e prod --printI18nWarnings --printPathWarnings --printUnusedTemplates --templateMetricsHints
 
 - name: publish
   image: plugins/gh-pages
+  volumes:
+  - name: public
+    path: /public
   settings:
-    pages_directory: public/
+    pages_directory: /public
+    target_branch: master
     username: Ghost-Zephyr
     password: 
       from_secret: password
+
+volumes:
+- name: public
+  temp: {}
 
 image_pull_secrets:
 - registry
