@@ -6,12 +6,6 @@ name: build and publish
 steps:
 - name: build
   image: gohugoio/hugo
-
-- name: publish
-  image: plugins/gh-pages
-  settings:
-    pages_directory: public/
-    username: Ghost-Zephyr
-    password: 
-      from_secret: password
+  commands:
+  - hugo -e prod --printI18nWarnings --printPathWarnings --printUnusedTemplates --templateMetricsHints
 
