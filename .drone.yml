@@ -10,4 +10,5 @@ steps:
   - hugo -e prod --printI18nWarnings --printPathWarnings --printUnusedTemplates --templateMetricsHints
 
 image_pull_secrets:
-- dockerconfig
+- registry
+
