@@ -9,6 +9,14 @@ steps:
   commands:
   - hugo -e prod --printI18nWarnings --printPathWarnings --printUnusedTemplates --templateMetricsHints
 
+- name: publish
+  image: plugins/gh-pages
+  settings:
+    pages_directory: public/
+    username: Ghost-Zephyr
+    password: 
+      from_secret: password
+
 image_pull_secrets:
 - registry
 
