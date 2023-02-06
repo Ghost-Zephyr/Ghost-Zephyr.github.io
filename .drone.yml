@@ -19,7 +19,6 @@ steps:
     path: /public
   settings:
     pages_directory: /public
-    target_branch: master
     username: Ghost-Zephyr
     password: 
       from_secret: password
