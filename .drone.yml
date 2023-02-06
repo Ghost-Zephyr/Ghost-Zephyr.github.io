@@ -1,0 +1,20 @@
+---
+kind: pipeline
+type: docker
+name: build and publish
+
+steps:
+- name: build
+  image: plugins/hugo
+  settings:
+    hugo_version: latest
+    validate: true
+
+- name: publish
+  image: plugins/gh-pages
+  settings:
+    pages_directory: public/
+    username: Ghost-Zephyr
+    password: 
+      from_secret: password
+
