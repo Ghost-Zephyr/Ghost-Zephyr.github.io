@@ -8,7 +8,6 @@ steps:
   image: plugins/hugo
   settings:
     hugo_version: 0.110.0
-    validate: true
 
 - name: publish
   image: plugins/gh-pages
