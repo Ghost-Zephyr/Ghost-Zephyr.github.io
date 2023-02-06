@@ -7,7 +7,7 @@ steps:
 - name: build
   image: plugins/hugo
   settings:
-    hugo_version: latest
+    hugo_version: 0.110.0
     validate: true
 
 - name: publish
