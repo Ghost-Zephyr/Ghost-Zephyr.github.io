@@ -1,2 +1,22 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>useful on Sivert Does Stuff Online!</title><link>https://io.sivert.pw/tags/useful/</link><description>Recent content in useful on Sivert Does Stuff Online!</description><generator>Hugo -- gohugo.io</generator><managingEditor>gmail@sivert.pw (Sivert V. Sæther)</managingEditor><webMaster>gmail@sivert.pw (Sivert V. Sæther)</webMaster><copyright>GPL-3</copyright><lastBuildDate>Thu, 18 Aug 2022 03:10:27 +0000</lastBuildDate><atom:link href="https://io.sivert.pw/tags/useful/index.xml" rel="self" type="application/rss+xml"/><item><title>Linux Desktop Password Reset</title><link>https://io.sivert.pw/blog/apprentice/linux-password-reset/</link><pubDate>Thu, 18 Aug 2022 03:10:27 +0000</pubDate><author>gmail@sivert.pw (Sivert V. Sæther)</author><guid>https://io.sivert.pw/blog/apprentice/linux-password-reset/</guid><description>Hacking stuff is usually pretty trivial. As long as you&amp;rsquo;ve got physical access that is. And here I&amp;rsquo;ll instruct you on how to reset passwords on a Linux installation. Either by booting a live ISO. Or by plugging the drive with the installation you&amp;rsquo;d like to reset some password(s) on into another Linux machine.
-Realistically, repairing a broken installation is pretty similar. Although be aware that setting up the chroot may require additional steps.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>useful on Sivert Does Stuff Online!</title>
+    <link>/tags/useful/</link>
+    <description>Recent content in useful on Sivert Does Stuff Online!</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <managingEditor>gmail@sivert.pw (Sivert V. Sæther)</managingEditor>
+    <webMaster>gmail@sivert.pw (Sivert V. Sæther)</webMaster>
+    <copyright>GPL-3</copyright>
+    <lastBuildDate>Thu, 18 Aug 2022 03:10:27 +0000</lastBuildDate><atom:link href="/tags/useful/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Linux Desktop Password Reset</title>
+      <link>/blog/apprentice/linux-password-reset/</link>
+      <pubDate>Thu, 18 Aug 2022 03:10:27 +0000</pubDate>
+      <author>gmail@sivert.pw (Sivert V. Sæther)</author>
+      <guid>/blog/apprentice/linux-password-reset/</guid>
+      <description>Hacking stuff is usually pretty trivial. As long as you&amp;rsquo;ve got physical access that is. And here I&amp;rsquo;ll instruct you on how to reset passwords on a Linux installation. Either by booting a live ISO. Or by plugging the drive with the installation you&amp;rsquo;d like to reset some password(s) on into another Linux machine.
+Realistically, repairing a broken installation is pretty similar. Although be aware that setting up the chroot may require additional steps.</description>
+    </item>
+  </channel>
+</rss>

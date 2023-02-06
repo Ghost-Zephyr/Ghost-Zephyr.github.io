@@ -1,1 +1,21 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>firewall on Sivert Does Stuff Online!</title><link>https://io.sivert.pw/tags/firewall/</link><description>Recent content in firewall on Sivert Does Stuff Online!</description><generator>Hugo -- gohugo.io</generator><managingEditor>gmail@sivert.pw (Sivert V. Sæther)</managingEditor><webMaster>gmail@sivert.pw (Sivert V. Sæther)</webMaster><copyright>GPL-3</copyright><lastBuildDate>Thu, 14 Jul 2022 09:01:03 +0000</lastBuildDate><atom:link href="https://io.sivert.pw/tags/firewall/index.xml" rel="self" type="application/rss+xml"/><item><title>Fail2ban</title><link>https://io.sivert.pw/blog/apprentice/fail2ban/</link><pubDate>Thu, 14 Jul 2022 09:01:03 +0000</pubDate><author>gmail@sivert.pw (Sivert V. Sæther)</author><guid>https://io.sivert.pw/blog/apprentice/fail2ban/</guid><description>At SkyLabs I had the surprisingly pleasant experience of configuring fail2ban for a bunch of production servers. What fail2ban simply does is watch log files, match the lines against predefined regex patterns. After a predefined amount of matches for a specific IP, it gets 🔨 banned. The super cool thing about this is that the max retry, and most options may be set globally, but also locally for each &amp;ldquo;jail&amp;rdquo;. These jails are just configs for the filters.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>firewall on Sivert Does Stuff Online!</title>
+    <link>/tags/firewall/</link>
+    <description>Recent content in firewall on Sivert Does Stuff Online!</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <managingEditor>gmail@sivert.pw (Sivert V. Sæther)</managingEditor>
+    <webMaster>gmail@sivert.pw (Sivert V. Sæther)</webMaster>
+    <copyright>GPL-3</copyright>
+    <lastBuildDate>Thu, 14 Jul 2022 09:01:03 +0000</lastBuildDate><atom:link href="/tags/firewall/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Fail2ban</title>
+      <link>/blog/apprentice/fail2ban/</link>
+      <pubDate>Thu, 14 Jul 2022 09:01:03 +0000</pubDate>
+      <author>gmail@sivert.pw (Sivert V. Sæther)</author>
+      <guid>/blog/apprentice/fail2ban/</guid>
+      <description>At SkyLabs I had the surprisingly pleasant experience of configuring fail2ban for a bunch of production servers. What fail2ban simply does is watch log files, match the lines against predefined regex patterns. After a predefined amount of matches for a specific IP, it gets 🔨 banned. The super cool thing about this is that the max retry, and most options may be set globally, but also locally for each &amp;ldquo;jail&amp;rdquo;. These jails are just configs for the filters.</description>
+    </item>
+  </channel>
+</rss>

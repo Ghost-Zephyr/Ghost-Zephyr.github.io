@@ -1,688 +1,1004 @@
-<!doctype html><html lang=en><head><meta charset=utf-8><meta name=robots content="index,follow"><title>Sivert Does Stuff Online! - Ansible</title><meta name=description content="Ansible quickstart guide!"><link rel=icon href=/favicon.2a782c1d4fdbd387db5d712ee87bd8b01eb0cf56bd95198f4cc6a84ccf8bfb7e.png integrity='sha256-KngsHU/b04fbXXEu6HvYsB6wz1a9lRmPTMaoTM+L+34='><link rel=apple-touch-icon href=/favicon_hu5ee1517d9ee6726a25cfeec6a86e1947_41990_192x192_resize_box_3.3306e29c64ba856a2bd380475dcf6fcf81e835e05927358f6e225bbbdf44032a.png integrity='sha256-MwbinGS6hWor04BHXc9vz4HoNeBZJzWPbiJbu99EAyo='><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#00FF00"><meta name=twitter:card content="summary"><meta property="og:title" content="Sivert Does Stuff Online!"><meta property="og:url" content="https://io.sivert.pw"><meta property="og:site_name" content="Sivert Does Stuff Online!"><meta name=generator content="Hugo 0.109.0"><link rel=stylesheet href=https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css crossorigin=anonymous><link href='/chroma.min.b7cbccb1554b70a7ffff2ffa00c8ce8e6cc8506a98c47088b8ec08515e93d4b9.css' integrity="sha256-t8vMsVVLcKf//y/6AMjOjmzIUGqYxHCIuOwIUV6T1Lk=" rel=stylesheet><link href='/main.min.15a34a6ce4d3fc26538f8271b2938a96a83603e15a32531e2171ad4eca808ede.css' integrity="sha256-FaNKbOTT/CZTj4JxspOKlqg2A+FaMlMeIXGtTsqAjt4=" rel=stylesheet><script defer data-domain=io.sivert.pw src=https://anal.42069.no/js/script.js></script></head><body><header><nav id=navbar><ul class=top-nav><li><a href=/>Sivert Does Stuff Online!</a></li><li><a href=/blog/apprentice><span>Apprentice docs</span></a></li><li id=right><ul><li><a href=https://sivert.pw><span>My Humble Homepage</span></a></li><li><a href=/old><span>Old GitHub.io</span></a></li><li><a href=/about><span>About</span></a></li><li><a href=/blog><span>Blog</span></a></li></ul></li></ul></nav></header><div id=content><main><div class=row><div class=col-md-2><aside id=meta><header><h4>Ansible</h4><p>This article has 1771 words.
-9 minutes to read.</p><p>Ansible quickstart guide!</p></header><h6>Table of Contents:</h6><nav id=TableOfContents><ul><li><a href=#configure-ansiblecfg>Configure ansible.cfg</a><ul><li><a href=#example-global-ansiblecfg>Example global ansible.cfg</a></li><li><a href=#example-project-ansiblecfg>Example project ansible.cfg</a></li></ul></li><li><a href=#inventory>Inventory</a><ul><li><a href=#the-simplest-inventories>The simplest inventories</a></li><li><a href=#example-yaml-inventory>Example YAML inventory</a></li><li><a href=#example-python-inventory-script>Example python inventory script</a></li></ul></li><li><a href=#inventory-summary>Inventory summary</a></li></ul></nav></aside></div><div class=col-md-10><article><header><h1>Ansible</h1></header><p>Ansible is a cool tool that lets you manage lots of Linux servers and even some other devices.
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8'>
+  <meta name='robots' content='index,follow'>
+  
+    <title>Sivert Does Stuff Online! - Ansible</title>
+  
+  
+    <meta name='description' content='Ansible quickstart guide!'>
+  
+  
+    
+      <link rel='icon' href='/favicon.2a782c1d4fdbd387db5d712ee87bd8b01eb0cf56bd95198f4cc6a84ccf8bfb7e.png' integrity='sha256-KngsHU/b04fbXXEu6HvYsB6wz1a9lRmPTMaoTM&#43;L&#43;34=' />
+    
+    
+      <link rel="apple-touch-icon" href="/favicon_hu5ee1517d9ee6726a25cfeec6a86e1947_41990_192x192_resize_box_3.3306e29c64ba856a2bd380475dcf6fcf81e835e05927358f6e225bbbdf44032a.png"  integrity='sha256-MwbinGS6hWor04BHXc9vz4HoNeBZJzWPbiJbu99EAyo=' />
+    
+  
+  <meta name='viewport' content='width=device-width,initial-scale=1.0'>
+  <meta name="theme-color" content="#00FF00" />
+  
+  
+  <meta name='twitter:card' content='summary'>
+  <meta property='og:title' content='Sivert Does Stuff Online!' />
+  <meta property='og:url' content='' />
+  <meta property='og:site_name' content='Sivert Does Stuff Online!' />
+  
+  <meta name="generator" content="Hugo 0.106.0">
+  <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css' crossorigin='anonymous'>
+  
+  
+    
+      <link href='/chroma.min.b7cbccb1554b70a7ffff2ffa00c8ce8e6cc8506a98c47088b8ec08515e93d4b9.css' integrity="sha256-t8vMsVVLcKf//y/6AMjOjmzIUGqYxHCIuOwIUV6T1Lk=" rel='stylesheet'>
+    
+  
+  
+    <link href='/main.min.15a34a6ce4d3fc26538f8271b2938a96a83603e15a32531e2171ad4eca808ede.css' integrity="sha256-FaNKbOTT/CZTj4JxspOKlqg2A+FaMlMeIXGtTsqAjt4=" rel='stylesheet'>
+  
+  <script defer data-domain="io.sivert.pw" src="https://anal.42069.no/js/script.js"></script>
+</head>
+<body>
+  <header>
+    <nav id='navbar'>
+  <ul class='top-nav'>
+    <li><a href='/'>Sivert Does Stuff Online!</a></li>
+    
+    
+    
+    
+
+<li>
+  <a href='/blog/apprentice'>
+    
+    <span>Apprentice docs</span>
+  </a>
+</li>
+
+    
+    <li id='right'>
+      <ul>
+      
+      
+
+<li>
+  <a href='https://sivert.pw'>
+    
+    <span>My Humble Homepage</span>
+  </a>
+</li>
+
+      
+      
+
+<li>
+  <a href='/old'>
+    
+    <span>Old GitHub.io</span>
+  </a>
+</li>
+
+      
+      
+
+<li>
+  <a href='/about'>
+    
+    <span>About</span>
+  </a>
+</li>
+
+      
+      
+
+<li>
+  <a href='/blog'>
+    
+    <span>Blog</span>
+  </a>
+</li>
+
+      
+      
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </header>
+  <div id='content'>
+    <main>
+      
+      <div class='row'>
+        <div class='col-md-2'>
+          <aside id='meta'>
+  <header>
+    <h4>Ansible</h4>
+    
+    <p>
+      This article has 1771 words.
+      9 minutes to read.
+    </p>
+    <p>
+      Ansible quickstart guide!
+    </p>
+  </header>
+  
+  
+  
+  
+    <h6>Table of Contents:</h6>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#configure-ansiblecfg">Configure ansible.cfg</a>
+      <ul>
+        <li><a href="#example-global-ansiblecfg">Example global ansible.cfg</a></li>
+        <li><a href="#example-project-ansiblecfg">Example project ansible.cfg</a></li>
+      </ul>
+    </li>
+    <li><a href="#inventory">Inventory</a>
+      <ul>
+        <li><a href="#the-simplest-inventories">The simplest inventories</a></li>
+        <li><a href="#example-yaml-inventory">Example YAML inventory</a></li>
+        <li><a href="#example-python-inventory-script">Example python inventory script</a></li>
+      </ul>
+    </li>
+    <li><a href="#inventory-summary">Inventory summary</a></li>
+  </ul>
+</nav>
+  
+  
+  
+</aside>
+
+        </div>
+        <div class='col-md-10'>
+          
+<article>
+  <header>
+    <h1>Ansible</h1>
+  </header>
+  <p>Ansible is a cool tool that lets you manage lots of Linux servers and even some other devices.
 All with just a bunch of yaml.
 Although not necessarily as it supports a nice load of formats for everything.
 Yaml being the most common, but &ldquo;inventories&rdquo; are usually ini format.
-But still you should be able to do everything in json if you really want to.</p><h2 id=configure-ansiblecfg>Configure ansible.cfg</h2><p>This is the main Ansible config.
+But still you should be able to do everything in json if you really want to.</p>
+<h2 id="configure-ansiblecfg">Configure ansible.cfg</h2>
+<p>This is the main Ansible config.
 Ansible lets you have global stuff in /etc/ansible or project stuff in the working directory.
-Anyway you&rsquo;ll likely want an ansible.cfg with your common global configuration options for Ansible itself.</p><h3 id=example-global-ansiblecfg>Example global ansible.cfg</h3><p>This example ansibe.cfg lists a collection of the options I think are useful.</p><p>You may also generate a file with all options available commented out.
-With comments describing them for most of the options by;<div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl>ansible-config init --disabled -t all &gt; ansible.cfg</span></span></code></pre></td></tr></table></div></div></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>  1
-</span><span class=lnt>  2
-</span><span class=lnt>  3
-</span><span class=lnt>  4
-</span><span class=lnt>  5
-</span><span class=lnt>  6
-</span><span class=lnt>  7
-</span><span class=lnt>  8
-</span><span class=lnt>  9
-</span><span class=lnt> 10
-</span><span class=lnt> 11
-</span><span class=lnt> 12
-</span><span class=lnt> 13
-</span><span class=lnt> 14
-</span><span class=lnt> 15
-</span><span class=lnt> 16
-</span><span class=lnt> 17
-</span><span class=lnt> 18
-</span><span class=lnt> 19
-</span><span class=lnt> 20
-</span><span class=lnt> 21
-</span><span class=lnt> 22
-</span><span class=lnt> 23
-</span><span class=lnt> 24
-</span><span class=lnt> 25
-</span><span class=lnt> 26
-</span><span class=lnt> 27
-</span><span class=lnt> 28
-</span><span class=lnt> 29
-</span><span class=lnt> 30
-</span><span class=lnt> 31
-</span><span class=lnt> 32
-</span><span class=lnt> 33
-</span><span class=lnt> 34
-</span><span class=lnt> 35
-</span><span class=lnt> 36
-</span><span class=lnt> 37
-</span><span class=lnt> 38
-</span><span class=lnt> 39
-</span><span class=lnt> 40
-</span><span class=lnt> 41
-</span><span class=lnt> 42
-</span><span class=lnt> 43
-</span><span class=lnt> 44
-</span><span class=lnt> 45
-</span><span class=lnt> 46
-</span><span class=lnt> 47
-</span><span class=lnt> 48
-</span><span class=lnt> 49
-</span><span class=lnt> 50
-</span><span class=lnt> 51
-</span><span class=lnt> 52
-</span><span class=lnt> 53
-</span><span class=lnt> 54
-</span><span class=lnt> 55
-</span><span class=lnt> 56
-</span><span class=lnt> 57
-</span><span class=lnt> 58
-</span><span class=lnt> 59
-</span><span class=lnt> 60
-</span><span class=lnt> 61
-</span><span class=lnt> 62
-</span><span class=lnt> 63
-</span><span class=lnt> 64
-</span><span class=lnt> 65
-</span><span class=lnt> 66
-</span><span class=lnt> 67
-</span><span class=lnt> 68
-</span><span class=lnt> 69
-</span><span class=lnt> 70
-</span><span class=lnt> 71
-</span><span class=lnt> 72
-</span><span class=lnt> 73
-</span><span class=lnt> 74
-</span><span class=lnt> 75
-</span><span class=lnt> 76
-</span><span class=lnt> 77
-</span><span class=lnt> 78
-</span><span class=lnt> 79
-</span><span class=lnt> 80
-</span><span class=lnt> 81
-</span><span class=lnt> 82
-</span><span class=lnt> 83
-</span><span class=lnt> 84
-</span><span class=lnt> 85
-</span><span class=lnt> 86
-</span><span class=lnt> 87
-</span><span class=lnt> 88
-</span><span class=lnt> 89
-</span><span class=lnt> 90
-</span><span class=lnt> 91
-</span><span class=lnt> 92
-</span><span class=lnt> 93
-</span><span class=lnt> 94
-</span><span class=lnt> 95
-</span><span class=lnt> 96
-</span><span class=lnt> 97
-</span><span class=lnt> 98
-</span><span class=lnt> 99
-</span><span class=lnt>100
-</span><span class=lnt>101
-</span><span class=lnt>102
-</span><span class=lnt>103
-</span><span class=lnt>104
-</span><span class=lnt>105
-</span><span class=lnt>106
-</span><span class=lnt>107
-</span><span class=lnt>108
-</span><span class=lnt>109
-</span><span class=lnt>110
-</span><span class=lnt>111
-</span><span class=lnt>112
-</span><span class=lnt>113
-</span><span class=lnt>114
-</span><span class=lnt>115
-</span><span class=lnt>116
-</span><span class=lnt>117
-</span><span class=lnt>118
-</span><span class=lnt>119
-</span><span class=lnt>120
-</span><span class=lnt>121
-</span><span class=lnt>122
-</span><span class=lnt>123
-</span><span class=lnt>124
-</span><span class=lnt>125
-</span><span class=lnt>126
-</span><span class=lnt>127
-</span><span class=lnt>128
-</span><span class=lnt>129
-</span><span class=lnt>130
-</span><span class=lnt>131
-</span><span class=lnt>132
-</span><span class=lnt>133
-</span><span class=lnt>134
-</span><span class=lnt>135
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-cfg data-lang=cfg><span class=line><span class=cl><span class=k>[defaults]</span>
-</span></span><span class=line><span class=cl><span class=na>roles_path</span> <span class=o>=</span> <span class=s>~/.ansible/roles:/usr/share/ansible/roles:/etc/ansible/roles</span>
-</span></span><span class=line><span class=cl><span class=na>library</span> <span class=o>=</span> <span class=s>~/.ansible/plugins/modules:/usr/share/ansible/plugins/modules</span>
-</span></span><span class=line><span class=cl><span class=na>inventory</span> <span class=o>=</span> <span class=s>~/.ansible/hosts,/etc/ansible/hosts</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=na>collections_path</span> <span class=o>=</span> <span class=s>~/.ansible/collections:/usr/share/ansible/collections</span>
-</span></span><span class=line><span class=cl><span class=c1># This may be &#34;ignore&#34; or &#34;fail&#34;, &#34;warnging&#34; is the default</span>
-</span></span><span class=line><span class=cl><span class=na>collections_on_ansible_version_mismatch</span> <span class=o>=</span> <span class=s>warning</span>
-</span></span><span class=line><span class=cl><span class=na>collections_scan_sys_path</span> <span class=o>=</span> <span class=s>True</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=c1># Very useful, this will issue a warning if you run a command that</span>
-</span></span><span class=line><span class=cl><span class=c1># Ansible thinks there is an existing module to do the same job!</span>
-</span></span><span class=line><span class=cl><span class=na>command_warnings</span> <span class=o>=</span> <span class=s>True</span>
-</span></span><span class=line><span class=cl><span class=na>forks</span> <span class=o>=</span> <span class=s>42</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=c1># The default for gathering is &#34;impicit&#34;, meaning Ansible won&#39;t cache facts</span>
-</span></span><span class=line><span class=cl><span class=na>gathering</span> <span class=o>=</span> <span class=s>smart</span>
-</span></span><span class=line><span class=cl><span class=na>gather_timeout</span> <span class=o>=</span> <span class=s>13</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=c1># May specify &#34;paramiko&#34;, &#34;ssh&#34; or &#34;smart&#34; for choosing based of OS and ssh versions</span>
-</span></span><span class=line><span class=cl><span class=na>transport</span> <span class=o>=</span> <span class=s>smart</span>
-</span></span><span class=line><span class=cl><span class=na>use_persistent_connections</span> <span class=o>=</span> <span class=s>True</span>
-</span></span><span class=line><span class=cl><span class=na>private_key_file</span> <span class=o>=</span> <span class=s>~/.ssh/id_rsa</span>
-</span></span><span class=line><span class=cl><span class=na>pipelining</span> <span class=o>=</span> <span class=s>ANSIBLE_PIPELINING</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=c1># Task timeout, 0 = no timeout</span>
-</span></span><span class=line><span class=cl><span class=na>task_timeout</span> <span class=o>=</span> <span class=s>0</span>
-</span></span><span class=line><span class=cl><span class=c1># Connection timeout</span>
-</span></span><span class=line><span class=cl><span class=na>timeout</span> <span class=o>=</span> <span class=s>7</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=c1># Run plays as fast as possible</span>
-</span></span><span class=line><span class=cl><span class=na>strategy</span> <span class=o>=</span> <span class=s>free</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=c1># This gives better performance at the expense of CPU load,</span>
-</span></span><span class=line><span class=cl><span class=c1># so I guess you&#39;d want it low on your workstation or laptop,</span>
-</span></span><span class=line><span class=cl><span class=c1># but higher on like an Ansible tower or similar automation setup using Ansible</span>
-</span></span><span class=line><span class=cl><span class=na>internal_poll_interval</span> <span class=o>=</span> <span class=s>0.000001</span>
-</span></span><span class=line><span class=cl><span class=na>poll_interval</span> <span class=o>=</span> <span class=s>3</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=na>system_tmpdirs</span> <span class=o>=</span> <span class=s>/tmp, /var/tmp</span>
-</span></span><span class=line><span class=cl><span class=na>remote_tmp</span> <span class=o>=</span> <span class=s>~/.ansible/tmp</span>
-</span></span><span class=line><span class=cl><span class=na>local_tmp</span> <span class=o>=</span> <span class=s>~/.ansible/tmp</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=na>jinja2_native_warning</span> <span class=o>=</span> <span class=s>True</span>
-</span></span><span class=line><span class=cl><span class=na>jinja2_native</span> <span class=o>=</span> <span class=s>True</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=c1># This one is only really useful to make sure no secrets are logged on servers</span>
-</span></span><span class=line><span class=cl><span class=c1># when running Ansible tower or other automation systems using Ansible</span>
-</span></span><span class=line><span class=cl><span class=na>no_log</span> <span class=o>=</span> <span class=s>False</span>
-</span></span><span class=line><span class=cl><span class=c1># Logging is disabled on the client if &#34;log_path&#34; is empty</span>
-</span></span><span class=line><span class=cl><span class=na>log_path</span> <span class=o>=</span>
-</span></span><span class=line><span class=cl><span class=c1># Target hosts logging facility</span>
-</span></span><span class=line><span class=cl><span class=na>syslog_facility</span> <span class=o>=</span> <span class=s>LOG_USER</span>
-</span></span><span class=line><span class=cl><span class=na>no_target_syslog</span> <span class=o>=</span> <span class=s>False</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=c1># Must be one from python [zipfile](https://docs.python.org/3/library/zipfile.html) built-in library that is supported</span>
-</span></span><span class=line><span class=cl><span class=c1># on both the client and the target servers Ansible is going to run on, ZIP_DEFLATED is the default</span>
-</span></span><span class=line><span class=cl><span class=na>module_compression</span> <span class=o>=</span> <span class=s>ZIP_LZMA</span>
-</span></span><span class=line><span class=cl><span class=c1># ZIP_STORED = no compression</span>
-</span></span><span class=line><span class=cl><span class=c1># ZIP_DEFLATED = normal zip, requires zlib python module</span>
-</span></span><span class=line><span class=cl><span class=c1># ZIP_BZIP2 = bzip2, requires bz2 python module</span>
-</span></span><span class=line><span class=cl><span class=c1># ZIP_LZMA = lzma, requires lzma python module</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=c1># Default module to run with the &#34;ansible&#34; command if not -m [module] is specified</span>
-</span></span><span class=line><span class=cl><span class=na>module_name</span> <span class=o>=</span> <span class=s>command</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=c1># What will null variables in templates show?</span>
-</span></span><span class=line><span class=cl><span class=na>null_representation</span> <span class=o>=</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=c1># Let&#39;s make some errors warnings instead</span>
-</span></span><span class=line><span class=cl><span class=na>invalid_task_attribute_failed</span> <span class=o>=</span> <span class=s>False</span>
-</span></span><span class=line><span class=cl><span class=na>error_on_missing_handler</span> <span class=o>=</span> <span class=s>False</span>
-</span></span><span class=line><span class=cl><span class=na>string_conversion_action</span> <span class=o>=</span> <span class=s>warn</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=c1># The same as the -v command line arg</span>
-</span></span><span class=line><span class=cl><span class=na>verbosity</span> <span class=o>=</span> <span class=s>0</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=c1># Extra output goodness!~</span>
-</span></span><span class=line><span class=cl><span class=na>show_task_path_on_failure</span> <span class=o>=</span> <span class=s>True</span>
-</span></span><span class=line><span class=cl><span class=na>display_args_to_stdout</span> <span class=o>=</span> <span class=s>True</span>
-</span></span><span class=line><span class=cl><span class=na>display_skipped_hosts</span> <span class=o>=</span> <span class=s>True</span>
-</span></span><span class=line><span class=cl><span class=na>show_per_host_start</span> <span class=o>=</span> <span class=s>True</span>
-</span></span><span class=line><span class=cl><span class=na>check_mode_markers</span> <span class=o>=</span> <span class=s>True</span>
-</span></span><span class=line><span class=cl><span class=na>show_custom_stats</span> <span class=o>=</span> <span class=s>True</span>
-</span></span><span class=line><span class=cl><span class=na>display_ok_hosts</span> <span class=o>=</span> <span class=s>True</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=c1># This may be useful</span>
-</span></span><span class=line><span class=cl><span class=na>retry_files_enabled</span> <span class=o>=</span> <span class=s>False</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=na>yaml_valid_extensions</span> <span class=o>=</span> <span class=s>.yml, .yaml, .json</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=na>display_failed_stderr</span> <span class=o>=</span> <span class=s>True</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=k>[persistent_connection]</span>
-</span></span><span class=line><span class=cl><span class=na>command_timeout</span> <span class=o>=</span> <span class=s>42</span>
-</span></span><span class=line><span class=cl><span class=na>connect_retry_timeout</span> <span class=o>=</span> <span class=s>7</span>
-</span></span><span class=line><span class=cl><span class=na>connect_timeout</span> <span class=o>=</span> <span class=s>60</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=k>[connection]</span>
-</span></span><span class=line><span class=cl><span class=c1># This only works if your become supports not using a tty,</span>
-</span></span><span class=line><span class=cl><span class=c1># but gives &#34;significant performance improvement when enabled.&#34;</span>
-</span></span><span class=line><span class=cl><span class=na>pipelining</span> <span class=o>=</span> <span class=s>True</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=c1># Eye-candy!</span>
-</span></span><span class=line><span class=cl><span class=k>[colors]</span>
-</span></span><span class=line><span class=cl><span class=na>changed</span> <span class=o>=</span> <span class=s>bright yellow</span>
-</span></span><span class=line><span class=cl><span class=na>console_prompt</span> <span class=o>=</span> <span class=s>white</span>
-</span></span><span class=line><span class=cl><span class=na>debug</span> <span class=o>=</span> <span class=s>gray</span>
-</span></span><span class=line><span class=cl><span class=na>deprecate</span> <span class=o>=</span> <span class=s>purple</span>
-</span></span><span class=line><span class=cl><span class=na>diff_add</span> <span class=o>=</span> <span class=s>green</span>
-</span></span><span class=line><span class=cl><span class=na>diff_lines</span> <span class=o>=</span> <span class=s>cyan</span>
-</span></span><span class=line><span class=cl><span class=na>diff_remove</span> <span class=o>=</span> <span class=s>red</span>
-</span></span><span class=line><span class=cl><span class=na>error</span> <span class=o>=</span> <span class=s>red</span>
-</span></span><span class=line><span class=cl><span class=na>highlight</span> <span class=o>=</span> <span class=s>white</span>
-</span></span><span class=line><span class=cl><span class=na>ok</span> <span class=o>=</span> <span class=s>green</span>
-</span></span><span class=line><span class=cl><span class=na>skip</span> <span class=o>=</span> <span class=s>cyan</span>
-</span></span><span class=line><span class=cl><span class=na>unreachable</span> <span class=o>=</span> <span class=s>bright red</span>
-</span></span><span class=line><span class=cl><span class=na>verbose</span> <span class=o>=</span> <span class=s>blue</span>
-</span></span><span class=line><span class=cl><span class=na>warn</span> <span class=o>=</span> <span class=s>bright purple</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=k>[selinux]</span>
-</span></span><span class=line><span class=cl><span class=c1># Enable this if running SELinux</span>
-</span></span><span class=line><span class=cl><span class=na>libvirt_lxc_noseclabel</span> <span class=o>=</span> <span class=s>False</span>
-</span></span><span class=line><span class=cl><span class=c1># We want this to be empty unless maybe nfs target? it may be a list of filesystems</span>
-</span></span><span class=line><span class=cl><span class=na>special_context_filesystems</span> <span class=o>=</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=k>[diff]</span>
-</span></span><span class=line><span class=cl><span class=na>always</span> <span class=o>=</span> <span class=s>True</span>
-</span></span><span class=line><span class=cl><span class=na>context</span> <span class=o>=</span> <span class=s>3</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=k>[inventory]</span>
-</span></span><span class=line><span class=cl><span class=na>enable_plugins</span> <span class=o>=</span> <span class=s>host_list, script, auto, yaml, ini, toml</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=k>[paramiko_connection]</span>
-</span></span><span class=line><span class=cl><span class=na>host_key_auto_add</span> <span class=o>=</span> <span class=s>True</span></span></span></code></pre></td></tr></table></div></div><h3 id=example-project-ansiblecfg>Example project ansible.cfg</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span><span class=lnt>7
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-cfg data-lang=cfg><span class=line><span class=cl><span class=k>[default]</span>
-</span></span><span class=line><span class=cl><span class=na>private_key_file</span> <span class=o>=</span> <span class=s>~/.ssh/ansible_rsa</span>
-</span></span><span class=line><span class=cl><span class=na>remote_user</span> <span class=o>=</span> <span class=s>ansible</span>
-</span></span><span class=line><span class=cl><span class=na>inventory</span> <span class=o>=</span> <span class=s>all-machines</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=k>[privilege_escalation]</span>
-</span></span><span class=line><span class=cl><span class=na>become</span> <span class=o>=</span> <span class=s>yes</span>
-</span></span></code></pre></td></tr></table></div></div><h2 id=inventory>Inventory</h2><p>I think it&rsquo;s super neat that Ansible lets you use several file formats for most things.
+Anyway you&rsquo;ll likely want an ansible.cfg with your common global configuration options for Ansible itself.</p>
+<h3 id="example-global-ansiblecfg">Example global ansible.cfg</h3>
+<p>This example ansibe.cfg lists a collection of the options I think are useful.</p>
+<p>You may also generate a file with all options available commented out.
+With comments describing them for most of the options by;
+
+
+  
+
+
+
+
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">ansible-config init --disabled -t all &gt; ansible.cfg</span></span></code></pre></td></tr></table>
+</div>
+</div></p>
+
+
+
+
+
+
+
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span><span class="lnt">104
+</span><span class="lnt">105
+</span><span class="lnt">106
+</span><span class="lnt">107
+</span><span class="lnt">108
+</span><span class="lnt">109
+</span><span class="lnt">110
+</span><span class="lnt">111
+</span><span class="lnt">112
+</span><span class="lnt">113
+</span><span class="lnt">114
+</span><span class="lnt">115
+</span><span class="lnt">116
+</span><span class="lnt">117
+</span><span class="lnt">118
+</span><span class="lnt">119
+</span><span class="lnt">120
+</span><span class="lnt">121
+</span><span class="lnt">122
+</span><span class="lnt">123
+</span><span class="lnt">124
+</span><span class="lnt">125
+</span><span class="lnt">126
+</span><span class="lnt">127
+</span><span class="lnt">128
+</span><span class="lnt">129
+</span><span class="lnt">130
+</span><span class="lnt">131
+</span><span class="lnt">132
+</span><span class="lnt">133
+</span><span class="lnt">134
+</span><span class="lnt">135
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cfg" data-lang="cfg"><span class="line"><span class="cl"><span class="k">[defaults]</span>
+</span></span><span class="line"><span class="cl"><span class="na">roles_path</span> <span class="o">=</span> <span class="s">~/.ansible/roles:/usr/share/ansible/roles:/etc/ansible/roles</span>
+</span></span><span class="line"><span class="cl"><span class="na">library</span> <span class="o">=</span> <span class="s">~/.ansible/plugins/modules:/usr/share/ansible/plugins/modules</span>
+</span></span><span class="line"><span class="cl"><span class="na">inventory</span> <span class="o">=</span> <span class="s">~/.ansible/hosts,/etc/ansible/hosts</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="na">collections_path</span> <span class="o">=</span> <span class="s">~/.ansible/collections:/usr/share/ansible/collections</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># This may be &#34;ignore&#34; or &#34;fail&#34;, &#34;warnging&#34; is the default</span>
+</span></span><span class="line"><span class="cl"><span class="na">collections_on_ansible_version_mismatch</span> <span class="o">=</span> <span class="s">warning</span>
+</span></span><span class="line"><span class="cl"><span class="na">collections_scan_sys_path</span> <span class="o">=</span> <span class="s">True</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Very useful, this will issue a warning if you run a command that</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Ansible thinks there is an existing module to do the same job!</span>
+</span></span><span class="line"><span class="cl"><span class="na">command_warnings</span> <span class="o">=</span> <span class="s">True</span>
+</span></span><span class="line"><span class="cl"><span class="na">forks</span> <span class="o">=</span> <span class="s">42</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># The default for gathering is &#34;impicit&#34;, meaning Ansible won&#39;t cache facts</span>
+</span></span><span class="line"><span class="cl"><span class="na">gathering</span> <span class="o">=</span> <span class="s">smart</span>
+</span></span><span class="line"><span class="cl"><span class="na">gather_timeout</span> <span class="o">=</span> <span class="s">13</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># May specify &#34;paramiko&#34;, &#34;ssh&#34; or &#34;smart&#34; for choosing based of OS and ssh versions</span>
+</span></span><span class="line"><span class="cl"><span class="na">transport</span> <span class="o">=</span> <span class="s">smart</span>
+</span></span><span class="line"><span class="cl"><span class="na">use_persistent_connections</span> <span class="o">=</span> <span class="s">True</span>
+</span></span><span class="line"><span class="cl"><span class="na">private_key_file</span> <span class="o">=</span> <span class="s">~/.ssh/id_rsa</span>
+</span></span><span class="line"><span class="cl"><span class="na">pipelining</span> <span class="o">=</span> <span class="s">ANSIBLE_PIPELINING</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Task timeout, 0 = no timeout</span>
+</span></span><span class="line"><span class="cl"><span class="na">task_timeout</span> <span class="o">=</span> <span class="s">0</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Connection timeout</span>
+</span></span><span class="line"><span class="cl"><span class="na">timeout</span> <span class="o">=</span> <span class="s">7</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Run plays as fast as possible</span>
+</span></span><span class="line"><span class="cl"><span class="na">strategy</span> <span class="o">=</span> <span class="s">free</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># This gives better performance at the expense of CPU load,</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># so I guess you&#39;d want it low on your workstation or laptop,</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># but higher on like an Ansible tower or similar automation setup using Ansible</span>
+</span></span><span class="line"><span class="cl"><span class="na">internal_poll_interval</span> <span class="o">=</span> <span class="s">0.000001</span>
+</span></span><span class="line"><span class="cl"><span class="na">poll_interval</span> <span class="o">=</span> <span class="s">3</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="na">system_tmpdirs</span> <span class="o">=</span> <span class="s">/tmp, /var/tmp</span>
+</span></span><span class="line"><span class="cl"><span class="na">remote_tmp</span> <span class="o">=</span> <span class="s">~/.ansible/tmp</span>
+</span></span><span class="line"><span class="cl"><span class="na">local_tmp</span> <span class="o">=</span> <span class="s">~/.ansible/tmp</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="na">jinja2_native_warning</span> <span class="o">=</span> <span class="s">True</span>
+</span></span><span class="line"><span class="cl"><span class="na">jinja2_native</span> <span class="o">=</span> <span class="s">True</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># This one is only really useful to make sure no secrets are logged on servers</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># when running Ansible tower or other automation systems using Ansible</span>
+</span></span><span class="line"><span class="cl"><span class="na">no_log</span> <span class="o">=</span> <span class="s">False</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Logging is disabled on the client if &#34;log_path&#34; is empty</span>
+</span></span><span class="line"><span class="cl"><span class="na">log_path</span> <span class="o">=</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Target hosts logging facility</span>
+</span></span><span class="line"><span class="cl"><span class="na">syslog_facility</span> <span class="o">=</span> <span class="s">LOG_USER</span>
+</span></span><span class="line"><span class="cl"><span class="na">no_target_syslog</span> <span class="o">=</span> <span class="s">False</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Must be one from python [zipfile](https://docs.python.org/3/library/zipfile.html) built-in library that is supported</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># on both the client and the target servers Ansible is going to run on, ZIP_DEFLATED is the default</span>
+</span></span><span class="line"><span class="cl"><span class="na">module_compression</span> <span class="o">=</span> <span class="s">ZIP_LZMA</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># ZIP_STORED = no compression</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># ZIP_DEFLATED = normal zip, requires zlib python module</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># ZIP_BZIP2 = bzip2, requires bz2 python module</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># ZIP_LZMA = lzma, requires lzma python module</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Default module to run with the &#34;ansible&#34; command if not -m [module] is specified</span>
+</span></span><span class="line"><span class="cl"><span class="na">module_name</span> <span class="o">=</span> <span class="s">command</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># What will null variables in templates show?</span>
+</span></span><span class="line"><span class="cl"><span class="na">null_representation</span> <span class="o">=</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Let&#39;s make some errors warnings instead</span>
+</span></span><span class="line"><span class="cl"><span class="na">invalid_task_attribute_failed</span> <span class="o">=</span> <span class="s">False</span>
+</span></span><span class="line"><span class="cl"><span class="na">error_on_missing_handler</span> <span class="o">=</span> <span class="s">False</span>
+</span></span><span class="line"><span class="cl"><span class="na">string_conversion_action</span> <span class="o">=</span> <span class="s">warn</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># The same as the -v command line arg</span>
+</span></span><span class="line"><span class="cl"><span class="na">verbosity</span> <span class="o">=</span> <span class="s">0</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Extra output goodness!~</span>
+</span></span><span class="line"><span class="cl"><span class="na">show_task_path_on_failure</span> <span class="o">=</span> <span class="s">True</span>
+</span></span><span class="line"><span class="cl"><span class="na">display_args_to_stdout</span> <span class="o">=</span> <span class="s">True</span>
+</span></span><span class="line"><span class="cl"><span class="na">display_skipped_hosts</span> <span class="o">=</span> <span class="s">True</span>
+</span></span><span class="line"><span class="cl"><span class="na">show_per_host_start</span> <span class="o">=</span> <span class="s">True</span>
+</span></span><span class="line"><span class="cl"><span class="na">check_mode_markers</span> <span class="o">=</span> <span class="s">True</span>
+</span></span><span class="line"><span class="cl"><span class="na">show_custom_stats</span> <span class="o">=</span> <span class="s">True</span>
+</span></span><span class="line"><span class="cl"><span class="na">display_ok_hosts</span> <span class="o">=</span> <span class="s">True</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># This may be useful</span>
+</span></span><span class="line"><span class="cl"><span class="na">retry_files_enabled</span> <span class="o">=</span> <span class="s">False</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="na">yaml_valid_extensions</span> <span class="o">=</span> <span class="s">.yml, .yaml, .json</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="na">display_failed_stderr</span> <span class="o">=</span> <span class="s">True</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">[persistent_connection]</span>
+</span></span><span class="line"><span class="cl"><span class="na">command_timeout</span> <span class="o">=</span> <span class="s">42</span>
+</span></span><span class="line"><span class="cl"><span class="na">connect_retry_timeout</span> <span class="o">=</span> <span class="s">7</span>
+</span></span><span class="line"><span class="cl"><span class="na">connect_timeout</span> <span class="o">=</span> <span class="s">60</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">[connection]</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># This only works if your become supports not using a tty,</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># but gives &#34;significant performance improvement when enabled.&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="na">pipelining</span> <span class="o">=</span> <span class="s">True</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Eye-candy!</span>
+</span></span><span class="line"><span class="cl"><span class="k">[colors]</span>
+</span></span><span class="line"><span class="cl"><span class="na">changed</span> <span class="o">=</span> <span class="s">bright yellow</span>
+</span></span><span class="line"><span class="cl"><span class="na">console_prompt</span> <span class="o">=</span> <span class="s">white</span>
+</span></span><span class="line"><span class="cl"><span class="na">debug</span> <span class="o">=</span> <span class="s">gray</span>
+</span></span><span class="line"><span class="cl"><span class="na">deprecate</span> <span class="o">=</span> <span class="s">purple</span>
+</span></span><span class="line"><span class="cl"><span class="na">diff_add</span> <span class="o">=</span> <span class="s">green</span>
+</span></span><span class="line"><span class="cl"><span class="na">diff_lines</span> <span class="o">=</span> <span class="s">cyan</span>
+</span></span><span class="line"><span class="cl"><span class="na">diff_remove</span> <span class="o">=</span> <span class="s">red</span>
+</span></span><span class="line"><span class="cl"><span class="na">error</span> <span class="o">=</span> <span class="s">red</span>
+</span></span><span class="line"><span class="cl"><span class="na">highlight</span> <span class="o">=</span> <span class="s">white</span>
+</span></span><span class="line"><span class="cl"><span class="na">ok</span> <span class="o">=</span> <span class="s">green</span>
+</span></span><span class="line"><span class="cl"><span class="na">skip</span> <span class="o">=</span> <span class="s">cyan</span>
+</span></span><span class="line"><span class="cl"><span class="na">unreachable</span> <span class="o">=</span> <span class="s">bright red</span>
+</span></span><span class="line"><span class="cl"><span class="na">verbose</span> <span class="o">=</span> <span class="s">blue</span>
+</span></span><span class="line"><span class="cl"><span class="na">warn</span> <span class="o">=</span> <span class="s">bright purple</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">[selinux]</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Enable this if running SELinux</span>
+</span></span><span class="line"><span class="cl"><span class="na">libvirt_lxc_noseclabel</span> <span class="o">=</span> <span class="s">False</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># We want this to be empty unless maybe nfs target? it may be a list of filesystems</span>
+</span></span><span class="line"><span class="cl"><span class="na">special_context_filesystems</span> <span class="o">=</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">[diff]</span>
+</span></span><span class="line"><span class="cl"><span class="na">always</span> <span class="o">=</span> <span class="s">True</span>
+</span></span><span class="line"><span class="cl"><span class="na">context</span> <span class="o">=</span> <span class="s">3</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">[inventory]</span>
+</span></span><span class="line"><span class="cl"><span class="na">enable_plugins</span> <span class="o">=</span> <span class="s">host_list, script, auto, yaml, ini, toml</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">[paramiko_connection]</span>
+</span></span><span class="line"><span class="cl"><span class="na">host_key_auto_add</span> <span class="o">=</span> <span class="s">True</span></span></span></code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="example-project-ansiblecfg">Example project ansible.cfg</h3>
+
+
+
+
+
+
+
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cfg" data-lang="cfg"><span class="line"><span class="cl"><span class="k">[default]</span>
+</span></span><span class="line"><span class="cl"><span class="na">private_key_file</span> <span class="o">=</span> <span class="s">~/.ssh/ansible_rsa</span>
+</span></span><span class="line"><span class="cl"><span class="na">remote_user</span> <span class="o">=</span> <span class="s">ansible</span>
+</span></span><span class="line"><span class="cl"><span class="na">inventory</span> <span class="o">=</span> <span class="s">all-machines</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">[privilege_escalation]</span>
+</span></span><span class="line"><span class="cl"><span class="na">become</span> <span class="o">=</span> <span class="s">yes</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
+<h2 id="inventory">Inventory</h2>
+<p>I think it&rsquo;s super neat that Ansible lets you use several file formats for most things.
 Inventories being the one that supports most formats, I&rsquo;m pretty sure.
-As you may just have a text file list, or YAML, INI, TOML and JSON to use host groups.</p><p>You may even have scripts that generate the target hosts with groups and everything.
+As you may just have a text file list, or YAML, INI, TOML and JSON to use host groups.</p>
+<p>You may even have scripts that generate the target hosts with groups and everything.
 If you opt for the script inventory route that script has to output the inventory in JSON format.
-There is also the possibility of creating your own inventory plugin with python.</p><p>For the script based inventory you have to support command-line arguments &ldquo;&ndash;list&rdquo; and &ldquo;&ndash;host &rdquo;.
+There is also the possibility of creating your own inventory plugin with python.</p>
+<p>For the script based inventory you have to support command-line arguments &ldquo;&ndash;list&rdquo; and &ldquo;&ndash;host <!-- raw HTML omitted -->&rdquo;.
 Those have to output the whole inventory in JSON format for &ldquo;&ndash;list&rdquo;.
-And the host vars for &ldquo;&ndash;host &rdquo;.</p><h3 id=the-simplest-inventories>The simplest inventories</h3><p>These are of course just lists of hosts, they could be in a text file or specified from the command-line as a comma separated list.
+And the host vars for &ldquo;&ndash;host <!-- raw HTML omitted -->&rdquo;.</p>
+<h3 id="the-simplest-inventories">The simplest inventories</h3>
+<p>These are of course just lists of hosts, they could be in a text file or specified from the command-line as a comma separated list.
 Then you&rsquo;ve got INI file based inventories, and it quickly may become advanced after that.
-Even with the INI based ones you may group hosts together.</p><p>Next up is three examples that effectively gives the same inventory.
-Although the text file won&rsquo;t give host groups.</p><h4 id=a-text-file-inventory-list>A text file inventory list</h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span><span class=lnt>18
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-txt data-lang=txt><span class=line><span class=cl>lost-islands
-</span></span><span class=line><span class=cl>toten
-</span></span><span class=line><span class=cl>hamar
-</span></span><span class=line><span class=cl>lofoten
-</span></span><span class=line><span class=cl>narvik
-</span></span><span class=line><span class=cl>gulf-of-oman
-</span></span><span class=line><span class=cl>deploy
-</span></span><span class=line><span class=cl>bergen
-</span></span><span class=line><span class=cl>molde
-</span></span><span class=line><span class=cl>hangar-22
-</span></span><span class=line><span class=cl>myrkdalen
-</span></span><span class=line><span class=cl>backup.skyid.no
-</span></span><span class=line><span class=cl>monitoring
-</span></span><span class=line><span class=cl>smokeping.skyid.no
-</span></span><span class=line><span class=cl>mercury
-</span></span><span class=line><span class=cl>scrapmetal
-</span></span><span class=line><span class=cl>dawnbreaker
-</span></span><span class=line><span class=cl>propaganda</span></span></code></pre></td></tr></table></div></div><h4 id=ini-inventory>INI inventory</h4><p>Now host groups come into the picture and the rest of the examples will all give the same inventory.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span><span class=lnt>18
-</span><span class=lnt>19
-</span><span class=lnt>20
-</span><span class=lnt>21
-</span><span class=lnt>22
-</span><span class=lnt>23
-</span><span class=lnt>24
-</span><span class=lnt>25
-</span><span class=lnt>26
-</span><span class=lnt>27
-</span><span class=lnt>28
-</span><span class=lnt>29
-</span><span class=lnt>30
-</span><span class=lnt>31
-</span><span class=lnt>32
-</span><span class=lnt>33
-</span><span class=lnt>34
-</span><span class=lnt>35
-</span><span class=lnt>36
-</span><span class=lnt>37
-</span><span class=lnt>38
-</span><span class=lnt>39
-</span><span class=lnt>40
-</span><span class=lnt>41
-</span><span class=lnt>42
-</span><span class=lnt>43
-</span><span class=lnt>44
-</span><span class=lnt>45
-</span><span class=lnt>46
-</span><span class=lnt>47
-</span><span class=lnt>48
-</span><span class=lnt>49
-</span><span class=lnt>50
-</span><span class=lnt>51
-</span><span class=lnt>52
-</span><span class=lnt>53
-</span><span class=lnt>54
-</span><span class=lnt>55
-</span><span class=lnt>56
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-ini data-lang=ini><span class=line><span class=cl><span class=k>[prod]</span>
-</span></span><span class=line><span class=cl><span class=na>lost-islands</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=k>[prod:children]</span>
-</span></span><span class=line><span class=cl><span class=na>prod_frontend</span>
-</span></span><span class=line><span class=cl><span class=na>prod_backend</span>
-</span></span><span class=line><span class=cl><span class=na>prod_vpn</span>
-</span></span><span class=line><span class=cl><span class=na>prod_db</span>
-</span></span><span class=line><span class=cl><span class=na>monitor</span>
-</span></span><span class=line><span class=cl><span class=na>backups</span>
-</span></span><span class=line><span class=cl><span class=na>misc</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=k>[prod_frontend]</span>
-</span></span><span class=line><span class=cl><span class=na>hamar</span>
-</span></span><span class=line><span class=cl><span class=na>toten</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=k>[prod_backend]</span>
-</span></span><span class=line><span class=cl><span class=na>lofoten</span>
-</span></span><span class=line><span class=cl><span class=na>narvik</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=k>[prod_vpn]</span>
-</span></span><span class=line><span class=cl><span class=na>bergen</span>
-</span></span><span class=line><span class=cl><span class=na>molde</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=k>[prod_db]</span>
-</span></span><span class=line><span class=cl><span class=na>hangar-22</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=k>[monitor]</span>
-</span></span><span class=line><span class=cl><span class=na>smokeping.skyid.no</span>
-</span></span><span class=line><span class=cl><span class=na>monitoring</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=k>[backups]</span>
-</span></span><span class=line><span class=cl><span class=na>backup.skyid.no</span>
-</span></span><span class=line><span class=cl><span class=na>myrkdalen</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=k>[misc]</span>
-</span></span><span class=line><span class=cl><span class=na>gulf-of-oman</span>
-</span></span><span class=line><span class=cl><span class=na>deploy</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=k>[dev:children]</span>
-</span></span><span class=line><span class=cl><span class=na>dev_frontend</span>
-</span></span><span class=line><span class=cl><span class=na>dev_backend</span>
-</span></span><span class=line><span class=cl><span class=na>dev_vpn</span>
-</span></span><span class=line><span class=cl><span class=na>dev_db</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=k>[dev_frontend]</span>
-</span></span><span class=line><span class=cl><span class=na>mercury</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=k>[dev_backend]</span>
-</span></span><span class=line><span class=cl><span class=na>scrapmetal</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=k>[dev_vpn]</span>
-</span></span><span class=line><span class=cl><span class=na>dawnbreaker</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=k>[dev_db]</span>
-</span></span><span class=line><span class=cl><span class=na>propaganda</span></span></span></code></pre></td></tr></table></div></div><h3 id=example-yaml-inventory>Example YAML inventory</h3><p>This one will give you the exact inventory as above.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span><span class=lnt>18
-</span><span class=lnt>19
-</span><span class=lnt>20
-</span><span class=lnt>21
-</span><span class=lnt>22
-</span><span class=lnt>23
-</span><span class=lnt>24
-</span><span class=lnt>25
-</span><span class=lnt>26
-</span><span class=lnt>27
-</span><span class=lnt>28
-</span><span class=lnt>29
-</span><span class=lnt>30
-</span><span class=lnt>31
-</span><span class=lnt>32
-</span><span class=lnt>33
-</span><span class=lnt>34
-</span><span class=lnt>35
-</span><span class=lnt>36
-</span><span class=lnt>37
-</span><span class=lnt>38
-</span><span class=lnt>39
-</span><span class=lnt>40
-</span><span class=lnt>41
-</span><span class=lnt>42
-</span><span class=lnt>43
-</span><span class=lnt>44
-</span><span class=lnt>45
-</span><span class=lnt>46
-</span><span class=lnt>47
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-yml data-lang=yml><span class=line><span class=cl><span class=nt>all</span><span class=p>:</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>children</span><span class=p>:</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>prod</span><span class=p>:</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>      </span><span class=nt>hosts</span><span class=p>:</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>lost-islands</span><span class=p>:</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>      </span><span class=nt>children</span><span class=p>:</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>prod_frontend</span><span class=p>:</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>          </span><span class=nt>hosts</span><span class=p>:</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>            </span><span class=nt>hamar</span><span class=p>:</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>            </span><span class=nt>toten</span><span class=p>:</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>prod_backend</span><span class=p>:</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>          </span><span class=nt>hosts</span><span class=p>:</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>            </span><span class=nt>lofoten</span><span class=p>:</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>            </span><span class=nt>narvik</span><span class=p>:</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>prod_vpn</span><span class=p>:</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>          </span><span class=nt>hosts</span><span class=p>:</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>            </span><span class=nt>bergen</span><span class=p>:</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>            </span><span class=nt>molde</span><span class=p>:</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>prod_db</span><span class=p>:</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>          </span><span class=nt>hosts</span><span class=p>:</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>            </span><span class=nt>hangar-22</span><span class=p>:</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>monitor</span><span class=p>:</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>          </span><span class=nt>hosts</span><span class=p>:</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>            </span><span class=nt>smokeping.skyid.no</span><span class=p>:</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>            </span><span class=nt>monitoring</span><span class=p>:</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>backups</span><span class=p>:</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>          </span><span class=nt>hosts</span><span class=p>:</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>            </span><span class=nt>backup.skyid.no</span><span class=p>:</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>            </span><span class=nt>myrkdalen</span><span class=p>:</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>misc</span><span class=p>:</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>          </span><span class=nt>hosts</span><span class=p>:</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>            </span><span class=nt>gulf-of-oman</span><span class=p>:</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>            </span><span class=nt>deploy</span><span class=p>:</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>dev</span><span class=p>:</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>      </span><span class=nt>children</span><span class=p>:</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>dev_frontend</span><span class=p>:</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>          </span><span class=nt>hosts</span><span class=p>:</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>            </span><span class=nt>mercury</span><span class=p>:</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>dev_backend</span><span class=p>:</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>          </span><span class=nt>hosts</span><span class=p>:</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>            </span><span class=nt>scrapmetal</span><span class=p>:</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>dev_vpn</span><span class=p>:</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>          </span><span class=nt>hosts</span><span class=p>:</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>            </span><span class=nt>dawnbreaker</span><span class=p>:</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>dev_db</span><span class=p>:</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>          </span><span class=nt>hosts</span><span class=p>:</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>            </span><span class=nt>propaganda</span><span class=p>:</span><span class=w>
-</span></span></span></code></pre></td></tr></table></div></div><h3 id=example-python-inventory-script>Example python inventory script</h3><p>This one is kinda just stupid as it just json dumps a dict containing the whole inventory.
+Even with the INI based ones you may group hosts together.</p>
+<p>Next up is three examples that effectively gives the same inventory.
+Although the text file won&rsquo;t give host groups.</p>
+<h4 id="a-text-file-inventory-list">A text file inventory list</h4>
+
+
+
+
+
+
+
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">lost-islands
+</span></span><span class="line"><span class="cl">toten
+</span></span><span class="line"><span class="cl">hamar
+</span></span><span class="line"><span class="cl">lofoten
+</span></span><span class="line"><span class="cl">narvik
+</span></span><span class="line"><span class="cl">gulf-of-oman
+</span></span><span class="line"><span class="cl">deploy
+</span></span><span class="line"><span class="cl">bergen
+</span></span><span class="line"><span class="cl">molde
+</span></span><span class="line"><span class="cl">hangar-22
+</span></span><span class="line"><span class="cl">myrkdalen
+</span></span><span class="line"><span class="cl">backup.skyid.no
+</span></span><span class="line"><span class="cl">monitoring
+</span></span><span class="line"><span class="cl">smokeping.skyid.no
+</span></span><span class="line"><span class="cl">mercury
+</span></span><span class="line"><span class="cl">scrapmetal
+</span></span><span class="line"><span class="cl">dawnbreaker
+</span></span><span class="line"><span class="cl">propaganda</span></span></code></pre></td></tr></table>
+</div>
+</div>
+<h4 id="ini-inventory">INI inventory</h4>
+<p>Now host groups come into the picture and the rest of the examples will all give the same inventory.</p>
+
+
+
+
+
+
+
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-ini" data-lang="ini"><span class="line"><span class="cl"><span class="k">[prod]</span>
+</span></span><span class="line"><span class="cl"><span class="na">lost-islands</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">[prod:children]</span>
+</span></span><span class="line"><span class="cl"><span class="na">prod_frontend</span>
+</span></span><span class="line"><span class="cl"><span class="na">prod_backend</span>
+</span></span><span class="line"><span class="cl"><span class="na">prod_vpn</span>
+</span></span><span class="line"><span class="cl"><span class="na">prod_db</span>
+</span></span><span class="line"><span class="cl"><span class="na">monitor</span>
+</span></span><span class="line"><span class="cl"><span class="na">backups</span>
+</span></span><span class="line"><span class="cl"><span class="na">misc</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">[prod_frontend]</span>
+</span></span><span class="line"><span class="cl"><span class="na">hamar</span>
+</span></span><span class="line"><span class="cl"><span class="na">toten</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">[prod_backend]</span>
+</span></span><span class="line"><span class="cl"><span class="na">lofoten</span>
+</span></span><span class="line"><span class="cl"><span class="na">narvik</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">[prod_vpn]</span>
+</span></span><span class="line"><span class="cl"><span class="na">bergen</span>
+</span></span><span class="line"><span class="cl"><span class="na">molde</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">[prod_db]</span>
+</span></span><span class="line"><span class="cl"><span class="na">hangar-22</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">[monitor]</span>
+</span></span><span class="line"><span class="cl"><span class="na">smokeping.skyid.no</span>
+</span></span><span class="line"><span class="cl"><span class="na">monitoring</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">[backups]</span>
+</span></span><span class="line"><span class="cl"><span class="na">backup.skyid.no</span>
+</span></span><span class="line"><span class="cl"><span class="na">myrkdalen</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">[misc]</span>
+</span></span><span class="line"><span class="cl"><span class="na">gulf-of-oman</span>
+</span></span><span class="line"><span class="cl"><span class="na">deploy</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">[dev:children]</span>
+</span></span><span class="line"><span class="cl"><span class="na">dev_frontend</span>
+</span></span><span class="line"><span class="cl"><span class="na">dev_backend</span>
+</span></span><span class="line"><span class="cl"><span class="na">dev_vpn</span>
+</span></span><span class="line"><span class="cl"><span class="na">dev_db</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">[dev_frontend]</span>
+</span></span><span class="line"><span class="cl"><span class="na">mercury</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">[dev_backend]</span>
+</span></span><span class="line"><span class="cl"><span class="na">scrapmetal</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">[dev_vpn]</span>
+</span></span><span class="line"><span class="cl"><span class="na">dawnbreaker</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">[dev_db]</span>
+</span></span><span class="line"><span class="cl"><span class="na">propaganda</span></span></span></code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="example-yaml-inventory">Example YAML inventory</h3>
+<p>This one will give you the exact inventory as above.</p>
+
+
+
+
+
+
+
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="nt">all</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">children</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">prod</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">hosts</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">lost-islands</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">children</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">prod_frontend</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">hosts</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">hamar</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">toten</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">prod_backend</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">hosts</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">lofoten</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">narvik</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">prod_vpn</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">hosts</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">bergen</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">molde</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">prod_db</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">hosts</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">hangar-22</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">monitor</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">hosts</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">smokeping.skyid.no</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">monitoring</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">backups</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">hosts</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">backup.skyid.no</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">myrkdalen</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">misc</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">hosts</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">gulf-of-oman</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">deploy</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">dev</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">children</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">dev_frontend</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">hosts</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">mercury</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">dev_backend</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">hosts</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">scrapmetal</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">dev_vpn</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">hosts</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">dawnbreaker</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">dev_db</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">hosts</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">propaganda</span><span class="p">:</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="example-python-inventory-script">Example python inventory script</h3>
+<p>This one is kinda just stupid as it just json dumps a dict containing the whole inventory.
 To do some real magic with this you&rsquo;d want to make that whole dict generated by code.
-Very useful if for some reason your inventory is highly dynamic.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span><span class=lnt>18
-</span><span class=lnt>19
-</span><span class=lnt>20
-</span><span class=lnt>21
-</span><span class=lnt>22
-</span><span class=lnt>23
-</span><span class=lnt>24
-</span><span class=lnt>25
-</span><span class=lnt>26
-</span><span class=lnt>27
-</span><span class=lnt>28
-</span><span class=lnt>29
-</span><span class=lnt>30
-</span><span class=lnt>31
-</span><span class=lnt>32
-</span><span class=lnt>33
-</span><span class=lnt>34
-</span><span class=lnt>35
-</span><span class=lnt>36
-</span><span class=lnt>37
-</span><span class=lnt>38
-</span><span class=lnt>39
-</span><span class=lnt>40
-</span><span class=lnt>41
-</span><span class=lnt>42
-</span><span class=lnt>43
-</span><span class=lnt>44
-</span><span class=lnt>45
-</span><span class=lnt>46
-</span><span class=lnt>47
-</span><span class=lnt>48
-</span><span class=lnt>49
-</span><span class=lnt>50
-</span><span class=lnt>51
-</span><span class=lnt>52
-</span><span class=lnt>53
-</span><span class=lnt>54
-</span><span class=lnt>55
-</span><span class=lnt>56
-</span><span class=lnt>57
-</span><span class=lnt>58
-</span><span class=lnt>59
-</span><span class=lnt>60
-</span><span class=lnt>61
-</span><span class=lnt>62
-</span><span class=lnt>63
-</span><span class=lnt>64
-</span><span class=lnt>65
-</span><span class=lnt>66
-</span><span class=lnt>67
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-py data-lang=py><span class=line><span class=cl><span class=ch>#!/usr/bin/python3</span>
-</span></span><span class=line><span class=cl><span class=kn>from</span> <span class=nn>json</span> <span class=kn>import</span> <span class=n>dumps</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=n>inv</span> <span class=o>=</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>  <span class=s1>&#39;prod_frontend&#39;</span><span class=p>:</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>    <span class=s1>&#39;hosts&#39;</span><span class=p>:</span> <span class=p>[</span><span class=s1>&#39;toten&#39;</span><span class=p>,</span> <span class=s1>&#39;hamar&#39;</span><span class=p>]</span>
-</span></span><span class=line><span class=cl>  <span class=p>},</span> <span class=s1>&#39;prod_backend&#39;</span><span class=p>:</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>    <span class=s1>&#39;hosts&#39;</span><span class=p>:</span> <span class=p>[</span><span class=s1>&#39;lofoten&#39;</span><span class=p>,</span> <span class=s1>&#39;narvik&#39;</span><span class=p>]</span>
-</span></span><span class=line><span class=cl>  <span class=p>},</span> <span class=s1>&#39;prod_vpn&#39;</span><span class=p>:</span> <span class=p>{</span> <span class=c1># vpn/radius</span>
-</span></span><span class=line><span class=cl>    <span class=s1>&#39;hosts&#39;</span><span class=p>:</span> <span class=p>[</span><span class=s1>&#39;bergen&#39;</span><span class=p>,</span> <span class=s1>&#39;molde&#39;</span><span class=p>]</span>
-</span></span><span class=line><span class=cl>  <span class=p>},</span> <span class=s1>&#39;prod_db&#39;</span><span class=p>:</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>    <span class=s1>&#39;hosts&#39;</span><span class=p>:</span> <span class=p>[</span><span class=s1>&#39;hangar-22&#39;</span><span class=p>]</span>
-</span></span><span class=line><span class=cl>  <span class=p>},</span> <span class=s1>&#39;prod&#39;</span><span class=p>:</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>    <span class=s1>&#39;hosts&#39;</span><span class=p>:</span> <span class=p>[</span><span class=s1>&#39;lost-islands&#39;</span><span class=p>],</span> <span class=c1># monitoring and internal DNS</span>
-</span></span><span class=line><span class=cl>    <span class=s1>&#39;children&#39;</span><span class=p>:</span> <span class=p>[</span>
-</span></span><span class=line><span class=cl>      <span class=s1>&#39;prod_frontend&#39;</span><span class=p>,</span> <span class=s1>&#39;prod_backend&#39;</span><span class=p>,</span> <span class=s1>&#39;misc&#39;</span><span class=p>,</span>
-</span></span><span class=line><span class=cl>      <span class=s1>&#39;prod_vpn&#39;</span><span class=p>,</span> <span class=s1>&#39;prod_db&#39;</span><span class=p>,</span> <span class=s1>&#39;backups&#39;</span><span class=p>,</span> <span class=s1>&#39;monitor&#39;</span>
-</span></span><span class=line><span class=cl>    <span class=p>]</span>
-</span></span><span class=line><span class=cl>  <span class=p>},</span>
-</span></span><span class=line><span class=cl>  <span class=s1>&#39;misc&#39;</span><span class=p>:</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>    <span class=s1>&#39;hosts&#39;</span><span class=p>:</span> <span class=p>[</span><span class=s1>&#39;gulf-of-oman&#39;</span><span class=p>,</span> <span class=s1>&#39;deploy&#39;</span><span class=p>]</span>
-</span></span><span class=line><span class=cl>  <span class=p>},</span> <span class=s1>&#39;backups&#39;</span><span class=p>:</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>    <span class=s1>&#39;hosts&#39;</span><span class=p>:</span> <span class=p>[</span><span class=s1>&#39;myrkdalen&#39;</span><span class=p>,</span> <span class=s1>&#39;backup.skyid.no&#39;</span><span class=p>]</span>
-</span></span><span class=line><span class=cl>  <span class=p>},</span> <span class=s1>&#39;monitor&#39;</span><span class=p>:</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>    <span class=s1>&#39;hosts&#39;</span><span class=p>:</span> <span class=p>[</span><span class=s1>&#39;monitoring&#39;</span><span class=p>,</span> <span class=s1>&#39;smokeping.skyid.no&#39;</span><span class=p>]</span>
-</span></span><span class=line><span class=cl>  <span class=p>},</span>
-</span></span><span class=line><span class=cl>  <span class=s1>&#39;dev_frontend&#39;</span><span class=p>:</span> <span class=p>{</span> <span class=s1>&#39;hosts&#39;</span><span class=p>:</span> <span class=p>[</span><span class=s1>&#39;mercury&#39;</span><span class=p>]</span> <span class=p>},</span>
-</span></span><span class=line><span class=cl>  <span class=s1>&#39;dev_backend&#39;</span><span class=p>:</span> <span class=p>{</span> <span class=s1>&#39;hosts&#39;</span><span class=p>:</span> <span class=p>[</span><span class=s1>&#39;scrapmetal&#39;</span><span class=p>]</span> <span class=p>},</span>
-</span></span><span class=line><span class=cl>  <span class=s1>&#39;dev_vpn&#39;</span><span class=p>:</span> <span class=p>{</span> <span class=s1>&#39;hosts&#39;</span><span class=p>:</span> <span class=p>[</span><span class=s1>&#39;dawnbreaker&#39;</span><span class=p>]</span> <span class=p>},</span>
-</span></span><span class=line><span class=cl>  <span class=s1>&#39;dev_db&#39;</span><span class=p>:</span> <span class=p>{</span> <span class=s1>&#39;hosts&#39;</span><span class=p>:</span> <span class=p>[</span><span class=s1>&#39;propaganda&#39;</span><span class=p>]</span> <span class=p>},</span>
-</span></span><span class=line><span class=cl>  <span class=s1>&#39;dev&#39;</span><span class=p>:</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>    <span class=s1>&#39;children&#39;</span><span class=p>:</span> <span class=p>[</span>
-</span></span><span class=line><span class=cl>      <span class=s1>&#39;dev_frontend&#39;</span><span class=p>,</span> <span class=s1>&#39;dev_backend&#39;</span><span class=p>,</span> <span class=s1>&#39;dev_vpn&#39;</span><span class=p>,</span> <span class=s1>&#39;dev_db&#39;</span>
-</span></span><span class=line><span class=cl>    <span class=p>]</span>
-</span></span><span class=line><span class=cl>  <span class=p>},</span>
-</span></span><span class=line><span class=cl>  <span class=s2>&#34;_meta&#34;</span><span class=p>:</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>    <span class=c1># since we&#39;re not doing hostvars this will make it a whole lot faster</span>
-</span></span><span class=line><span class=cl>    <span class=c1># as Ansible won&#39;t have to run this script with --host for each one</span>
-</span></span><span class=line><span class=cl>    <span class=s2>&#34;hostvars&#34;</span><span class=p>:</span> <span class=p>{}</span>
-</span></span><span class=line><span class=cl>  <span class=p>}</span>
-</span></span><span class=line><span class=cl><span class=p>}</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>inventory</span><span class=p>():</span>
-</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=n>dumps</span><span class=p>(</span><span class=n>inv</span><span class=p>,</span> <span class=n>indent</span><span class=o>=</span><span class=mi>2</span><span class=p>)</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>group_vars</span><span class=p>(</span><span class=n>host</span><span class=p>):</span>
-</span></span><span class=line><span class=cl>  <span class=k>for</span> <span class=n>group</span> <span class=ow>in</span> <span class=n>inv</span><span class=o>.</span><span class=n>values</span><span class=p>():</span>
-</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=n>host</span> <span class=ow>in</span> <span class=n>group</span><span class=o>.</span><span class=n>get</span><span class=p>(</span><span class=s1>&#39;hosts&#39;</span><span class=p>,</span> <span class=p>[]):</span>
-</span></span><span class=line><span class=cl>      <span class=k>return</span> <span class=n>dumps</span><span class=p>(</span><span class=n>group</span><span class=o>.</span><span class=n>get</span><span class=p>(</span><span class=s1>&#39;vars&#39;</span><span class=p>,</span> <span class=p>{}),</span> <span class=n>indent</span><span class=o>=</span><span class=mi>2</span><span class=p>)</span>
-</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=s1>&#39;</span><span class=si>{}</span><span class=s1>&#39;</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=k>if</span> <span class=vm>__name__</span> <span class=o>==</span> <span class=s1>&#39;__main__&#39;</span><span class=p>:</span>
-</span></span><span class=line><span class=cl>  <span class=kn>from</span> <span class=nn>argparse</span> <span class=kn>import</span> <span class=n>ArgumentParser</span>
-</span></span><span class=line><span class=cl>  <span class=n>argparse</span> <span class=o>=</span> <span class=n>ArgumentParser</span><span class=p>()</span>
-</span></span><span class=line><span class=cl>  <span class=n>argparse</span><span class=o>.</span><span class=n>add_argument</span><span class=p>(</span>
-</span></span><span class=line><span class=cl>    <span class=s1>&#39;-l&#39;</span><span class=p>,</span> <span class=s1>&#39;--list&#39;</span><span class=p>,</span> <span class=n>action</span><span class=o>=</span><span class=s1>&#39;store_true&#39;</span><span class=p>,</span>
-</span></span><span class=line><span class=cl>    <span class=n>help</span><span class=o>=</span><span class=s1>&#39;Print the inventory to stdout&#39;</span><span class=p>)</span>
-</span></span><span class=line><span class=cl>  <span class=n>argparse</span><span class=o>.</span><span class=n>add_argument</span><span class=p>(</span>
-</span></span><span class=line><span class=cl>    <span class=s1>&#39;-v&#39;</span><span class=p>,</span> <span class=s1>&#39;--host&#39;</span><span class=p>,</span> <span class=nb>type</span><span class=o>=</span><span class=nb>str</span><span class=p>,</span>
-</span></span><span class=line><span class=cl>    <span class=n>help</span><span class=o>=</span><span class=s1>&#39;Print host vars for a specific host&#39;</span><span class=p>)</span>
-</span></span><span class=line><span class=cl>  <span class=n>args</span> <span class=o>=</span> <span class=n>argparse</span><span class=o>.</span><span class=n>parse_args</span><span class=p>()</span>
-</span></span><span class=line><span class=cl>  <span class=k>if</span> <span class=n>args</span><span class=o>.</span><span class=n>list</span><span class=p>:</span>
-</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=n>inventory</span><span class=p>())</span>
-</span></span><span class=line><span class=cl>  <span class=k>elif</span> <span class=n>args</span><span class=o>.</span><span class=n>host</span><span class=p>:</span>
-</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=n>group_vars</span><span class=p>(</span><span class=n>args</span><span class=o>.</span><span class=n>host</span><span class=p>))</span>
-</span></span><span class=line><span class=cl>  <span class=k>else</span><span class=p>:</span>
-</span></span><span class=line><span class=cl>    <span class=n>argparse</span><span class=o>.</span><span class=n>print_help</span><span class=p>()</span>
-</span></span></code></pre></td></tr></table></div></div><h2 id=inventory-summary>Inventory summary</h2><p>So the takeaway in my opinion is that INI or TOML based inventories are best.
+Very useful if for some reason your inventory is highly dynamic.</p>
+
+
+
+
+
+
+
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="ch">#!/usr/bin/python3</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">json</span> <span class="kn">import</span> <span class="n">dumps</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">inv</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="s1">&#39;prod_frontend&#39;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;hosts&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;toten&#39;</span><span class="p">,</span> <span class="s1">&#39;hamar&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span> <span class="s1">&#39;prod_backend&#39;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;hosts&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;lofoten&#39;</span><span class="p">,</span> <span class="s1">&#39;narvik&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span> <span class="s1">&#39;prod_vpn&#39;</span><span class="p">:</span> <span class="p">{</span> <span class="c1"># vpn/radius</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;hosts&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;bergen&#39;</span><span class="p">,</span> <span class="s1">&#39;molde&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span> <span class="s1">&#39;prod_db&#39;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;hosts&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;hangar-22&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span> <span class="s1">&#39;prod&#39;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;hosts&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;lost-islands&#39;</span><span class="p">],</span> <span class="c1"># monitoring and internal DNS</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;children&#39;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">      <span class="s1">&#39;prod_frontend&#39;</span><span class="p">,</span> <span class="s1">&#39;prod_backend&#39;</span><span class="p">,</span> <span class="s1">&#39;misc&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="s1">&#39;prod_vpn&#39;</span><span class="p">,</span> <span class="s1">&#39;prod_db&#39;</span><span class="p">,</span> <span class="s1">&#39;backups&#39;</span><span class="p">,</span> <span class="s1">&#39;monitor&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">]</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="s1">&#39;misc&#39;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;hosts&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;gulf-of-oman&#39;</span><span class="p">,</span> <span class="s1">&#39;deploy&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span> <span class="s1">&#39;backups&#39;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;hosts&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;myrkdalen&#39;</span><span class="p">,</span> <span class="s1">&#39;backup.skyid.no&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span> <span class="s1">&#39;monitor&#39;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;hosts&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;monitoring&#39;</span><span class="p">,</span> <span class="s1">&#39;smokeping.skyid.no&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="s1">&#39;dev_frontend&#39;</span><span class="p">:</span> <span class="p">{</span> <span class="s1">&#39;hosts&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;mercury&#39;</span><span class="p">]</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="s1">&#39;dev_backend&#39;</span><span class="p">:</span> <span class="p">{</span> <span class="s1">&#39;hosts&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;scrapmetal&#39;</span><span class="p">]</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="s1">&#39;dev_vpn&#39;</span><span class="p">:</span> <span class="p">{</span> <span class="s1">&#39;hosts&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;dawnbreaker&#39;</span><span class="p">]</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="s1">&#39;dev_db&#39;</span><span class="p">:</span> <span class="p">{</span> <span class="s1">&#39;hosts&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;propaganda&#39;</span><span class="p">]</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="s1">&#39;dev&#39;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;children&#39;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">      <span class="s1">&#39;dev_frontend&#39;</span><span class="p">,</span> <span class="s1">&#39;dev_backend&#39;</span><span class="p">,</span> <span class="s1">&#39;dev_vpn&#39;</span><span class="p">,</span> <span class="s1">&#39;dev_db&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">]</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;_meta&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># since we&#39;re not doing hostvars this will make it a whole lot faster</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># as Ansible won&#39;t have to run this script with --host for each one</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;hostvars&#34;</span><span class="p">:</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">inventory</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="n">dumps</span><span class="p">(</span><span class="n">inv</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">group_vars</span><span class="p">(</span><span class="n">host</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">  <span class="k">for</span> <span class="n">group</span> <span class="ow">in</span> <span class="n">inv</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">host</span> <span class="ow">in</span> <span class="n">group</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;hosts&#39;</span><span class="p">,</span> <span class="p">[]):</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="n">dumps</span><span class="p">(</span><span class="n">group</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;vars&#39;</span><span class="p">,</span> <span class="p">{}),</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1">&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">  <span class="kn">from</span> <span class="nn">argparse</span> <span class="kn">import</span> <span class="n">ArgumentParser</span>
+</span></span><span class="line"><span class="cl">  <span class="n">argparse</span> <span class="o">=</span> <span class="n">ArgumentParser</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">  <span class="n">argparse</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;-l&#39;</span><span class="p">,</span> <span class="s1">&#39;--list&#39;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Print the inventory to stdout&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="n">argparse</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;-v&#39;</span><span class="p">,</span> <span class="s1">&#39;--host&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Print host vars for a specific host&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="n">args</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">list</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">inventory</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">  <span class="k">elif</span> <span class="n">args</span><span class="o">.</span><span class="n">host</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">group_vars</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">host</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">  <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">argparse</span><span class="o">.</span><span class="n">print_help</span><span class="p">()</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
+<h2 id="inventory-summary">Inventory summary</h2>
+<p>So the takeaway in my opinion is that INI or TOML based inventories are best.
 As the YAML based ones are no fun working with.
 JSON is also not optimal to manually work with, but a script generating that JSON may be very useful.
-Again if you have the need of a potentially very dynamic inventory.</p><p>There is also the inventory parameters, these let you override lots of settings on a per-host basis.
-Here is a super simple inventory to test plays/playbooks against a docker container;</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-ini data-lang=ini><span class=line><span class=cl><span class=k>[docker]</span>
-</span></span><span class=line><span class=cl><span class=na>docker-test ansible_connection</span><span class=o>=</span><span class=s>docker ansible_user=root ansible_host=ansible</span>
-</span></span></code></pre></td></tr></table></div></div><p>You may use that inventory and run plays agains whatever container is named &ldquo;ansible&rdquo;.
-Or change the &ldquo;ansible_host&rdquo; parameter to the name of whatever container you&rsquo;d like to use.</p><p>These optional parameters are &ldquo;ansible_&rdquo; something.
-And you may control everything from connection and</p><p>INVENTORY PARAMETERS!</p></article></div></div></main></div><footer><center><div class=footer-content><p>2020 - 2023 &copy; Sivert V. Sæther</p></div></center></footer></body></html>
+Again if you have the need of a potentially very dynamic inventory.</p>
+<p>There is also the inventory parameters, these let you override lots of settings on a per-host basis.
+Here is a super simple inventory to test plays/playbooks against a docker container;</p>
+
+
+
+
+
+
+
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-ini" data-lang="ini"><span class="line"><span class="cl"><span class="k">[docker]</span>
+</span></span><span class="line"><span class="cl"><span class="na">docker-test ansible_connection</span><span class="o">=</span><span class="s">docker ansible_user=root ansible_host=ansible</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
+<p>You may use that inventory and run plays agains whatever container is named &ldquo;ansible&rdquo;.
+Or change the &ldquo;ansible_host&rdquo; parameter to the name of whatever container you&rsquo;d like to use.</p>
+<p>These optional parameters are &ldquo;ansible_&rdquo; something.
+And you may control everything from connection and</p>
+<p>INVENTORY PARAMETERS!</p>
+
+</article>
+
+        </div>
+      </div>
+      
+    </main>
+  </div>
+  <footer>
+  <center>
+  <div class='footer-content'>
+    <p>2020 - 2023 &copy; Sivert V. Sæther</p>
+  </div>
+  
+</center>
+  </footer>
+</body>
+
+</html>

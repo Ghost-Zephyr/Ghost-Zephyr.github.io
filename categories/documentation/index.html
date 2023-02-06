@@ -1,42 +1,320 @@
-<!doctype html><html lang=en><head><meta charset=utf-8><meta name=robots content="index,follow"><title>Sivert Does Stuff Online! - documentation</title><link rel=icon href=/favicon.2a782c1d4fdbd387db5d712ee87bd8b01eb0cf56bd95198f4cc6a84ccf8bfb7e.png integrity='sha256-KngsHU/b04fbXXEu6HvYsB6wz1a9lRmPTMaoTM+L+34='><link rel=apple-touch-icon href=/favicon_hu5ee1517d9ee6726a25cfeec6a86e1947_41990_192x192_resize_box_3.3306e29c64ba856a2bd380475dcf6fcf81e835e05927358f6e225bbbdf44032a.png integrity='sha256-MwbinGS6hWor04BHXc9vz4HoNeBZJzWPbiJbu99EAyo='><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#00FF00"><meta name=twitter:card content="summary"><meta property="og:title" content="Sivert Does Stuff Online!"><meta property="og:url" content="https://io.sivert.pw"><meta property="og:site_name" content="Sivert Does Stuff Online!"><meta name=generator content="Hugo 0.109.0"><link rel=alternate type=application/rss+xml href=https://io.sivert.pw/categories/documentation/index.xml title='Sivert Does Stuff Online!'><link rel=stylesheet href=https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css crossorigin=anonymous><link href='/main.min.15a34a6ce4d3fc26538f8271b2938a96a83603e15a32531e2171ad4eca808ede.css' integrity="sha256-FaNKbOTT/CZTj4JxspOKlqg2A+FaMlMeIXGtTsqAjt4=" rel=stylesheet><script defer data-domain=io.sivert.pw src=https://anal.42069.no/js/script.js></script></head><body><header><nav id=navbar><ul class=top-nav><li><a href=/>Sivert Does Stuff Online!</a></li><li><a href=/blog/apprentice><span>Apprentice docs</span></a></li><li id=right><ul><li><a href=https://sivert.pw><span>My Humble Homepage</span></a></li><li><a href=/old><span>Old GitHub.io</span></a></li><li><a href=/about><span>About</span></a></li><li><a href=/blog><span>Blog</span></a></li></ul></li></ul></nav></header><div id=content><main><article><header><h1>documentation</h1></header><br><h3>Posts</h3><ul class=contents><li><a href=/blog/apprentice/tzsp2pcap/><article><p class=heading>Tzsp2pcap</p>Published 18/08/2022
-Updated 10/10/2022<br>This is a very useful tool when working with Mikrotiks. As their built-in sniffer tool has support for TZSP (TaZmen Sniffer Protocol) streaming. This will send all packets that match the filtering options to some destination over TZSP/UDP.
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8'>
+  <meta name='robots' content='index,follow'>
+  
+    <title>Sivert Does Stuff Online! - documentation</title>
+  
+  
+  
+    
+      <link rel='icon' href='/favicon.2a782c1d4fdbd387db5d712ee87bd8b01eb0cf56bd95198f4cc6a84ccf8bfb7e.png' integrity='sha256-KngsHU/b04fbXXEu6HvYsB6wz1a9lRmPTMaoTM&#43;L&#43;34=' />
+    
+    
+      <link rel="apple-touch-icon" href="/favicon_hu5ee1517d9ee6726a25cfeec6a86e1947_41990_192x192_resize_box_3.3306e29c64ba856a2bd380475dcf6fcf81e835e05927358f6e225bbbdf44032a.png"  integrity='sha256-MwbinGS6hWor04BHXc9vz4HoNeBZJzWPbiJbu99EAyo=' />
+    
+  
+  <meta name='viewport' content='width=device-width,initial-scale=1.0'>
+  <meta name="theme-color" content="#00FF00" />
+  
+  
+  <meta name='twitter:card' content='summary'>
+  <meta property='og:title' content='Sivert Does Stuff Online!' />
+  <meta property='og:url' content='' />
+  <meta property='og:site_name' content='Sivert Does Stuff Online!' />
+  
+  <meta name="generator" content="Hugo 0.106.0">
+  <link rel='alternate' type='application/rss+xml' href='/categories/documentation/index.xml' title='Sivert Does Stuff Online!' />
+  <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css' crossorigin='anonymous'>
+  
+  
+  
+    <link href='/main.min.15a34a6ce4d3fc26538f8271b2938a96a83603e15a32531e2171ad4eca808ede.css' integrity="sha256-FaNKbOTT/CZTj4JxspOKlqg2A+FaMlMeIXGtTsqAjt4=" rel='stylesheet'>
+  
+  <script defer data-domain="io.sivert.pw" src="https://anal.42069.no/js/script.js"></script>
+</head>
+<body>
+  <header>
+    <nav id='navbar'>
+  <ul class='top-nav'>
+    <li><a href='/'>Sivert Does Stuff Online!</a></li>
+    
+    
+    
+    
+
+<li>
+  <a href='/blog/apprentice'>
+    
+    <span>Apprentice docs</span>
+  </a>
+</li>
+
+    
+    <li id='right'>
+      <ul>
+      
+      
+
+<li>
+  <a href='https://sivert.pw'>
+    
+    <span>My Humble Homepage</span>
+  </a>
+</li>
+
+      
+      
+
+<li>
+  <a href='/old'>
+    
+    <span>Old GitHub.io</span>
+  </a>
+</li>
+
+      
+      
+
+<li>
+  <a href='/about'>
+    
+    <span>About</span>
+  </a>
+</li>
+
+      
+      
+
+<li>
+  <a href='/blog'>
+    
+    <span>Blog</span>
+  </a>
+</li>
+
+      
+      
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </header>
+  <div id='content'>
+    <main>
+      
+      
+<article>
+  <header>
+    <h1>documentation</h1>
+  </header>
+  
+  
+  <br />
+  <h3>Posts</h3>
+  <ul class='contents'>
+  
+  <li><a href='/blog/apprentice/tzsp2pcap/'>
+    
+<article>
+  <p class="heading">Tzsp2pcap</p>
+  Published 18/08/2022
+  
+  Updated 10/10/2022
+  <br />
+  This is a very useful tool when working with Mikrotiks. As their built-in sniffer tool has support for TZSP (TaZmen Sniffer Protocol) streaming. This will send all packets that match the filtering options to some destination over TZSP/UDP.
 This destination may be some machine running this tzsp2pcap. Allowing you to get a pcap remotely from a Mikrtoik without touching the Mikrotiks disk. This is super useful if the box has traffic as the Mikrotik routers usually has a disk with a size in megabytes.
-Read More...</article></a></li><li><a href=/blog/apprentice/linux-password-reset/><article><p class=heading>Linux Desktop Password Reset</p>Published 18/08/2022
-Updated 10/10/2022<br>Hacking stuff is usually pretty trivial. As long as you&rsquo;ve got physical access that is. And here I&rsquo;ll instruct you on how to reset passwords on a Linux installation. Either by booting a live ISO. Or by plugging the drive with the installation you&rsquo;d like to reset some password(s) on into another Linux machine.
+  Read More...
+</article>
+  </a></li>
+  
+  <li><a href='/blog/apprentice/linux-password-reset/'>
+    
+<article>
+  <p class="heading">Linux Desktop Password Reset</p>
+  Published 18/08/2022
+  
+  Updated 10/10/2022
+  <br />
+  Hacking stuff is usually pretty trivial. As long as you&rsquo;ve got physical access that is. And here I&rsquo;ll instruct you on how to reset passwords on a Linux installation. Either by booting a live ISO. Or by plugging the drive with the installation you&rsquo;d like to reset some password(s) on into another Linux machine.
 Realistically, repairing a broken installation is pretty similar. Although be aware that setting up the chroot may require additional steps.
-Read More...</article></a></li><li><a href=/blog/apprentice/fail2ban/><article><p class=heading>Fail2ban</p>Published 14/07/2022
-Updated 08/08/2022<br>At SkyLabs I had the surprisingly pleasant experience of configuring fail2ban for a bunch of production servers. What fail2ban simply does is watch log files, match the lines against predefined regex patterns. After a predefined amount of matches for a specific IP, it gets 🔨 banned. The super cool thing about this is that the max retry, and most options may be set globally, but also locally for each &ldquo;jail&rdquo;. These jails are just configs for the filters.
-Read More...</article></a></li><li><a href=/blog/apprentice/debian/><article><p class=heading>Debian</p>Published 20/06/2022
-Updated 23/08/2022<br>The biggest of the official Debian button logos Debian is a classic free and open source Linux distribution. It&rsquo;s one of the oldest Linux OSes and the basis of many other distros. Most notably Ubuntu.
+  Read More...
+</article>
+  </a></li>
+  
+  <li><a href='/blog/apprentice/fail2ban/'>
+    
+<article>
+  <p class="heading">Fail2ban</p>
+  Published 14/07/2022
+  
+  Updated 08/08/2022
+  <br />
+  At SkyLabs I had the surprisingly pleasant experience of configuring fail2ban for a bunch of production servers. What fail2ban simply does is watch log files, match the lines against predefined regex patterns. After a predefined amount of matches for a specific IP, it gets 🔨 banned. The super cool thing about this is that the max retry, and most options may be set globally, but also locally for each &ldquo;jail&rdquo;. These jails are just configs for the filters.
+  Read More...
+</article>
+  </a></li>
+  
+  <li><a href='/blog/apprentice/debian/'>
+    
+<article>
+  <p class="heading">Debian</p>
+  Published 20/06/2022
+  
+  Updated 23/08/2022
+  <br />
+  The biggest of the official Debian button logos Debian is a classic free and open source Linux distribution. It&rsquo;s one of the oldest Linux OSes and the basis of many other distros. Most notably Ubuntu.
 Debian has three foundational documents. The Debian Social Contract/OG Version, the Debian Constitution and the Debian Free Software Guidelines.
 Debian version code-names are famously named after characters from the Toy Story films. It&rsquo;s unstable rolling release branch is named Sid, who in the Toy Stories regularly destroys his toys.
-Read More...</article></a></li><li><a href=/blog/apprentice/msal/><article><p class=heading>MSAL</p>Published 20/06/2022
-Updated 08/08/2022<br>MSAL stands for Microsoft Authentication Library. It&rsquo;s the replacement for ADAL, the Active Directory Authentication Library. Although Microsoft now definitely pushes cloud hard like most tech companies. So MSAL is focused on Azure AD specifically. Where there is a distinct difference between &ldquo;organizational&rdquo; accounts and normal public Microsoft services account.</article></a></li><li><a href=/blog/apprentice/whm/><article><p class=heading>WHM</p>Published 20/06/2022
-Updated 08/08/2022<br>WHM/Web Host Manager is the partner/backend admin panel for cPanel. It&rsquo;s made for making shared web hosting super easy. WHM uses a bunch of server software under the hood for managing DNS, e-mails, web-servers and more. With WHM, it&rsquo;s super easy managing a whole-bunch of Apache &ldquo;virtual hosts&rdquo;. One for each cPanel.
+  Read More...
+</article>
+  </a></li>
+  
+  <li><a href='/blog/apprentice/msal/'>
+    
+<article>
+  <p class="heading">MSAL</p>
+  Published 20/06/2022
+  
+  Updated 08/08/2022
+  <br />
+  MSAL stands for Microsoft Authentication Library. It&rsquo;s the replacement for ADAL, the Active Directory Authentication Library. Although Microsoft now definitely pushes cloud hard like most tech companies. So MSAL is focused on Azure AD specifically. Where there is a distinct difference between &ldquo;organizational&rdquo; accounts and normal public Microsoft services account.
+  
+</article>
+  </a></li>
+  
+  <li><a href='/blog/apprentice/whm/'>
+    
+<article>
+  <p class="heading">WHM</p>
+  Published 20/06/2022
+  
+  Updated 08/08/2022
+  <br />
+  WHM/Web Host Manager is the partner/backend admin panel for cPanel. It&rsquo;s made for making shared web hosting super easy. WHM uses a bunch of server software under the hood for managing DNS, e-mails, web-servers and more. With WHM, it&rsquo;s super easy managing a whole-bunch of Apache &ldquo;virtual hosts&rdquo;. One for each cPanel.
 WHM also supports having WHM &ldquo;partner&rdquo; accounts out of the box! This means that the company doing shared hosting with WHM may have partners that also have access to the WHM.
-Read More...</article></a></li><li><a href=/blog/apprentice/cpanel/><article><p class=heading>cPanel</p>Published 20/06/2022
-Updated 08/08/2022<br>I think anyone who uses cPanel should be aware of WHM/Web Host Manager. Although cPanel may run completely on its own, but usually you find its running with WHM. Meaning that whoever sells you the cPanel access sets it up through WHM.
+  Read More...
+</article>
+  </a></li>
+  
+  <li><a href='/blog/apprentice/cpanel/'>
+    
+<article>
+  <p class="heading">cPanel</p>
+  Published 20/06/2022
+  
+  Updated 08/08/2022
+  <br />
+  I think anyone who uses cPanel should be aware of WHM/Web Host Manager. Although cPanel may run completely on its own, but usually you find its running with WHM. Meaning that whoever sells you the cPanel access sets it up through WHM.
 Alone cPanel may be pretty powerful depending on what access you&rsquo;re granted. Often hosting providers will limit you to only access the files of your web-root and settings for additional services like e-mail and DNS.
-Read More...</article></a></li><li><a href=/blog/apprentice/wordpress/><article><p class=heading>WordPress</p>Published 20/06/2022
-Updated 18/08/2022<br>WordPress is by far the world&rsquo;s most popular Content Management System. And it makes sense with its ease of use. It&rsquo;s famous for letting anyone have a blog setup within 5 minutes.
+  Read More...
+</article>
+  </a></li>
+  
+  <li><a href='/blog/apprentice/wordpress/'>
+    
+<article>
+  <p class="heading">WordPress</p>
+  Published 20/06/2022
+  
+  Updated 18/08/2022
+  <br />
+  WordPress is by far the world&rsquo;s most popular Content Management System. And it makes sense with its ease of use. It&rsquo;s famous for letting anyone have a blog setup within 5 minutes.
 For the initial setup you just create an account for the admin panel. And set things like the base URL/domain for the web page.
 After that you&rsquo;re free to explore the /wp-admin and make the content for the page.
-Read More...</article></a></li><li><a href=/blog/apprentice/mikrotik/><article><p class=heading>Mikrotik</p>Published 08/06/2022
-Updated 18/08/2022<br>Mikrotik produces networking equipment and software. In 2021, they were the 3rd largest and first private company to reach a value above 1B EUR in their home country Latvia.
+  Read More...
+</article>
+  </a></li>
+  
+  <li><a href='/blog/apprentice/mikrotik/'>
+    
+<article>
+  <p class="heading">Mikrotik</p>
+  Published 08/06/2022
+  
+  Updated 18/08/2022
+  <br />
+  Mikrotik produces networking equipment and software. In 2021, they were the 3rd largest and first private company to reach a value above 1B EUR in their home country Latvia.
 While their RouterOS has a terrible track record of getting hacked. It has a load of cool and useful features built right in. And all those ROS devices that constantly get hacked do so because of known vulnerabilities that would have been patched if only the devices where being updated on a regular basis.
-Read More...</article></a></li><li><a href=/blog/apprentice/ansible/><article><p class=heading>Ansible</p>Published 07/06/2022
-Updated 08/08/2022<br>Ansible is a cool tool that lets you manage lots of Linux servers and even some other devices. All with just a bunch of yaml. Although not necessarily as it supports a nice load of formats for everything. Yaml being the most common, but &ldquo;inventories&rdquo; are usually ini format. But still you should be able to do everything in json if you really want to.
+  Read More...
+</article>
+  </a></li>
+  
+  <li><a href='/blog/apprentice/ansible/'>
+    
+<article>
+  <p class="heading">Ansible</p>
+  Published 07/06/2022
+  
+  Updated 08/08/2022
+  <br />
+  Ansible is a cool tool that lets you manage lots of Linux servers and even some other devices. All with just a bunch of yaml. Although not necessarily as it supports a nice load of formats for everything. Yaml being the most common, but &ldquo;inventories&rdquo; are usually ini format. But still you should be able to do everything in json if you really want to.
 Configure ansible.cfg This is the main Ansible config.
-Read More...</article></a></li><li><a href=/blog/apprentice/meraki/><article><p class=heading>Meraki</p>Published 07/06/2022
-Updated 18/08/2022<br>Meraki is Cisco&rsquo;s cloud managed networking solution. It has everything and more than what most people would need. But of course me being me, I don&rsquo;t like my infrastructure being managed by cloud services.
+  Read More...
+</article>
+  </a></li>
+  
+  <li><a href='/blog/apprentice/meraki/'>
+    
+<article>
+  <p class="heading">Meraki</p>
+  Published 07/06/2022
+  
+  Updated 18/08/2022
+  <br />
+  Meraki is Cisco&rsquo;s cloud managed networking solution. It has everything and more than what most people would need. But of course me being me, I don&rsquo;t like my infrastructure being managed by cloud services.
 I did however work a little with Meraki at SkyLabs, and was pleasantly surprised. After having a couple very bad experiences with our Mikrotik setup script. Setting up a Meraki access point with our captive portal service was super easy!
-Read More...</article></a></li><li><a href=/blog/apprentice/azure-app-registration/><article><p class=heading>Azure App Registration</p>Published 27/05/2022
-Updated 23/08/2022<br>You can find the App Registrations in Azure under Azure AD or directly by search. Once there you can click the &ldquo;New registration&rdquo; button on the top left. Then you&rsquo;ll need to fill in name, account types and optionally a redirect URI.
-The Azure App Registration page The first thing to do now is &ldquo;Branding & properties&rdquo;&mldr; haha. The app authenticates towards Microsoft with either a certificate or app secrets. So the actual first thing to do is to go over the &ldquo;Authentication&rdquo; tab, just check that all looks good.
-Read More...</article></a></li><li><a href=/blog/apprentice/handlebars/><article><p class=heading>Handlebars.js</p>Published 25/05/2022
-Updated 04/07/2022<br>Handlebars.js is a templating engine like jinja2, but entirely in JavaScript.
+  Read More...
+</article>
+  </a></li>
+  
+  <li><a href='/blog/apprentice/azure-app-registration/'>
+    
+<article>
+  <p class="heading">Azure App Registration</p>
+  Published 27/05/2022
+  
+  Updated 23/08/2022
+  <br />
+  You can find the App Registrations in Azure under Azure AD or directly by search. Once there you can click the &ldquo;New registration&rdquo; button on the top left. Then you&rsquo;ll need to fill in name, account types and optionally a redirect URI.
+The Azure App Registration page The first thing to do now is &ldquo;Branding &amp; properties&rdquo;&hellip; haha. The app authenticates towards Microsoft with either a certificate or app secrets. So the actual first thing to do is to go over the &ldquo;Authentication&rdquo; tab, just check that all looks good.
+  Read More...
+</article>
+  </a></li>
+  
+  <li><a href='/blog/apprentice/handlebars/'>
+    
+<article>
+  <p class="heading">Handlebars.js</p>
+  Published 25/05/2022
+  
+  Updated 04/07/2022
+  <br />
+  Handlebars.js is a templating engine like jinja2, but entirely in JavaScript.
 Personally I&rsquo;ve only found pug templates very nice to work with as I love the minimal syntax.
 What makes handlebars cool is it&rsquo;s ability to render templates both server and client side, if you&rsquo;re running node.js on the server.
 Running it in the frontend is super easy, check this example from the handlebars docs;
 1 2 3 4 5 6 7 8 &lt;!
-Read More...</article></a></li></ul></article></main></div><footer><center><div class=footer-content><p>2020 - 2023 &copy; Sivert V. Sæther</p></div></center></footer></body></html>
+  Read More...
+</article>
+  </a></li>
+  
+  </ul>
+  
+</article>
+
+      
+    </main>
+  </div>
+  <footer>
+  <center>
+  <div class='footer-content'>
+    <p>2020 - 2023 &copy; Sivert V. Sæther</p>
+  </div>
+  
+</center>
+  </footer>
+</body>
+
+</html>

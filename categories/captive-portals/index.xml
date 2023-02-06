@@ -1,1 +1,21 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>captive-portals on Sivert Does Stuff Online!</title><link>https://io.sivert.pw/categories/captive-portals/</link><description>Recent content in captive-portals on Sivert Does Stuff Online!</description><generator>Hugo -- gohugo.io</generator><managingEditor>gmail@sivert.pw (Sivert V. Sæther)</managingEditor><webMaster>gmail@sivert.pw (Sivert V. Sæther)</webMaster><copyright>GPL-3</copyright><lastBuildDate>Thu, 15 Dec 2022 15:10:59 +0000</lastBuildDate><atom:link href="https://io.sivert.pw/categories/captive-portals/index.xml" rel="self" type="application/rss+xml"/><item><title>Apple CNA (Captive Network Assistant)</title><link>https://io.sivert.pw/blog/captive-network-assistant/</link><pubDate>Thu, 15 Dec 2022 15:10:59 +0000</pubDate><author>gmail@sivert.pw (Sivert V. Sæther)</author><guid>https://io.sivert.pw/blog/captive-network-assistant/</guid><description>Now I may be biased as I&amp;rsquo;ve had to work with captive portals and been annoyed by Apples sand-boxed captive network assistants web browser. Apples CNA sandbox browser does not allow any sort of persistent storage on the device. To the point where localStorage is outright disallowed and cookies are not stored between sessions. It&amp;rsquo;s also not allowed to open new windows/tabs as the browser only has the one window you get and won&amp;rsquo;t allow any attempts to get out of the sandbox by opening a new window or open some app.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>captive-portals on Sivert Does Stuff Online!</title>
+    <link>/categories/captive-portals/</link>
+    <description>Recent content in captive-portals on Sivert Does Stuff Online!</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <managingEditor>gmail@sivert.pw (Sivert V. Sæther)</managingEditor>
+    <webMaster>gmail@sivert.pw (Sivert V. Sæther)</webMaster>
+    <copyright>GPL-3</copyright>
+    <lastBuildDate>Thu, 15 Dec 2022 15:10:59 +0000</lastBuildDate><atom:link href="/categories/captive-portals/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Apple CNA (Captive Network Assistant)</title>
+      <link>/blog/captive-network-assistant/</link>
+      <pubDate>Thu, 15 Dec 2022 15:10:59 +0000</pubDate>
+      <author>gmail@sivert.pw (Sivert V. Sæther)</author>
+      <guid>/blog/captive-network-assistant/</guid>
+      <description>Now I may be biased as I&amp;rsquo;ve had to work with captive portals and been annoyed by Apples sand-boxed captive network assistants web browser. Apples CNA sandbox browser does not allow any sort of persistent storage on the device. To the point where localStorage is outright disallowed and cookies are not stored between sessions. It&amp;rsquo;s also not allowed to open new windows/tabs as the browser only has the one window you get and won&amp;rsquo;t allow any attempts to get out of the sandbox by opening a new window or open some app.</description>
+    </item>
+  </channel>
+</rss>

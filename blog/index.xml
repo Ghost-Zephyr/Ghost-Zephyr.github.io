@@ -1,3 +1,39 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Siverts Tech Adventure Blog on Sivert Does Stuff Online!</title><link>https://io.sivert.pw/blog/</link><description>Recent content in Siverts Tech Adventure Blog on Sivert Does Stuff Online!</description><generator>Hugo -- gohugo.io</generator><managingEditor>gmail@sivert.pw (Sivert V. Sæther)</managingEditor><webMaster>gmail@sivert.pw (Sivert V. Sæther)</webMaster><copyright>GPL-3</copyright><lastBuildDate>Sun, 27 Mar 2022 18:08:24 +0000</lastBuildDate><atom:link href="https://io.sivert.pw/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>Apple CNA (Captive Network Assistant)</title><link>https://io.sivert.pw/blog/captive-network-assistant/</link><pubDate>Thu, 15 Dec 2022 15:10:59 +0000</pubDate><author>gmail@sivert.pw (Sivert V. Sæther)</author><guid>https://io.sivert.pw/blog/captive-network-assistant/</guid><description>Now I may be biased as I&amp;rsquo;ve had to work with captive portals and been annoyed by Apples sand-boxed captive network assistants web browser. Apples CNA sandbox browser does not allow any sort of persistent storage on the device. To the point where localStorage is outright disallowed and cookies are not stored between sessions. It&amp;rsquo;s also not allowed to open new windows/tabs as the browser only has the one window you get and won&amp;rsquo;t allow any attempts to get out of the sandbox by opening a new window or open some app.</description></item><item><title>Duolingo Xp Exploit</title><link>https://io.sivert.pw/blog/duolingo-xp-exploit/</link><pubDate>Tue, 07 Jun 2022 22:11:49 +0000</pubDate><author>gmail@sivert.pw (Sivert V. Sæther)</author><guid>https://io.sivert.pw/blog/duolingo-xp-exploit/</guid><description>Your browser does not support the video tag! It&amp;rsquo;s possible for super/pro users to instantly complete speaking only lessons on iOS.
-How to reproduce Make sure the Duoling app does not have microphone access. Start a round of &amp;ldquo;Perfect Pronunciation&amp;rdquo; in the &amp;ldquo;Practice Hub&amp;rdquo;. Click continue and when prompted for microphone access, just click cancel. Profit. (Instant perfect lesson!) Summary The bug here seems to be that the first in app prompt for microphone access does nothing, except telling the end user to please give up mic perms.</description></item><item><title>Matrix, secure and decentralized communications</title><link>https://io.sivert.pw/blog/matrix/</link><pubDate>Thu, 07 Apr 2022 22:00:52 +0000</pubDate><author>gmail@sivert.pw (Sivert V. Sæther)</author><guid>https://io.sivert.pw/blog/matrix/</guid><description>Matrix is in my opinion super cool. It&amp;rsquo;s a community driven chat system that supports end to end encryption and it&amp;rsquo;s even possible to run it peer to peer if all parties host their own matrix &amp;ldquo;homeserver&amp;rdquo;. There are an absolutely insane amount of these &amp;ldquo;homeservers&amp;rdquo;.
-It&amp;rsquo;s recommended you choose one that you trust but any server with the exception of the official matrix.org server should be alright. The official is always under heavy load and will appear even more sluggish than most servers.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Siverts Tech Adventure Blog on Sivert Does Stuff Online!</title>
+    <link>/blog/</link>
+    <description>Recent content in Siverts Tech Adventure Blog on Sivert Does Stuff Online!</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <managingEditor>gmail@sivert.pw (Sivert V. Sæther)</managingEditor>
+    <webMaster>gmail@sivert.pw (Sivert V. Sæther)</webMaster>
+    <copyright>GPL-3</copyright>
+    <lastBuildDate>Sun, 27 Mar 2022 18:08:24 +0000</lastBuildDate><atom:link href="/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Apple CNA (Captive Network Assistant)</title>
+      <link>/blog/captive-network-assistant/</link>
+      <pubDate>Thu, 15 Dec 2022 15:10:59 +0000</pubDate>
+      <author>gmail@sivert.pw (Sivert V. Sæther)</author>
+      <guid>/blog/captive-network-assistant/</guid>
+      <description>Now I may be biased as I&amp;rsquo;ve had to work with captive portals and been annoyed by Apples sand-boxed captive network assistants web browser. Apples CNA sandbox browser does not allow any sort of persistent storage on the device. To the point where localStorage is outright disallowed and cookies are not stored between sessions. It&amp;rsquo;s also not allowed to open new windows/tabs as the browser only has the one window you get and won&amp;rsquo;t allow any attempts to get out of the sandbox by opening a new window or open some app.</description>
+    </item>
+    <item>
+      <title>Duolingo Xp Exploit</title>
+      <link>/blog/duolingo-xp-exploit/</link>
+      <pubDate>Tue, 07 Jun 2022 22:11:49 +0000</pubDate>
+      <author>gmail@sivert.pw (Sivert V. Sæther)</author>
+      <guid>/blog/duolingo-xp-exploit/</guid>
+      <description>Your browser does not support the video tag! It&amp;rsquo;s possible for super/pro users to instantly complete speaking only lessons on iOS.
+How to reproduce Make sure the Duoling app does not have microphone access. Start a round of &amp;ldquo;Perfect Pronunciation&amp;rdquo; in the &amp;ldquo;Practice Hub&amp;rdquo;. Click continue and when prompted for microphone access, just click cancel. Profit. (Instant perfect lesson!) Summary The bug here seems to be that the first in app prompt for microphone access does nothing, except telling the end user to please give up mic perms.</description>
+    </item>
+    <item>
+      <title>Matrix, secure and decentralized communications</title>
+      <link>/blog/matrix/</link>
+      <pubDate>Thu, 07 Apr 2022 22:00:52 +0000</pubDate>
+      <author>gmail@sivert.pw (Sivert V. Sæther)</author>
+      <guid>/blog/matrix/</guid>
+      <description>Matrix is in my opinion super cool. It&amp;rsquo;s a community driven chat system that supports end to end encryption and it&amp;rsquo;s even possible to run it peer to peer if all parties host their own matrix &amp;ldquo;homeserver&amp;rdquo;. There are an absolutely insane amount of these &amp;ldquo;homeservers&amp;rdquo;.
+It&amp;rsquo;s recommended you choose one that you trust but any server with the exception of the official matrix.org server should be alright. The official is always under heavy load and will appear even more sluggish than most servers.</description>
+    </item>
+  </channel>
+</rss>

@@ -1,36 +1,221 @@
-<!doctype html><html lang=en><head><meta charset=utf-8><meta name=robots content="index,follow"><title>Sivert Does Stuff Online! - Tzsp2pcap</title><meta name=description content="TaZmen Sniffer Protocol to Packet CAPture utility program."><link rel=icon href=/favicon.2a782c1d4fdbd387db5d712ee87bd8b01eb0cf56bd95198f4cc6a84ccf8bfb7e.png integrity='sha256-KngsHU/b04fbXXEu6HvYsB6wz1a9lRmPTMaoTM+L+34='><link rel=apple-touch-icon href=/favicon_hu5ee1517d9ee6726a25cfeec6a86e1947_41990_192x192_resize_box_3.3306e29c64ba856a2bd380475dcf6fcf81e835e05927358f6e225bbbdf44032a.png integrity='sha256-MwbinGS6hWor04BHXc9vz4HoNeBZJzWPbiJbu99EAyo='><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#00FF00"><meta name=twitter:card content="summary"><meta property="og:title" content="Sivert Does Stuff Online!"><meta property="og:url" content="https://io.sivert.pw"><meta property="og:site_name" content="Sivert Does Stuff Online!"><meta name=generator content="Hugo 0.109.0"><link rel=stylesheet href=https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css crossorigin=anonymous><link href='/chroma.min.b7cbccb1554b70a7ffff2ffa00c8ce8e6cc8506a98c47088b8ec08515e93d4b9.css' integrity="sha256-t8vMsVVLcKf//y/6AMjOjmzIUGqYxHCIuOwIUV6T1Lk=" rel=stylesheet><link href='/main.min.15a34a6ce4d3fc26538f8271b2938a96a83603e15a32531e2171ad4eca808ede.css' integrity="sha256-FaNKbOTT/CZTj4JxspOKlqg2A+FaMlMeIXGtTsqAjt4=" rel=stylesheet><script defer data-domain=io.sivert.pw src=https://anal.42069.no/js/script.js></script></head><body><header><nav id=navbar><ul class=top-nav><li><a href=/>Sivert Does Stuff Online!</a></li><li><a href=/blog/apprentice><span>Apprentice docs</span></a></li><li id=right><ul><li><a href=https://sivert.pw><span>My Humble Homepage</span></a></li><li><a href=/old><span>Old GitHub.io</span></a></li><li><a href=/about><span>About</span></a></li><li><a href=/blog><span>Blog</span></a></li></ul></li></ul></nav></header><div id=content><main><div class=row><div class=col-md-2><aside id=meta><header><h4>Tzsp2pcap</h4><p>This article has 224 words.
-2 minutes to read.</p><p>TaZmen Sniffer Protocol to Packet CAPture utility program.</p></header><p>Check out the git repo; <a href=https://github.com/thefloweringash/tzsp2pcap>thefloweringash/tzsp2pcap</a>!</p><h6>Table of Contents:</h6><nav id=TableOfContents><ul><li><a href=#using-tzsp2pcap>Using tzsp2pcap</a></li></ul></nav></aside></div><div class=col-md-10><article><header><h1>Tzsp2pcap</h1></header><p>This is a very useful tool when working with Mikrotiks.
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8'>
+  <meta name='robots' content='index,follow'>
+  
+    <title>Sivert Does Stuff Online! - Tzsp2pcap</title>
+  
+  
+    <meta name='description' content='TaZmen Sniffer Protocol to Packet CAPture utility program.'>
+  
+  
+    
+      <link rel='icon' href='/favicon.2a782c1d4fdbd387db5d712ee87bd8b01eb0cf56bd95198f4cc6a84ccf8bfb7e.png' integrity='sha256-KngsHU/b04fbXXEu6HvYsB6wz1a9lRmPTMaoTM&#43;L&#43;34=' />
+    
+    
+      <link rel="apple-touch-icon" href="/favicon_hu5ee1517d9ee6726a25cfeec6a86e1947_41990_192x192_resize_box_3.3306e29c64ba856a2bd380475dcf6fcf81e835e05927358f6e225bbbdf44032a.png"  integrity='sha256-MwbinGS6hWor04BHXc9vz4HoNeBZJzWPbiJbu99EAyo=' />
+    
+  
+  <meta name='viewport' content='width=device-width,initial-scale=1.0'>
+  <meta name="theme-color" content="#00FF00" />
+  
+  
+  <meta name='twitter:card' content='summary'>
+  <meta property='og:title' content='Sivert Does Stuff Online!' />
+  <meta property='og:url' content='' />
+  <meta property='og:site_name' content='Sivert Does Stuff Online!' />
+  
+  <meta name="generator" content="Hugo 0.106.0">
+  <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css' crossorigin='anonymous'>
+  
+  
+    
+      <link href='/chroma.min.b7cbccb1554b70a7ffff2ffa00c8ce8e6cc8506a98c47088b8ec08515e93d4b9.css' integrity="sha256-t8vMsVVLcKf//y/6AMjOjmzIUGqYxHCIuOwIUV6T1Lk=" rel='stylesheet'>
+    
+  
+  
+    <link href='/main.min.15a34a6ce4d3fc26538f8271b2938a96a83603e15a32531e2171ad4eca808ede.css' integrity="sha256-FaNKbOTT/CZTj4JxspOKlqg2A+FaMlMeIXGtTsqAjt4=" rel='stylesheet'>
+  
+  <script defer data-domain="io.sivert.pw" src="https://anal.42069.no/js/script.js"></script>
+</head>
+<body>
+  <header>
+    <nav id='navbar'>
+  <ul class='top-nav'>
+    <li><a href='/'>Sivert Does Stuff Online!</a></li>
+    
+    
+    
+    
+
+<li>
+  <a href='/blog/apprentice'>
+    
+    <span>Apprentice docs</span>
+  </a>
+</li>
+
+    
+    <li id='right'>
+      <ul>
+      
+      
+
+<li>
+  <a href='https://sivert.pw'>
+    
+    <span>My Humble Homepage</span>
+  </a>
+</li>
+
+      
+      
+
+<li>
+  <a href='/old'>
+    
+    <span>Old GitHub.io</span>
+  </a>
+</li>
+
+      
+      
+
+<li>
+  <a href='/about'>
+    
+    <span>About</span>
+  </a>
+</li>
+
+      
+      
+
+<li>
+  <a href='/blog'>
+    
+    <span>Blog</span>
+  </a>
+</li>
+
+      
+      
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </header>
+  <div id='content'>
+    <main>
+      
+      <div class='row'>
+        <div class='col-md-2'>
+          <aside id='meta'>
+  <header>
+    <h4>Tzsp2pcap</h4>
+    
+    <p>
+      This article has 224 words.
+      2 minutes to read.
+    </p>
+    <p>
+      TaZmen Sniffer Protocol to Packet CAPture utility program.
+    </p>
+  </header>
+  
+  
+    <p>Check out the git repo; <a href='https://github.com/thefloweringash/tzsp2pcap'>thefloweringash/tzsp2pcap</a>!</p>
+  
+  
+  
+    <h6>Table of Contents:</h6>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#using-tzsp2pcap">Using tzsp2pcap</a></li>
+  </ul>
+</nav>
+  
+  
+  
+</aside>
+
+        </div>
+        <div class='col-md-10'>
+          
+<article>
+  <header>
+    <h1>Tzsp2pcap</h1>
+  </header>
+  <p>This is a very useful tool when working with Mikrotiks.
 As their built-in sniffer tool has support for TZSP (TaZmen Sniffer Protocol) streaming.
-This will send all packets that match the filtering options to some destination over TZSP/UDP.</p><p>This destination may be some machine running this tzsp2pcap.
+This will send all packets that match the filtering options to some destination over TZSP/UDP.</p>
+<p>This destination may be some machine running this tzsp2pcap.
 Allowing you to get a pcap remotely from a Mikrtoik without touching the Mikrotiks disk.
-This is super useful if the box has traffic as the Mikrotik routers usually has a disk with a size in megabytes.</p><h2 id=using-tzsp2pcap>Using tzsp2pcap</h2><p>The program has all the options it should.</p><p>Allowing you to specify listening port, output file, receive buffer size, output file rotation and some more.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl><span class=c1># tzsp2pcap -h</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>tzsp2pcap: receive tazmen sniffer protocol over udp and
-</span></span><span class=line><span class=cl>produce pcap formatted output
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>Usage tzsp2pcap <span class=o>[</span>-h<span class=o>]</span> <span class=o>[</span>-v<span class=o>]</span> <span class=o>[</span>-f<span class=o>]</span> <span class=o>[</span>-p PORT<span class=o>]</span> <span class=o>[</span>-o FILENAME<span class=o>]</span> <span class=o>[</span>-s SIZE<span class=o>]</span> <span class=o>[</span>-G SECONDS<span class=o>]</span> <span class=o>[</span>-C SIZE<span class=o>]</span> <span class=o>[</span>-z CMD<span class=o>]</span>
-</span></span><span class=line><span class=cl>	-h           Display this message
-</span></span><span class=line><span class=cl>	-v           Verbose <span class=o>(</span>repeat to increase up to -vv<span class=o>)</span>
-</span></span><span class=line><span class=cl>	-f           Flush output after every packet
-</span></span><span class=line><span class=cl>	-p PORT      Specify port to listen on  <span class=o>(</span>defaults to 37008<span class=o>)</span>
-</span></span><span class=line><span class=cl>	-o FILENAME  Write output to FILENAME   <span class=o>(</span>defaults to stdout<span class=o>)</span>
-</span></span><span class=line><span class=cl>	-s SIZE      Receive buffer size        <span class=o>(</span>defaults to 65535<span class=o>)</span>
-</span></span><span class=line><span class=cl>	-G SECONDS   Rotate file every n seconds
-</span></span><span class=line><span class=cl>	-C FILESIZE  Rotate file when FILESIZE is reached
-</span></span><span class=line><span class=cl>	-z CMD       Post-rotate <span class=nb>command</span> to execute
-</span></span></code></pre></td></tr></table></div></div></article></div></div></main></div><footer><center><div class=footer-content><p>2020 - 2023 &copy; Sivert V. Sæther</p></div></center></footer></body></html>
+This is super useful if the box has traffic as the Mikrotik routers usually has a disk with a size in megabytes.</p>
+<h2 id="using-tzsp2pcap">Using tzsp2pcap</h2>
+<p>The program has all the options it should.</p>
+<p>Allowing you to specify listening port, output file, receive buffer size, output file rotation and some more.</p>
+
+
+
+
+
+
+
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="c1"># tzsp2pcap -h</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">tzsp2pcap: receive tazmen sniffer protocol over udp and
+</span></span><span class="line"><span class="cl">produce pcap formatted output
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Usage tzsp2pcap <span class="o">[</span>-h<span class="o">]</span> <span class="o">[</span>-v<span class="o">]</span> <span class="o">[</span>-f<span class="o">]</span> <span class="o">[</span>-p PORT<span class="o">]</span> <span class="o">[</span>-o FILENAME<span class="o">]</span> <span class="o">[</span>-s SIZE<span class="o">]</span> <span class="o">[</span>-G SECONDS<span class="o">]</span> <span class="o">[</span>-C SIZE<span class="o">]</span> <span class="o">[</span>-z CMD<span class="o">]</span>
+</span></span><span class="line"><span class="cl">	-h           Display this message
+</span></span><span class="line"><span class="cl">	-v           Verbose <span class="o">(</span>repeat to increase up to -vv<span class="o">)</span>
+</span></span><span class="line"><span class="cl">	-f           Flush output after every packet
+</span></span><span class="line"><span class="cl">	-p PORT      Specify port to listen on  <span class="o">(</span>defaults to 37008<span class="o">)</span>
+</span></span><span class="line"><span class="cl">	-o FILENAME  Write output to FILENAME   <span class="o">(</span>defaults to stdout<span class="o">)</span>
+</span></span><span class="line"><span class="cl">	-s SIZE      Receive buffer size        <span class="o">(</span>defaults to 65535<span class="o">)</span>
+</span></span><span class="line"><span class="cl">	-G SECONDS   Rotate file every n seconds
+</span></span><span class="line"><span class="cl">	-C FILESIZE  Rotate file when FILESIZE is reached
+</span></span><span class="line"><span class="cl">	-z CMD       Post-rotate <span class="nb">command</span> to execute
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
+
+</article>
+
+        </div>
+      </div>
+      
+    </main>
+  </div>
+  <footer>
+  <center>
+  <div class='footer-content'>
+    <p>2020 - 2023 &copy; Sivert V. Sæther</p>
+  </div>
+  
+</center>
+  </footer>
+</body>
+
+</html>

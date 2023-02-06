@@ -1,3 +1,23 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>linux on Sivert Does Stuff Online!</title><link>https://io.sivert.pw/tags/linux/</link><description>Recent content in linux on Sivert Does Stuff Online!</description><generator>Hugo -- gohugo.io</generator><managingEditor>gmail@sivert.pw (Sivert V. Sæther)</managingEditor><webMaster>gmail@sivert.pw (Sivert V. Sæther)</webMaster><copyright>GPL-3</copyright><lastBuildDate>Mon, 20 Jun 2022 14:10:48 +0000</lastBuildDate><atom:link href="https://io.sivert.pw/tags/linux/index.xml" rel="self" type="application/rss+xml"/><item><title>Debian</title><link>https://io.sivert.pw/blog/apprentice/debian/</link><pubDate>Mon, 20 Jun 2022 14:10:48 +0000</pubDate><author>gmail@sivert.pw (Sivert V. Sæther)</author><guid>https://io.sivert.pw/blog/apprentice/debian/</guid><description>The biggest of the official Debian button logos Debian is a classic free and open source Linux distribution. It&amp;rsquo;s one of the oldest Linux OSes and the basis of many other distros. Most notably Ubuntu.
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>linux on Sivert Does Stuff Online!</title>
+    <link>/tags/linux/</link>
+    <description>Recent content in linux on Sivert Does Stuff Online!</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <managingEditor>gmail@sivert.pw (Sivert V. Sæther)</managingEditor>
+    <webMaster>gmail@sivert.pw (Sivert V. Sæther)</webMaster>
+    <copyright>GPL-3</copyright>
+    <lastBuildDate>Mon, 20 Jun 2022 14:10:48 +0000</lastBuildDate><atom:link href="/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Debian</title>
+      <link>/blog/apprentice/debian/</link>
+      <pubDate>Mon, 20 Jun 2022 14:10:48 +0000</pubDate>
+      <author>gmail@sivert.pw (Sivert V. Sæther)</author>
+      <guid>/blog/apprentice/debian/</guid>
+      <description>The biggest of the official Debian button logos Debian is a classic free and open source Linux distribution. It&amp;rsquo;s one of the oldest Linux OSes and the basis of many other distros. Most notably Ubuntu.
 Debian has three foundational documents. The Debian Social Contract/OG Version, the Debian Constitution and the Debian Free Software Guidelines.
-Debian version code-names are famously named after characters from the Toy Story films. It&amp;rsquo;s unstable rolling release branch is named Sid, who in the Toy Stories regularly destroys his toys.</description></item></channel></rss>
+Debian version code-names are famously named after characters from the Toy Story films. It&amp;rsquo;s unstable rolling release branch is named Sid, who in the Toy Stories regularly destroys his toys.</description>
+    </item>
+  </channel>
+</rss>

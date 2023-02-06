@@ -1,3 +1,23 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>indices on Sivert Does Stuff Online!</title><link>https://io.sivert.pw/categories/indices/</link><description>Recent content in indices on Sivert Does Stuff Online!</description><generator>Hugo -- gohugo.io</generator><managingEditor>gmail@sivert.pw (Sivert V. Sæther)</managingEditor><webMaster>gmail@sivert.pw (Sivert V. Sæther)</webMaster><copyright>GPL-3</copyright><lastBuildDate>Tue, 05 Apr 2022 18:33:08 +0000</lastBuildDate><atom:link href="https://io.sivert.pw/categories/indices/index.xml" rel="self" type="application/rss+xml"/><item><title>IT Apprentice</title><link>https://io.sivert.pw/blog/apprentice/</link><pubDate>Tue, 05 Apr 2022 18:33:08 +0000</pubDate><author>gmail@sivert.pw (Sivert V. Sæther)</author><guid>https://io.sivert.pw/blog/apprentice/</guid><description>This page on my blog serves as an index of technologies I&amp;rsquo;ve learned or became better at while working as an apprentice in IT. 😀
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>indices on Sivert Does Stuff Online!</title>
+    <link>/categories/indices/</link>
+    <description>Recent content in indices on Sivert Does Stuff Online!</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <managingEditor>gmail@sivert.pw (Sivert V. Sæther)</managingEditor>
+    <webMaster>gmail@sivert.pw (Sivert V. Sæther)</webMaster>
+    <copyright>GPL-3</copyright>
+    <lastBuildDate>Tue, 05 Apr 2022 18:33:08 +0000</lastBuildDate><atom:link href="/categories/indices/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>IT Apprentice</title>
+      <link>/blog/apprentice/</link>
+      <pubDate>Tue, 05 Apr 2022 18:33:08 +0000</pubDate>
+      <author>gmail@sivert.pw (Sivert V. Sæther)</author>
+      <guid>/blog/apprentice/</guid>
+      <description>This page on my blog serves as an index of technologies I&amp;rsquo;ve learned or became better at while working as an apprentice in IT. 😀
 It also serves the purpose of the required documentation apprentices in Norway are supposed to do. 🤠 😳
-It&amp;rsquo;s mostly in relation to stuff learned at SkyLabs AS where we run a captive portal service. But there is also some stuff from Sircon AS. Those guys run hosting services, with a focus on cPanel/WordPress shared hosting.</description></item></channel></rss>
+It&amp;rsquo;s mostly in relation to stuff learned at SkyLabs AS where we run a captive portal service. But there is also some stuff from Sircon AS. Those guys run hosting services, with a focus on cPanel/WordPress shared hosting.</description>
+    </item>
+  </channel>
+</rss>

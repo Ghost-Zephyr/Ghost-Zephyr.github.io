@@ -1,3 +1,23 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>wordpress on Sivert Does Stuff Online!</title><link>https://io.sivert.pw/tags/wordpress/</link><description>Recent content in wordpress on Sivert Does Stuff Online!</description><generator>Hugo -- gohugo.io</generator><managingEditor>gmail@sivert.pw (Sivert V. Sæther)</managingEditor><webMaster>gmail@sivert.pw (Sivert V. Sæther)</webMaster><copyright>GPL-3</copyright><lastBuildDate>Mon, 20 Jun 2022 14:06:54 +0000</lastBuildDate><atom:link href="https://io.sivert.pw/tags/wordpress/index.xml" rel="self" type="application/rss+xml"/><item><title>WordPress</title><link>https://io.sivert.pw/blog/apprentice/wordpress/</link><pubDate>Mon, 20 Jun 2022 14:06:54 +0000</pubDate><author>gmail@sivert.pw (Sivert V. Sæther)</author><guid>https://io.sivert.pw/blog/apprentice/wordpress/</guid><description>WordPress is by far the world&amp;rsquo;s most popular Content Management System. And it makes sense with its ease of use. It&amp;rsquo;s famous for letting anyone have a blog setup within 5 minutes.
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>wordpress on Sivert Does Stuff Online!</title>
+    <link>/tags/wordpress/</link>
+    <description>Recent content in wordpress on Sivert Does Stuff Online!</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <managingEditor>gmail@sivert.pw (Sivert V. Sæther)</managingEditor>
+    <webMaster>gmail@sivert.pw (Sivert V. Sæther)</webMaster>
+    <copyright>GPL-3</copyright>
+    <lastBuildDate>Mon, 20 Jun 2022 14:06:54 +0000</lastBuildDate><atom:link href="/tags/wordpress/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>WordPress</title>
+      <link>/blog/apprentice/wordpress/</link>
+      <pubDate>Mon, 20 Jun 2022 14:06:54 +0000</pubDate>
+      <author>gmail@sivert.pw (Sivert V. Sæther)</author>
+      <guid>/blog/apprentice/wordpress/</guid>
+      <description>WordPress is by far the world&amp;rsquo;s most popular Content Management System. And it makes sense with its ease of use. It&amp;rsquo;s famous for letting anyone have a blog setup within 5 minutes.
 For the initial setup you just create an account for the admin panel. And set things like the base URL/domain for the web page.
-After that you&amp;rsquo;re free to explore the /wp-admin and make the content for the page.</description></item></channel></rss>
+After that you&amp;rsquo;re free to explore the /wp-admin and make the content for the page.</description>
+    </item>
+  </channel>
+</rss>

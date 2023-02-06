@@ -1,14 +1,252 @@
-<!doctype html><html lang=en><head><meta charset=utf-8><meta name=robots content="index,follow"><title>Sivert Does Stuff Online! - Siverts Tech Adventure Blog</title><meta name=description content="Landing page for Siverts Tech Adventure Blog!"><link rel=icon href=/favicon.2a782c1d4fdbd387db5d712ee87bd8b01eb0cf56bd95198f4cc6a84ccf8bfb7e.png integrity='sha256-KngsHU/b04fbXXEu6HvYsB6wz1a9lRmPTMaoTM+L+34='><link rel=apple-touch-icon href=/favicon_hu5ee1517d9ee6726a25cfeec6a86e1947_41990_192x192_resize_box_3.3306e29c64ba856a2bd380475dcf6fcf81e835e05927358f6e225bbbdf44032a.png integrity='sha256-MwbinGS6hWor04BHXc9vz4HoNeBZJzWPbiJbu99EAyo='><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#00FF00"><meta name=twitter:card content="summary"><meta property="og:title" content="Sivert Does Stuff Online!"><meta property="og:url" content="https://io.sivert.pw"><meta property="og:site_name" content="Sivert Does Stuff Online!"><meta name=generator content="Hugo 0.109.0"><link rel=alternate type=application/rss+xml href=https://io.sivert.pw/blog/index.xml title='Sivert Does Stuff Online!'><link rel=stylesheet href=https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css crossorigin=anonymous><link href='/main.min.15a34a6ce4d3fc26538f8271b2938a96a83603e15a32531e2171ad4eca808ede.css' integrity="sha256-FaNKbOTT/CZTj4JxspOKlqg2A+FaMlMeIXGtTsqAjt4=" rel=stylesheet><script defer data-domain=io.sivert.pw src=https://anal.42069.no/js/script.js></script></head><body><header><nav id=navbar><ul class=top-nav><li><a href=/>Sivert Does Stuff Online!</a></li><li id=lang-menu><a id=lang-menu-btn href=#>Translations</a><ul><li><a href=/no/blog/>Norsk</a></li></ul></li><li><a href=/blog/apprentice><span>Apprentice docs</span></a></li><li id=right><ul><li><a href=https://sivert.pw><span>My Humble Homepage</span></a></li><li><a href=/old><span>Old GitHub.io</span></a></li><li><a href=/about><span>About</span></a></li><li><a href=/blog><span>Blog</span></a></li></ul></li></ul></nav></header><div id=content><main><div class=row><div class=col-md-2><aside id=meta><header><h4>Siverts Tech Adventure Blog</h4><p>This article has 27 words.
-One minute to read.</p><p>Landing page for Siverts Tech Adventure Blog!</p></header><h6>Translations:</h6><ul><li><a href=/no/blog/>Norsk: Siverts Teknologi Evenetyr Blog</a></li></ul><h5>Posts:</h5><ul><li><a href=/blog/captive-network-assistant/ target=_top>Apple CNA (Captive Network Assistant)</a></li><li><a href=/blog/duolingo-xp-exploit/ target=_top>Duolingo Xp Exploit</a></li><li><a href=/blog/matrix/ target=_top>Matrix, secure and decentralized communications</a></li><li><a href=/blog/apprentice/ target=_top>IT Apprentice</a></li></ul></aside></div><div class=col-md-10><article><header><h1>Siverts Tech Adventure Blog</h1></header><p>Here you are welcome to take a look at all my blog posts! 🌀</p><p>And be sure to add the RSS feed to your news reader! 😉</p><br><h3>Posts</h3><ul class=contents><li><a href=/blog/captive-network-assistant/><article><p class=heading>Apple CNA (Captive Network Assistant)</p>Published 15/12/2022
-Updated 19/12/2022<br>Now I may be biased as I&rsquo;ve had to work with captive portals and been annoyed by Apples sand-boxed captive network assistants web browser. Apples CNA sandbox browser does not allow any sort of persistent storage on the device. To the point where localStorage is outright disallowed and cookies are not stored between sessions. It&rsquo;s also not allowed to open new windows/tabs as the browser only has the one window you get and won&rsquo;t allow any attempts to get out of the sandbox by opening a new window or open some app.
-Read More...</article></a></li><li><a href=/blog/duolingo-xp-exploit/><article><p class=heading>Duolingo Xp Exploit</p>Published 07/06/2022
-Updated 16/12/2022<br>Your browser does not support the video tag! It&rsquo;s possible for super/pro users to instantly complete speaking only lessons on iOS.
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8'>
+  <meta name='robots' content='index,follow'>
+  
+    <title>Sivert Does Stuff Online! - Siverts Tech Adventure Blog</title>
+  
+  
+    <meta name='description' content='Landing page for Siverts Tech Adventure Blog!'>
+  
+  
+    
+      <link rel='icon' href='/favicon.2a782c1d4fdbd387db5d712ee87bd8b01eb0cf56bd95198f4cc6a84ccf8bfb7e.png' integrity='sha256-KngsHU/b04fbXXEu6HvYsB6wz1a9lRmPTMaoTM&#43;L&#43;34=' />
+    
+    
+      <link rel="apple-touch-icon" href="/favicon_hu5ee1517d9ee6726a25cfeec6a86e1947_41990_192x192_resize_box_3.3306e29c64ba856a2bd380475dcf6fcf81e835e05927358f6e225bbbdf44032a.png"  integrity='sha256-MwbinGS6hWor04BHXc9vz4HoNeBZJzWPbiJbu99EAyo=' />
+    
+  
+  <meta name='viewport' content='width=device-width,initial-scale=1.0'>
+  <meta name="theme-color" content="#00FF00" />
+  
+  
+  <meta name='twitter:card' content='summary'>
+  <meta property='og:title' content='Sivert Does Stuff Online!' />
+  <meta property='og:url' content='' />
+  <meta property='og:site_name' content='Sivert Does Stuff Online!' />
+  
+  <meta name="generator" content="Hugo 0.106.0">
+  <link rel='alternate' type='application/rss+xml' href='/blog/index.xml' title='Sivert Does Stuff Online!' />
+  <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css' crossorigin='anonymous'>
+  
+  
+  
+    <link href='/main.min.15a34a6ce4d3fc26538f8271b2938a96a83603e15a32531e2171ad4eca808ede.css' integrity="sha256-FaNKbOTT/CZTj4JxspOKlqg2A+FaMlMeIXGtTsqAjt4=" rel='stylesheet'>
+  
+  <script defer data-domain="io.sivert.pw" src="https://anal.42069.no/js/script.js"></script>
+</head>
+<body>
+  <header>
+    <nav id='navbar'>
+  <ul class='top-nav'>
+    <li><a href='/'>Sivert Does Stuff Online!</a></li>
+    
+    <li id='lang-menu'>
+  <a id='lang-menu-btn' href='#'>Translations</a>
+  <ul>
+    
+    
+    <li><a href='/no/blog/'>Norsk</a></li>
+    
+    
+    
+    
+  </ul>
+</li>
+    
+    
+    
+    
+
+<li>
+  <a href='/blog/apprentice'>
+    
+    <span>Apprentice docs</span>
+  </a>
+</li>
+
+    
+    <li id='right'>
+      <ul>
+      
+      
+
+<li>
+  <a href='https://sivert.pw'>
+    
+    <span>My Humble Homepage</span>
+  </a>
+</li>
+
+      
+      
+
+<li>
+  <a href='/old'>
+    
+    <span>Old GitHub.io</span>
+  </a>
+</li>
+
+      
+      
+
+<li>
+  <a href='/about'>
+    
+    <span>About</span>
+  </a>
+</li>
+
+      
+      
+
+<li>
+  <a href='/blog'>
+    
+    <span>Blog</span>
+  </a>
+</li>
+
+      
+      
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </header>
+  <div id='content'>
+    <main>
+      
+      <div class='row'>
+        <div class='col-md-2'>
+          <aside id='meta'>
+  <header>
+    <h4>Siverts Tech Adventure Blog</h4>
+    
+    <p>
+      This article has 27 words.
+      One minute to read.
+    </p>
+    <p>
+      Landing page for Siverts Tech Adventure Blog!
+    </p>
+  </header>
+  
+  
+  
+  
+  <h6>Translations:</h6>
+<ul>
+  <li>
+    <a href='/no/blog/'>Norsk: Siverts Teknologi Evenetyr Blog</a>
+  </li>
+</ul>
+  
+  <h5>Posts:</h5>
+  <ul>
+  
+    <li><a href='/blog/captive-network-assistant/' target='_top'>Apple CNA (Captive Network Assistant)</a></li>
+  
+    <li><a href='/blog/duolingo-xp-exploit/' target='_top'>Duolingo Xp Exploit</a></li>
+  
+    <li><a href='/blog/matrix/' target='_top'>Matrix, secure and decentralized communications</a></li>
+  
+    <li><a href='/blog/apprentice/' target='_top'>IT Apprentice</a></li>
+  
+  </ul>
+  
+</aside>
+
+        </div>
+        <div class='col-md-10'>
+          
+<article>
+  <header>
+    <h1>Siverts Tech Adventure Blog</h1>
+  </header>
+  <p>Here you are welcome to take a look at all my blog posts! 🌀</p>
+<p>And be sure to add the RSS feed to your news reader! 😉</p>
+
+  
+  <br />
+  <h3>Posts</h3>
+  <ul class='contents'>
+  
+  <li><a href='/blog/captive-network-assistant/'>
+    
+<article>
+  <p class="heading">Apple CNA (Captive Network Assistant)</p>
+  Published 15/12/2022
+  
+  Updated 19/12/2022
+  <br />
+  Now I may be biased as I&rsquo;ve had to work with captive portals and been annoyed by Apples sand-boxed captive network assistants web browser. Apples CNA sandbox browser does not allow any sort of persistent storage on the device. To the point where localStorage is outright disallowed and cookies are not stored between sessions. It&rsquo;s also not allowed to open new windows/tabs as the browser only has the one window you get and won&rsquo;t allow any attempts to get out of the sandbox by opening a new window or open some app.
+  Read More...
+</article>
+  </a></li>
+  
+  <li><a href='/blog/duolingo-xp-exploit/'>
+    
+<article>
+  <p class="heading">Duolingo Xp Exploit</p>
+  Published 07/06/2022
+  
+  Updated 16/12/2022
+  <br />
+  Your browser does not support the video tag! It&rsquo;s possible for super/pro users to instantly complete speaking only lessons on iOS.
 How to reproduce Make sure the Duoling app does not have microphone access. Start a round of &ldquo;Perfect Pronunciation&rdquo; in the &ldquo;Practice Hub&rdquo;. Click continue and when prompted for microphone access, just click cancel. Profit. (Instant perfect lesson!) Summary The bug here seems to be that the first in app prompt for microphone access does nothing, except telling the end user to please give up mic perms.
-Read More...</article></a></li><li><a href=/blog/matrix/><article><p class=heading>Matrix, secure and decentralized communications</p>Published 07/04/2022
-Updated 25/05/2022<br>Matrix is in my opinion super cool. It&rsquo;s a community driven chat system that supports end to end encryption and it&rsquo;s even possible to run it peer to peer if all parties host their own matrix &ldquo;homeserver&rdquo;. There are an absolutely insane amount of these &ldquo;homeservers&rdquo;.
+  Read More...
+</article>
+  </a></li>
+  
+  <li><a href='/blog/matrix/'>
+    
+<article>
+  <p class="heading">Matrix, secure and decentralized communications</p>
+  Published 07/04/2022
+  
+  Updated 25/05/2022
+  <br />
+  Matrix is in my opinion super cool. It&rsquo;s a community driven chat system that supports end to end encryption and it&rsquo;s even possible to run it peer to peer if all parties host their own matrix &ldquo;homeserver&rdquo;. There are an absolutely insane amount of these &ldquo;homeservers&rdquo;.
 It&rsquo;s recommended you choose one that you trust but any server with the exception of the official matrix.org server should be alright. The official is always under heavy load and will appear even more sluggish than most servers.
-Read More...</article></a></li><li><a href=/blog/apprentice/><article><p class=heading>IT Apprentice</p>Published 05/04/2022
-Updated 18/08/2022<br>This page on my blog serves as an index of technologies I&rsquo;ve learned or became better at while working as an apprentice in IT. 😀
+  Read More...
+</article>
+  </a></li>
+  
+  <li><a href='/blog/apprentice/'>
+    
+<article>
+  <p class="heading">IT Apprentice</p>
+  Published 05/04/2022
+  
+  Updated 18/08/2022
+  <br />
+  This page on my blog serves as an index of technologies I&rsquo;ve learned or became better at while working as an apprentice in IT. 😀
 It also serves the purpose of the required documentation apprentices in Norway are supposed to do. 🤠 😳
 It&rsquo;s mostly in relation to stuff learned at SkyLabs AS where we run a captive portal service. But there is also some stuff from Sircon AS. Those guys run hosting services, with a focus on cPanel/WordPress shared hosting.
-Read More...</article></a></li></ul></article></div></div></main></div><footer><center><div class=footer-content><p>2020 - 2023 &copy; Sivert V. Sæther</p></div></center></footer></body></html>
+  Read More...
+</article>
+  </a></li>
+  
+  </ul>
+  
+</article>
+
+        </div>
+      </div>
+      
+    </main>
+  </div>
+  <footer>
+  <center>
+  <div class='footer-content'>
+    <p>2020 - 2023 &copy; Sivert V. Sæther</p>
+  </div>
+  
+</center>
+  </footer>
+</body>
+
+</html>

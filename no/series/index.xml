@@ -1,1 +1,21 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Series on Sivert Gjør Ting På Nett!</title><link>https://io.sivert.pw/no/series/</link><description>Recent content in Series on Sivert Gjør Ting På Nett!</description><generator>Hugo -- gohugo.io</generator><managingEditor>gmail@sivert.pw (Sivert V. Sæther)</managingEditor><webMaster>gmail@sivert.pw (Sivert V. Sæther)</webMaster><copyright>GPL-3</copyright><lastBuildDate>Mon, 22 Aug 2022 14:21:06 +0000</lastBuildDate><atom:link href="https://io.sivert.pw/no/series/index.xml" rel="self" type="application/rss+xml"/><item><title>hacking</title><link>https://io.sivert.pw/no/series/hacking/</link><pubDate>Mon, 22 Aug 2022 14:21:06 +0000</pubDate><author>gmail@sivert.pw (Sivert V. Sæther)</author><guid>https://io.sivert.pw/no/series/hacking/</guid><description/></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Series on Sivert Gjør Ting På Nett!</title>
+    <link>/no/series/</link>
+    <description>Recent content in Series on Sivert Gjør Ting På Nett!</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <managingEditor>gmail@sivert.pw (Sivert V. Sæther)</managingEditor>
+    <webMaster>gmail@sivert.pw (Sivert V. Sæther)</webMaster>
+    <copyright>GPL-3</copyright>
+    <lastBuildDate>Mon, 22 Aug 2022 14:21:06 +0000</lastBuildDate><atom:link href="/no/series/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>hacking</title>
+      <link>/no/series/hacking/</link>
+      <pubDate>Mon, 22 Aug 2022 14:21:06 +0000</pubDate>
+      <author>gmail@sivert.pw (Sivert V. Sæther)</author>
+      <guid>/no/series/hacking/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

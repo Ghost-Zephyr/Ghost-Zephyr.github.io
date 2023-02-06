@@ -1,54 +1,250 @@
-<!doctype html><html lang=en><head><meta charset=utf-8><meta name=robots content="index,follow"><title>Sivert Does Stuff Online! - Mikrotik</title><meta name=description content="Mikrotik routers has a lot of wired stuff builtin, here is some of that"><link rel=icon href=/favicon.2a782c1d4fdbd387db5d712ee87bd8b01eb0cf56bd95198f4cc6a84ccf8bfb7e.png integrity='sha256-KngsHU/b04fbXXEu6HvYsB6wz1a9lRmPTMaoTM+L+34='><link rel=apple-touch-icon href=/favicon_hu5ee1517d9ee6726a25cfeec6a86e1947_41990_192x192_resize_box_3.3306e29c64ba856a2bd380475dcf6fcf81e835e05927358f6e225bbbdf44032a.png integrity='sha256-MwbinGS6hWor04BHXc9vz4HoNeBZJzWPbiJbu99EAyo='><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#00FF00"><meta name=twitter:card content="summary"><meta property="og:title" content="Sivert Does Stuff Online!"><meta property="og:url" content="https://io.sivert.pw"><meta property="og:site_name" content="Sivert Does Stuff Online!"><meta name=generator content="Hugo 0.109.0"><link rel=stylesheet href=https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css crossorigin=anonymous><link href='/main.min.15a34a6ce4d3fc26538f8271b2938a96a83603e15a32531e2171ad4eca808ede.css' integrity="sha256-FaNKbOTT/CZTj4JxspOKlqg2A+FaMlMeIXGtTsqAjt4=" rel=stylesheet><script defer data-domain=io.sivert.pw src=https://anal.42069.no/js/script.js></script></head><body><header><nav id=navbar><ul class=top-nav><li><a href=/>Sivert Does Stuff Online!</a></li><li><a href=/blog/apprentice><span>Apprentice docs</span></a></li><li id=right><ul><li><a href=https://sivert.pw><span>My Humble Homepage</span></a></li><li><a href=/old><span>Old GitHub.io</span></a></li><li><a href=/about><span>About</span></a></li><li><a href=/blog><span>Blog</span></a></li></ul></li></ul></nav></header><div id=content><main><div class=row><div class=col-md-2><aside id=meta><header><h4>Mikrotik</h4><p>This article has 1024 words.
-5 minutes to read.</p><p>Mikrotik routers has a lot of wired stuff builtin, here is some of that</p></header><h6>Table of Contents:</h6><nav id=TableOfContents><ul><li><a href=#skylabs-mikrotik-misadventures>SkyLabs Mikrotik misadventures</a><ul><li><a href=#status-script>Status script</a></li><li><a href=#full-disk-problem>Full disk problem</a></li></ul></li><li><a href=#sniff-sniff>Sniff-sniff!</a><ul><li><a href=#skrrting-our-efforts>Skrrting our efforts</a></li><li><a href=#implementation>Implementation</a></li><li><a href=#conclusion>Conclusion</a></li></ul></li></ul></nav></aside></div><div class=col-md-10><article><header><h1>Mikrotik</h1></header><p>Mikrotik produces networking equipment and software.
-In 2021, they were the 3rd largest and first private company to reach a value above 1B EUR in their home country Latvia.</p><p>While their RouterOS has a terrible track record of getting hacked.
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8'>
+  <meta name='robots' content='index,follow'>
+  
+    <title>Sivert Does Stuff Online! - Mikrotik</title>
+  
+  
+    <meta name='description' content='Mikrotik routers has a lot of wired stuff builtin, here is some of that'>
+  
+  
+    
+      <link rel='icon' href='/favicon.2a782c1d4fdbd387db5d712ee87bd8b01eb0cf56bd95198f4cc6a84ccf8bfb7e.png' integrity='sha256-KngsHU/b04fbXXEu6HvYsB6wz1a9lRmPTMaoTM&#43;L&#43;34=' />
+    
+    
+      <link rel="apple-touch-icon" href="/favicon_hu5ee1517d9ee6726a25cfeec6a86e1947_41990_192x192_resize_box_3.3306e29c64ba856a2bd380475dcf6fcf81e835e05927358f6e225bbbdf44032a.png"  integrity='sha256-MwbinGS6hWor04BHXc9vz4HoNeBZJzWPbiJbu99EAyo=' />
+    
+  
+  <meta name='viewport' content='width=device-width,initial-scale=1.0'>
+  <meta name="theme-color" content="#00FF00" />
+  
+  
+  <meta name='twitter:card' content='summary'>
+  <meta property='og:title' content='Sivert Does Stuff Online!' />
+  <meta property='og:url' content='' />
+  <meta property='og:site_name' content='Sivert Does Stuff Online!' />
+  
+  <meta name="generator" content="Hugo 0.106.0">
+  <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css' crossorigin='anonymous'>
+  
+  
+  
+    <link href='/main.min.15a34a6ce4d3fc26538f8271b2938a96a83603e15a32531e2171ad4eca808ede.css' integrity="sha256-FaNKbOTT/CZTj4JxspOKlqg2A+FaMlMeIXGtTsqAjt4=" rel='stylesheet'>
+  
+  <script defer data-domain="io.sivert.pw" src="https://anal.42069.no/js/script.js"></script>
+</head>
+<body>
+  <header>
+    <nav id='navbar'>
+  <ul class='top-nav'>
+    <li><a href='/'>Sivert Does Stuff Online!</a></li>
+    
+    
+    
+    
+
+<li>
+  <a href='/blog/apprentice'>
+    
+    <span>Apprentice docs</span>
+  </a>
+</li>
+
+    
+    <li id='right'>
+      <ul>
+      
+      
+
+<li>
+  <a href='https://sivert.pw'>
+    
+    <span>My Humble Homepage</span>
+  </a>
+</li>
+
+      
+      
+
+<li>
+  <a href='/old'>
+    
+    <span>Old GitHub.io</span>
+  </a>
+</li>
+
+      
+      
+
+<li>
+  <a href='/about'>
+    
+    <span>About</span>
+  </a>
+</li>
+
+      
+      
+
+<li>
+  <a href='/blog'>
+    
+    <span>Blog</span>
+  </a>
+</li>
+
+      
+      
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </header>
+  <div id='content'>
+    <main>
+      
+      <div class='row'>
+        <div class='col-md-2'>
+          <aside id='meta'>
+  <header>
+    <h4>Mikrotik</h4>
+    
+    <p>
+      This article has 1024 words.
+      5 minutes to read.
+    </p>
+    <p>
+      Mikrotik routers has a lot of wired stuff builtin, here is some of that
+    </p>
+  </header>
+  
+  
+  
+  
+    <h6>Table of Contents:</h6>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#skylabs-mikrotik-misadventures">SkyLabs Mikrotik misadventures</a>
+      <ul>
+        <li><a href="#status-script">Status script</a></li>
+        <li><a href="#full-disk-problem">Full disk problem</a></li>
+      </ul>
+    </li>
+    <li><a href="#sniff-sniff">Sniff-sniff!</a>
+      <ul>
+        <li><a href="#skrrting-our-efforts">Skrrting our efforts</a></li>
+        <li><a href="#implementation">Implementation</a></li>
+        <li><a href="#conclusion">Conclusion</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  
+  
+  
+</aside>
+
+        </div>
+        <div class='col-md-10'>
+          
+<article>
+  <header>
+    <h1>Mikrotik</h1>
+  </header>
+  <p>Mikrotik produces networking equipment and software.
+In 2021, they were the 3rd largest and first private company to reach a value above 1B EUR in their home country Latvia.</p>
+<p>While their RouterOS has a terrible track record of getting hacked.
 It has a load of cool and useful features built right in.
-And all those ROS devices that constantly get hacked do so because of known vulnerabilities that would have been patched if only the devices where being updated on a regular basis.</p><h2 id=skylabs-mikrotik-misadventures>SkyLabs Mikrotik misadventures</h2><p>Since Mikrotiks are the most used and best supported equipment for our services.
+And all those ROS devices that constantly get hacked do so because of known vulnerabilities that would have been patched if only the devices where being updated on a regular basis.</p>
+<h2 id="skylabs-mikrotik-misadventures">SkyLabs Mikrotik misadventures</h2>
+<p>Since Mikrotiks are the most used and best supported equipment for our services.
 I got to work a lot with them when I wasn&rsquo;t programming or managing servers.
-So here is a collection of some problems I encountered along the way working with SkyLabs Mikrotik boxes.</p><h3 id=status-script>Status script</h3><p>The one story of me messing up big time as an apprentice is related to this piece of 💩 Mikrotik script.
+So here is a collection of some problems I encountered along the way working with SkyLabs Mikrotik boxes.</p>
+<h3 id="status-script">Status script</h3>
+<p>The one story of me messing up big time as an apprentice is related to this piece of 💩 Mikrotik script.
 It works quite simple, it&rsquo;s supposed to run every 5 minutes, although I&rsquo;ve seed boxes that used to run it every single minute until I came and updated the things.
-For each time it runs it collects all sorts of information about the box that runs it and then reports it to our API.</p><p>The thing that went wrong tho is a perfect example of how unpredictable simple changes can be.
+For each time it runs it collects all sorts of information about the box that runs it and then reports it to our API.</p>
+<p>The thing that went wrong tho is a perfect example of how unpredictable simple changes can be.
 It was upgrading nginx from 1.18 to 1.22.
 That caused requests not properly URL encoded to get a 400 response.
 As you&rsquo;d expect, right?
-But, as it turned out these status scripts on all the boxes didn&rsquo;t do so&mldr;
+But, as it turned out these status scripts on all the boxes didn&rsquo;t do so&hellip;
 And when all our servers run fail2ban it meant those boxes got IP banned.
-Causing the whole captive portal to stop working on those affected.</p><p>Interestingly a whole partners setup was fine, and the reason was a slight difference in the script.
+Causing the whole captive portal to stop working on those affected.</p>
+<p>Interestingly a whole partners setup was fine, and the reason was a slight difference in the script.
 The way those boxes got their RouterOS version, it got just the number.
-While the standard version of the script also got the &ldquo;branch&rdquo;, stable/long-term/beta.</p><p>I had two drafts of solution scripts so that we could upgrade nginx.
+While the standard version of the script also got the &ldquo;branch&rdquo;, stable/long-term/beta.</p>
+<p>I had two drafts of solution scripts so that we could upgrade nginx.
 The first one had an inline for loop that would URL encode the string for the URL path with all the parameters the script sends to the API.
 The other one just passed all the parameters in the HTTP body instead of the HTTP head of the request.
-Completely bypassing the need for URL encoding.</p><p>Of course the second option there is the best for several reasons.
+Completely bypassing the need for URL encoding.</p>
+<p>Of course the second option there is the best for several reasons.
 But the biggest one for us would have to be the fact that hotspot name is passed.
 And that would be user input.
-Never trust it.</p><h3 id=full-disk-problem>Full disk problem</h3><p>The built-in drive on the boxes may get filled up by hidden files&mldr;
-There exists an official <a href=https://www.mikrotik.com/download/share/fix_space.npk target=_blank>fix_space.npk</a> package, but finding that was a little adventure in itself reading through old forum threads from 2018&mldr;
+Never trust it.</p>
+<h3 id="full-disk-problem">Full disk problem</h3>
+<p>The built-in drive on the boxes may get filled up by hidden files&hellip;
+There exists an official <a href='https://www.mikrotik.com/download/share/fix_space.npk' target='_blank'>fix_space.npk</a> package, but finding that was a little adventure in itself reading through old forum threads from 2018&hellip;
 I also managed to mess up a SkyLabs box using that package.
 Probably just because we did it remote.
 It&rsquo;s kinda funny, actually.
 That &ldquo;fix_spacke.npk&rdquo;, if you look at it in a hex editor.
 You&rsquo;ll see that it&rsquo;s got a crazy amount of null bytes, and the most interesting.
-A bash script.</p><p>This whole problem actually happened to several SkyLabs managed Mikrotiks over the summer of 2022 as we needed to upgrade the SSL certificates on them.
+A bash script.</p>
+<p>This whole problem actually happened to several SkyLabs managed Mikrotiks over the summer of 2022 as we needed to upgrade the SSL certificates on them.
 But with the disk full the new certificate would either not even get onto the disk of the boxes or corrupted as the whole certificated could not be written to the disk.
 In hindsight, I wonder how the guy updating the certs did it.
-As I&rsquo;ve updated the status script on all boxes without issue.</p><h2 id=sniff-sniff>Sniff-sniff!</h2><p>The first Mikrotik &ldquo;/tool/sniffer&rdquo; pcap file I ever inspected was named &ldquo;sniffsniff&rdquo;.
-I found it on a SkyLabs box, it&rsquo;s likely ancient and only had DHCP data if I remember correct.</p><p>But that&rsquo;s neither here nor there.</p><p>You see I got this interesting task after one of our customers wanted logging and blacklisting.
+As I&rsquo;ve updated the status script on all boxes without issue.</p>
+<h2 id="sniff-sniff">Sniff-sniff!</h2>
+<p>The first Mikrotik &ldquo;/tool/sniffer&rdquo; pcap file I ever inspected was named &ldquo;sniffsniff&rdquo;.
+I found it on a SkyLabs box, it&rsquo;s likely ancient and only had DHCP data if I remember correct.</p>
+<p>But that&rsquo;s neither here nor there.</p>
+<p>You see I got this interesting task after one of our customers wanted logging and blacklisting.
 This was after it was discovered on their end that somebody was using their guest network for hacking attempts.
-Specifically SQL injection against a bunch of servers, supposedly mostly Oracle and Amazon ones.</p><h3 id=skrrting-our-efforts>Skrrting our efforts</h3><p>So for this I got to see for myself how powerful the Mikrotik sniffer tool actually is.
+Specifically SQL injection against a bunch of servers, supposedly mostly Oracle and Amazon ones.</p>
+<h3 id="skrrting-our-efforts">Skrrting our efforts</h3>
+<p>So for this I got to see for myself how powerful the Mikrotik sniffer tool actually is.
 The plan would be to use the built-in sniffer, find the mac of whoever is doing the naughty stuff.
 And then just blacklist by MAC.
 Any hacker should be able to just use bogus macs tho.
 And if they&rsquo;re extra clever they might even impersonate legitimate users.
 That would for sure mess up our blocking efforts big time.
 If you ask me the only solution then would be to require captive portal authentication with SMS code.
-Or some other one where you have to put in some personal info.</p><h3 id=implementation>Implementation</h3><p>Mikrotik routers or anything running RouterOS have that built-in /tool/sniffer thing.
+Or some other one where you have to put in some personal info.</p>
+<h3 id="implementation">Implementation</h3>
+<p>Mikrotik routers or anything running RouterOS have that built-in /tool/sniffer thing.
 It can directly output pcap files to a disk, but it also has a streaming option.
-But that stream would be using a protocol called <a href=https://en.wikipedia.org/wiki/TZSP target=_blank>TZSP</a> or TaZmen Sniffer Protocol.
-So I found a neat open source tool written in C called &ldquo;<a href=https://github.com/thefloweringash/tzsp2pcap target=_blank>tzsp2pcap</a>&rdquo;.
+But that stream would be using a protocol called <a href='https://en.wikipedia.org/wiki/TZSP' target='_blank'>TZSP</a> or TaZmen Sniffer Protocol.
+So I found a neat open source tool written in C called &ldquo;<a href='https://github.com/thefloweringash/tzsp2pcap' target='_blank'>tzsp2pcap</a>&rdquo;.
 It does exactly as the name would imply.
-You may read my little guide on it <a href=../tzsp2pcap target=_blank>here</a>.</p><p>So for the capture setup I used this streaming option, so we could store a bunch more packets than directly on the box.
+You may read my little guide on it <a href='../tzsp2pcap' target='_blank'>here</a>.</p>
+<p>So for the capture setup I used this streaming option, so we could store a bunch more packets than directly on the box.
 After fiddling around with the filtering options of the /tool/sniffer I ran the tzsp2pcap with screen on our production VPN server with options to write to a new file whenever the current file would reach 1 GB.
 Then I just manually moved them to my work computer and the backup server.
-If this were going to continue, I&rsquo;d make some script to automagically move stuff and run that with a cron job once or twice a week.</p><h3 id=conclusion>Conclusion</h3><p>I ran the thing over a weekend and then some, but it was all useless.
-As the customer in question wanted to resign our services the Monday after we started sniffing&mldr;
+If this were going to continue, I&rsquo;d make some script to automagically move stuff and run that with a cron job once or twice a week.</p>
+<h3 id="conclusion">Conclusion</h3>
+<p>I ran the thing over a weekend and then some, but it was all useless.
+As the customer in question wanted to resign our services the Monday after we started sniffing&hellip;
 Was still a fun learning experience tho.
-And I got to use Wireshark during work! 😁</p></article></div></div></main></div><footer><center><div class=footer-content><p>2020 - 2023 &copy; Sivert V. Sæther</p></div></center></footer></body></html>
+And I got to use Wireshark during work! 😁</p>
+
+</article>
+
+        </div>
+      </div>
+      
+    </main>
+  </div>
+  <footer>
+  <center>
+  <div class='footer-content'>
+    <p>2020 - 2023 &copy; Sivert V. Sæther</p>
+  </div>
+  
+</center>
+  </footer>
+</body>
+
+</html>

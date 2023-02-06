@@ -1,30 +1,271 @@
-<!doctype html><html lang=en><head><meta charset=utf-8><meta name=robots content="index,follow"><title>Sivert Does Stuff Online! - Linux Desktop Password Reset</title><meta name=description content="Simple guide to reset the password on Linux machines to which you have physical access to the disk."><link rel=icon href=/favicon.2a782c1d4fdbd387db5d712ee87bd8b01eb0cf56bd95198f4cc6a84ccf8bfb7e.png integrity='sha256-KngsHU/b04fbXXEu6HvYsB6wz1a9lRmPTMaoTM+L+34='><link rel=apple-touch-icon href=/favicon_hu5ee1517d9ee6726a25cfeec6a86e1947_41990_192x192_resize_box_3.3306e29c64ba856a2bd380475dcf6fcf81e835e05927358f6e225bbbdf44032a.png integrity='sha256-MwbinGS6hWor04BHXc9vz4HoNeBZJzWPbiJbu99EAyo='><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#00FF00"><meta name=twitter:card content="summary"><meta property="og:title" content="Sivert Does Stuff Online!"><meta property="og:url" content="https://io.sivert.pw"><meta property="og:site_name" content="Sivert Does Stuff Online!"><meta name=generator content="Hugo 0.109.0"><link rel=stylesheet href=https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css crossorigin=anonymous><link href='/chroma.min.b7cbccb1554b70a7ffff2ffa00c8ce8e6cc8506a98c47088b8ec08515e93d4b9.css' integrity="sha256-t8vMsVVLcKf//y/6AMjOjmzIUGqYxHCIuOwIUV6T1Lk=" rel=stylesheet><link href='/main.min.15a34a6ce4d3fc26538f8271b2938a96a83603e15a32531e2171ad4eca808ede.css' integrity="sha256-FaNKbOTT/CZTj4JxspOKlqg2A+FaMlMeIXGtTsqAjt4=" rel=stylesheet><script defer data-domain=io.sivert.pw src=https://anal.42069.no/js/script.js></script></head><body><header><nav id=navbar><ul class=top-nav><li><a href=/>Sivert Does Stuff Online!</a></li><li><a href=/blog/apprentice><span>Apprentice docs</span></a></li><li id=right><ul><li><a href=https://sivert.pw><span>My Humble Homepage</span></a></li><li><a href=/old><span>Old GitHub.io</span></a></li><li><a href=/about><span>About</span></a></li><li><a href=/blog><span>Blog</span></a></li></ul></li></ul></nav></header><div id=content><main><div class=row><div class=col-md-2><aside id=meta><header><h4>Linux Desktop Password Reset</h4><p>This article has 369 words.
-2 minutes to read.</p><p>Simple guide to reset the password on Linux machines to which you have physical access to the disk.</p></header><h6>Table of Contents:</h6><nav id=TableOfContents><ul><li><a href=#setup>Setup</a></li><li><a href=#fixing>Fixing</a></li><li><a href=#cleanup>Cleanup</a></li></ul></nav></aside></div><div class=col-md-10><article><header><h1>Linux Desktop Password Reset</h1></header><p>Hacking stuff is usually pretty trivial.
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8'>
+  <meta name='robots' content='index,follow'>
+  
+    <title>Sivert Does Stuff Online! - Linux Desktop Password Reset</title>
+  
+  
+    <meta name='description' content='Simple guide to reset the password on Linux machines to which you have physical access to the disk.'>
+  
+  
+    
+      <link rel='icon' href='/favicon.2a782c1d4fdbd387db5d712ee87bd8b01eb0cf56bd95198f4cc6a84ccf8bfb7e.png' integrity='sha256-KngsHU/b04fbXXEu6HvYsB6wz1a9lRmPTMaoTM&#43;L&#43;34=' />
+    
+    
+      <link rel="apple-touch-icon" href="/favicon_hu5ee1517d9ee6726a25cfeec6a86e1947_41990_192x192_resize_box_3.3306e29c64ba856a2bd380475dcf6fcf81e835e05927358f6e225bbbdf44032a.png"  integrity='sha256-MwbinGS6hWor04BHXc9vz4HoNeBZJzWPbiJbu99EAyo=' />
+    
+  
+  <meta name='viewport' content='width=device-width,initial-scale=1.0'>
+  <meta name="theme-color" content="#00FF00" />
+  
+  
+  <meta name='twitter:card' content='summary'>
+  <meta property='og:title' content='Sivert Does Stuff Online!' />
+  <meta property='og:url' content='' />
+  <meta property='og:site_name' content='Sivert Does Stuff Online!' />
+  
+  <meta name="generator" content="Hugo 0.106.0">
+  <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css' crossorigin='anonymous'>
+  
+  
+    
+      <link href='/chroma.min.b7cbccb1554b70a7ffff2ffa00c8ce8e6cc8506a98c47088b8ec08515e93d4b9.css' integrity="sha256-t8vMsVVLcKf//y/6AMjOjmzIUGqYxHCIuOwIUV6T1Lk=" rel='stylesheet'>
+    
+  
+  
+    <link href='/main.min.15a34a6ce4d3fc26538f8271b2938a96a83603e15a32531e2171ad4eca808ede.css' integrity="sha256-FaNKbOTT/CZTj4JxspOKlqg2A+FaMlMeIXGtTsqAjt4=" rel='stylesheet'>
+  
+  <script defer data-domain="io.sivert.pw" src="https://anal.42069.no/js/script.js"></script>
+</head>
+<body>
+  <header>
+    <nav id='navbar'>
+  <ul class='top-nav'>
+    <li><a href='/'>Sivert Does Stuff Online!</a></li>
+    
+    
+    
+    
+
+<li>
+  <a href='/blog/apprentice'>
+    
+    <span>Apprentice docs</span>
+  </a>
+</li>
+
+    
+    <li id='right'>
+      <ul>
+      
+      
+
+<li>
+  <a href='https://sivert.pw'>
+    
+    <span>My Humble Homepage</span>
+  </a>
+</li>
+
+      
+      
+
+<li>
+  <a href='/old'>
+    
+    <span>Old GitHub.io</span>
+  </a>
+</li>
+
+      
+      
+
+<li>
+  <a href='/about'>
+    
+    <span>About</span>
+  </a>
+</li>
+
+      
+      
+
+<li>
+  <a href='/blog'>
+    
+    <span>Blog</span>
+  </a>
+</li>
+
+      
+      
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </header>
+  <div id='content'>
+    <main>
+      
+      <div class='row'>
+        <div class='col-md-2'>
+          <aside id='meta'>
+  <header>
+    <h4>Linux Desktop Password Reset</h4>
+    
+    <p>
+      This article has 369 words.
+      2 minutes to read.
+    </p>
+    <p>
+      Simple guide to reset the password on Linux machines to which you have physical access to the disk.
+    </p>
+  </header>
+  
+  
+  
+  
+    <h6>Table of Contents:</h6>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#setup">Setup</a></li>
+    <li><a href="#fixing">Fixing</a></li>
+    <li><a href="#cleanup">Cleanup</a></li>
+  </ul>
+</nav>
+  
+  
+  
+</aside>
+
+        </div>
+        <div class='col-md-10'>
+          
+<article>
+  <header>
+    <h1>Linux Desktop Password Reset</h1>
+  </header>
+  <p>Hacking stuff is usually pretty trivial.
 As long as you&rsquo;ve got physical access that is.
 And here I&rsquo;ll instruct you on how to reset passwords on a Linux installation.
 Either by booting a live ISO.
-Or by plugging the drive with the installation you&rsquo;d like to reset some password(s) on into another Linux machine.</p><p>Realistically, repairing a broken installation is pretty similar.
+Or by plugging the drive with the installation you&rsquo;d like to reset some password(s) on into another Linux machine.</p>
+<p>Realistically, repairing a broken installation is pretty similar.
 Although be aware that setting up the chroot may require additional steps.
-And actually fixing it would be harder than just running passwd in chroot on the installation.</p><h2 id=setup>Setup</h2><p>For passwd we don&rsquo;t need any fancy setup, we just need the rootfs mounted, chroot into it and run passwd.
+And actually fixing it would be harder than just running passwd in chroot on the installation.</p>
+<h2 id="setup">Setup</h2>
+<p>For passwd we don&rsquo;t need any fancy setup, we just need the rootfs mounted, chroot into it and run passwd.
 Run &ldquo;lsblk&rdquo; to identify the disk you&rsquo;ll need to mount.
 Then mount it to /mnt.
 Some distros have software that can mount drives automatically to some media folder.
-This is fine for passwd, but for system repair operations you&rsquo;d want to unmount that if it happens and do the whole setup manually.</p><p>For a system repair chroot setup use these additional mounts to make sure tools interacting with the system work.
-Assuming you mounted the rootfs and potentially the boot/EFI partition to /boot or /boot/efi.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl>mount -R /dev /mnt/dev
-</span></span><span class=line><span class=cl>mount --make-rslave /mnt/dev
-</span></span><span class=line><span class=cl>mount -t proc proc /mnt/proc
-</span></span><span class=line><span class=cl>mount -t sysfs sysfs /mnt/sys
-</span></span><span class=line><span class=cl>mount -t tmpfs tmpfs /mnt/run
-</span></span></code></pre></td></tr></table></div></div><p>The options -R and -t for mount are short hands for --rbind and --types respectively.</p><h2 id=fixing>Fixing</h2><p>For doing the password reset or other operations on the installation other than simple file edits, you just chroot into the installation.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl>chroot /mnt /bin/bash</span></span></code></pre></td></tr></table></div></div><p>You may also specify a new shell or one command with options to run in the new root after the path of the root.
+This is fine for passwd, but for system repair operations you&rsquo;d want to unmount that if it happens and do the whole setup manually.</p>
+<p>For a system repair chroot setup use these additional mounts to make sure tools interacting with the system work.
+Assuming you mounted the rootfs and potentially the boot/EFI partition to /boot or /boot/efi.</p>
+
+
+
+
+
+
+
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">mount -R /dev /mnt/dev
+</span></span><span class="line"><span class="cl">mount --make-rslave /mnt/dev
+</span></span><span class="line"><span class="cl">mount -t proc proc /mnt/proc
+</span></span><span class="line"><span class="cl">mount -t sysfs sysfs /mnt/sys
+</span></span><span class="line"><span class="cl">mount -t tmpfs tmpfs /mnt/run
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
+<p>The options -R and -t for mount are short hands for --rbind and --types respectively.</p>
+<h2 id="fixing">Fixing</h2>
+<p>For doing the password reset or other operations on the installation other than simple file edits, you just chroot into the installation.</p>
+
+
+
+
+
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">chroot /mnt /bin/bash</span></span></code></pre></td></tr></table>
+</div>
+</div>
+<p>You may also specify a new shell or one command with options to run in the new root after the path of the root.
 Also --groups with group names and --userspec with names or IDs of the main user and group to use during the chroot.
 Usually you&rsquo;d want to just chroot using the root user.
-And to all the stuff you need to.</p><p>Like the password reset!</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl>passwd</span></span></code></pre></td></tr></table></div></div><p>And then exit the chroot shell and proceed with the cleanup before rebooting into the fixed installation.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl>exit</span></span></code></pre></td></tr></table></div></div><h2 id=cleanup>Cleanup</h2><p>Run &ldquo;umount --recursive&rdquo; on the rootfs mount point as root.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl>umount -R /mnt</span></span></code></pre></td></tr></table></div></div></article></div></div></main></div><footer><center><div class=footer-content><p>2020 - 2023 &copy; Sivert V. Sæther</p></div></center></footer></body></html>
+And to all the stuff you need to.</p>
+<p>Like the password reset!</p>
+
+
+
+
+
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">passwd</span></span></code></pre></td></tr></table>
+</div>
+</div>
+<p>And then exit the chroot shell and proceed with the cleanup before rebooting into the fixed installation.</p>
+
+
+
+
+
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">exit</span></span></code></pre></td></tr></table>
+</div>
+</div>
+<h2 id="cleanup">Cleanup</h2>
+<p>Run &ldquo;umount --recursive&rdquo; on the rootfs mount point as root.</p>
+
+
+
+
+
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">umount -R /mnt</span></span></code></pre></td></tr></table>
+</div>
+</div>
+
+</article>
+
+        </div>
+      </div>
+      
+    </main>
+  </div>
+  <footer>
+  <center>
+  <div class='footer-content'>
+    <p>2020 - 2023 &copy; Sivert V. Sæther</p>
+  </div>
+  
+</center>
+  </footer>
+</body>
+
+</html>

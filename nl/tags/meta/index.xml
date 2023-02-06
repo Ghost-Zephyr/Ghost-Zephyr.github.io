@@ -1,2 +1,22 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Meta on Sivert Doen Dingen Online!</title><link>https://io.sivert.pw/nl/tags/meta/</link><description>Recent content in Meta on Sivert Doen Dingen Online!</description><generator>Hugo -- gohugo.io</generator><managingEditor>gmail@sivert.pw (Sivert V. Sæther)</managingEditor><webMaster>gmail@sivert.pw (Sivert V. Sæther)</webMaster><copyright>GPL-3</copyright><lastBuildDate>Sun, 27 Mar 2022 18:08:24 +0000</lastBuildDate><atom:link href="https://io.sivert.pw/nl/tags/meta/index.xml" rel="self" type="application/rss+xml"/><item><title>Welkom!</title><link>https://io.sivert.pw/nl/</link><pubDate>Sun, 27 Mar 2022 18:08:24 +0000</pubDate><author>gmail@sivert.pw (Sivert V. Sæther)</author><guid>https://io.sivert.pw/nl/</guid><description>Dus ik denk dat ik eindelijk mijn github.io-site moet bijwerken. Mooi hoor! 😁
-Ik ben aan nederlands studeren en ik zal in de loop van de tijd dingen vertalen. 😊</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Meta on Sivert Doen Dingen Online!</title>
+    <link>/nl/tags/meta/</link>
+    <description>Recent content in Meta on Sivert Doen Dingen Online!</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <managingEditor>gmail@sivert.pw (Sivert V. Sæther)</managingEditor>
+    <webMaster>gmail@sivert.pw (Sivert V. Sæther)</webMaster>
+    <copyright>GPL-3</copyright>
+    <lastBuildDate>Sun, 27 Mar 2022 18:08:24 +0000</lastBuildDate><atom:link href="/nl/tags/meta/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Welkom!</title>
+      <link>/nl/</link>
+      <pubDate>Sun, 27 Mar 2022 18:08:24 +0000</pubDate>
+      <author>gmail@sivert.pw (Sivert V. Sæther)</author>
+      <guid>/nl/</guid>
+      <description>Dus ik denk dat ik eindelijk mijn github.io-site moet bijwerken. Mooi hoor! 😁
+Ik ben aan nederlands studeren en ik zal in de loop van de tijd dingen vertalen. 😊</description>
+    </item>
+  </channel>
+</rss>

@@ -1,16 +1,205 @@
-<!doctype html><html lang=en><head><meta charset=utf-8><meta name=robots content="index,follow"><title>Sivert Does Stuff Online! - Sircon</title><meta name=description content="Security issues I found at Sircon AS. They were all fixed quickly by the responsible persons."><link rel=icon href=/favicon.2a782c1d4fdbd387db5d712ee87bd8b01eb0cf56bd95198f4cc6a84ccf8bfb7e.png integrity='sha256-KngsHU/b04fbXXEu6HvYsB6wz1a9lRmPTMaoTM+L+34='><link rel=apple-touch-icon href=/favicon_hu5ee1517d9ee6726a25cfeec6a86e1947_41990_192x192_resize_box_3.3306e29c64ba856a2bd380475dcf6fcf81e835e05927358f6e225bbbdf44032a.png integrity='sha256-MwbinGS6hWor04BHXc9vz4HoNeBZJzWPbiJbu99EAyo='><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#00FF00"><meta name=twitter:card content="summary"><meta property="og:title" content="Sivert Does Stuff Online!"><meta property="og:url" content="https://io.sivert.pw"><meta property="og:site_name" content="Sivert Does Stuff Online!"><meta name=generator content="Hugo 0.109.0"><link rel=stylesheet href=https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css crossorigin=anonymous><link href='/chroma.min.b7cbccb1554b70a7ffff2ffa00c8ce8e6cc8506a98c47088b8ec08515e93d4b9.css' integrity="sha256-t8vMsVVLcKf//y/6AMjOjmzIUGqYxHCIuOwIUV6T1Lk=" rel=stylesheet><link href='/main.min.15a34a6ce4d3fc26538f8271b2938a96a83603e15a32531e2171ad4eca808ede.css' integrity="sha256-FaNKbOTT/CZTj4JxspOKlqg2A+FaMlMeIXGtTsqAjt4=" rel=stylesheet><script defer data-domain=io.sivert.pw src=https://anal.42069.no/js/script.js></script></head><body><header><nav id=navbar><ul class=top-nav><li><a href=/>Sivert Does Stuff Online!</a></li><li><a href=/blog/apprentice><span>Apprentice docs</span></a></li><li id=right><ul><li><a href=https://sivert.pw><span>My Humble Homepage</span></a></li><li><a href=/old><span>Old GitHub.io</span></a></li><li><a href=/about><span>About</span></a></li><li><a href=/blog><span>Blog</span></a></li></ul></li></ul></nav></header><div id=content><main><div class=row><div class=col-md-2><aside id=meta><header><h4>Sircon</h4><p>This article has 373 words.
-2 minutes to read.</p><p>Security issues I found at Sircon AS. They were all fixed quickly by the responsible persons.</p></header><h6>Table of Contents:</h6><nav id=TableOfContents><ul><li><a href=#servers>Servers</a></li><li><a href=#wordpress>WordPress</a></li></ul></nav></aside></div><div class=col-md-10><article><header><h1>Sircon</h1></header><p>These guys have a few beefy ass physical servers in their own rack in a supposedly EMP and fire safe room in the basement of their offices.
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8'>
+  <meta name='robots' content='index,follow'>
+  
+    <title>Sivert Does Stuff Online! - Sircon</title>
+  
+  
+    <meta name='description' content='Security issues I found at Sircon AS. They were all fixed quickly by the responsible persons.'>
+  
+  
+    
+      <link rel='icon' href='/favicon.2a782c1d4fdbd387db5d712ee87bd8b01eb0cf56bd95198f4cc6a84ccf8bfb7e.png' integrity='sha256-KngsHU/b04fbXXEu6HvYsB6wz1a9lRmPTMaoTM&#43;L&#43;34=' />
+    
+    
+      <link rel="apple-touch-icon" href="/favicon_hu5ee1517d9ee6726a25cfeec6a86e1947_41990_192x192_resize_box_3.3306e29c64ba856a2bd380475dcf6fcf81e835e05927358f6e225bbbdf44032a.png"  integrity='sha256-MwbinGS6hWor04BHXc9vz4HoNeBZJzWPbiJbu99EAyo=' />
+    
+  
+  <meta name='viewport' content='width=device-width,initial-scale=1.0'>
+  <meta name="theme-color" content="#00FF00" />
+  
+  
+  <meta name='twitter:card' content='summary'>
+  <meta property='og:title' content='Sivert Does Stuff Online!' />
+  <meta property='og:url' content='' />
+  <meta property='og:site_name' content='Sivert Does Stuff Online!' />
+  
+  <meta name="generator" content="Hugo 0.106.0">
+  <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css' crossorigin='anonymous'>
+  
+  
+    
+      <link href='/chroma.min.b7cbccb1554b70a7ffff2ffa00c8ce8e6cc8506a98c47088b8ec08515e93d4b9.css' integrity="sha256-t8vMsVVLcKf//y/6AMjOjmzIUGqYxHCIuOwIUV6T1Lk=" rel='stylesheet'>
+    
+  
+  
+    <link href='/main.min.15a34a6ce4d3fc26538f8271b2938a96a83603e15a32531e2171ad4eca808ede.css' integrity="sha256-FaNKbOTT/CZTj4JxspOKlqg2A+FaMlMeIXGtTsqAjt4=" rel='stylesheet'>
+  
+  <script defer data-domain="io.sivert.pw" src="https://anal.42069.no/js/script.js"></script>
+</head>
+<body>
+  <header>
+    <nav id='navbar'>
+  <ul class='top-nav'>
+    <li><a href='/'>Sivert Does Stuff Online!</a></li>
+    
+    
+    
+    
+
+<li>
+  <a href='/blog/apprentice'>
+    
+    <span>Apprentice docs</span>
+  </a>
+</li>
+
+    
+    <li id='right'>
+      <ul>
+      
+      
+
+<li>
+  <a href='https://sivert.pw'>
+    
+    <span>My Humble Homepage</span>
+  </a>
+</li>
+
+      
+      
+
+<li>
+  <a href='/old'>
+    
+    <span>Old GitHub.io</span>
+  </a>
+</li>
+
+      
+      
+
+<li>
+  <a href='/about'>
+    
+    <span>About</span>
+  </a>
+</li>
+
+      
+      
+
+<li>
+  <a href='/blog'>
+    
+    <span>Blog</span>
+  </a>
+</li>
+
+      
+      
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </header>
+  <div id='content'>
+    <main>
+      
+      <div class='row'>
+        <div class='col-md-2'>
+          <aside id='meta'>
+  <header>
+    <h4>Sircon</h4>
+    
+    <p>
+      This article has 373 words.
+      2 minutes to read.
+    </p>
+    <p>
+      Security issues I found at Sircon AS. They were all fixed quickly by the responsible persons.
+    </p>
+  </header>
+  
+  
+  
+  
+    <h6>Table of Contents:</h6>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#servers">Servers</a></li>
+    <li><a href="#wordpress">WordPress</a></li>
+  </ul>
+</nav>
+  
+  
+  
+</aside>
+
+        </div>
+        <div class='col-md-10'>
+          
+<article>
+  <header>
+    <h1>Sircon</h1>
+  </header>
+  <p>These guys have a few beefy ass physical servers in their own rack in a supposedly EMP and fire safe room in the basement of their offices.
 Those physical machines run virtual machines that run WHM/cPanel and whatever PHP app the customer would like.
-But >90% of their customers are non-technical and just only interact with the default WordPress setup and maybe the e-mail service that comes with their cPanel.
-Most of the people calling in to their support line has problems using their e-mail, and it&rsquo;s usually the end user who fucked up.</p><h2 id=servers>Servers</h2><p>Have you ever used Apache httpd? Have you ever used its .htaccess config?
+But &gt;90% of their customers are non-technical and just only interact with the default WordPress setup and maybe the e-mail service that comes with their cPanel.
+Most of the people calling in to their support line has problems using their e-mail, and it&rsquo;s usually the end user who fucked up.</p>
+<h2 id="servers">Servers</h2>
+<p>Have you ever used Apache httpd? Have you ever used its .htaccess config?
 Well it&rsquo;s pretty cool, but may pose a threat on shared &ldquo;web hotels&rdquo; like WHM servers running a whole lot of cPanel accounts.
-If using .htaccess is allowed users may set their own configuration options for httpd.</p><p>And the issue I identified here was the fact that cgi configuration options where allowed in .htaccess.
-So I had some fun making wired cgi scripts in python, perl and bash.</p><p>The last thing I did before disclosing it to Sircon&rsquo;s server guy was to make a proof of concept script that gave me a shell on the server.
-As they don&rsquo;t allow ssh access and PHP is configured to not allow anything dangerous, like the system() function, that would allow you to create shells.</p><p>Example .htaccess to run cgi scripts.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-apache data-lang=apache><span class=line><span class=cl><span class=nb>Options</span> +ExecCGI
-</span></span><span class=line><span class=cl><span class=nb>AddHandler</span> cgi-script .cgi .pl .py .sh .rb</span></span></code></pre></td></tr></table></div></div><p>The fix for this is the <a href=https://httpd.apache.org/docs/current/mod/core.html#allowoverride target=_blank>AllowOverride</a> directive.
-Just make sure it does not include &ldquo;FileInfo&rdquo;.</p><h2 id=wordpress>WordPress</h2><p>I found a bug on their homepage <a href=https://sircon.no target=_blank>sircon.no</a> where they have a simple WordPress shop with a couple of cool features, like <a href=https://sircon.no/sjekk-om-din-nettbutikk-nettsted-driftes-miljovennlig/ target=_blank>this</a> where you supposedly can check how green a web page is. As in green energy.</p><p>The bug I found was missing server side validation and a shopping cart that&rsquo;s stored in the browsers local storage with price specified.
+If using .htaccess is allowed users may set their own configuration options for httpd.</p>
+<p>And the issue I identified here was the fact that cgi configuration options where allowed in .htaccess.
+So I had some fun making wired cgi scripts in python, perl and bash.</p>
+<p>The last thing I did before disclosing it to Sircon&rsquo;s server guy was to make a proof of concept script that gave me a shell on the server.
+As they don&rsquo;t allow ssh access and PHP is configured to not allow anything dangerous, like the system() function, that would allow you to create shells.</p>
+<p>Example .htaccess to run cgi scripts.</p>
+
+
+
+
+
+
+
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-apache" data-lang="apache"><span class="line"><span class="cl"><span class="nb">Options</span> +ExecCGI
+</span></span><span class="line"><span class="cl"><span class="nb">AddHandler</span> cgi-script .cgi .pl .py .sh .rb</span></span></code></pre></td></tr></table>
+</div>
+</div>
+<p>The fix for this is the <a href='https://httpd.apache.org/docs/current/mod/core.html#allowoverride' target='_blank'>AllowOverride</a> directive.
+Just make sure it does not include &ldquo;FileInfo&rdquo;.</p>
+<h2 id="wordpress">WordPress</h2>
+<p>I found a bug on their homepage <a href='https://sircon.no' target='_blank'>sircon.no</a> where they have a simple WordPress shop with a couple of cool features, like <a href='https://sircon.no/sjekk-om-din-nettbutikk-nettsted-driftes-miljovennlig/' target='_blank'>this</a> where you supposedly can check how green a web page is. As in green energy.</p>
+<p>The bug I found was missing server side validation and a shopping cart that&rsquo;s stored in the browsers local storage with price specified.
 This is a pretty minor issue however, as they don&rsquo;t do automatic provisioning, and it only gets added to some internal webpage they use to keep track of everything.
 But whatever you posted as the price would show up in that tool.
-You could even post negative prices!</p></article></div></div></main></div><footer><center><div class=footer-content><p>2020 - 2023 &copy; Sivert V. Sæther</p></div></center></footer></body></html>
+You could even post negative prices!</p>
+
+</article>
+
+        </div>
+      </div>
+      
+    </main>
+  </div>
+  <footer>
+  <center>
+  <div class='footer-content'>
+    <p>2020 - 2023 &copy; Sivert V. Sæther</p>
+  </div>
+  
+</center>
+  </footer>
+</body>
+
+</html>

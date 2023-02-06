@@ -1,14 +1,192 @@
-<!doctype html><html lang=en><head><meta charset=utf-8><meta name=robots content="index,follow"><title>Sivert Does Stuff Online! - os</title><link rel=icon href=/favicon.2a782c1d4fdbd387db5d712ee87bd8b01eb0cf56bd95198f4cc6a84ccf8bfb7e.png integrity='sha256-KngsHU/b04fbXXEu6HvYsB6wz1a9lRmPTMaoTM+L+34='><link rel=apple-touch-icon href=/favicon_hu5ee1517d9ee6726a25cfeec6a86e1947_41990_192x192_resize_box_3.3306e29c64ba856a2bd380475dcf6fcf81e835e05927358f6e225bbbdf44032a.png integrity='sha256-MwbinGS6hWor04BHXc9vz4HoNeBZJzWPbiJbu99EAyo='><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#00FF00"><meta name=twitter:card content="summary"><meta property="og:title" content="Sivert Does Stuff Online!"><meta property="og:url" content="https://io.sivert.pw"><meta property="og:site_name" content="Sivert Does Stuff Online!"><meta name=generator content="Hugo 0.109.0"><link rel=alternate type=application/rss+xml href=https://io.sivert.pw/tags/os/index.xml title='Sivert Does Stuff Online!'><link rel=stylesheet href=https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css crossorigin=anonymous><link href='/main.min.15a34a6ce4d3fc26538f8271b2938a96a83603e15a32531e2171ad4eca808ede.css' integrity="sha256-FaNKbOTT/CZTj4JxspOKlqg2A+FaMlMeIXGtTsqAjt4=" rel=stylesheet><script defer data-domain=io.sivert.pw src=https://anal.42069.no/js/script.js></script></head><body><header><nav id=navbar><ul class=top-nav><li><a href=/>Sivert Does Stuff Online!</a></li><li><a href=/blog/apprentice><span>Apprentice docs</span></a></li><li id=right><ul><li><a href=https://sivert.pw><span>My Humble Homepage</span></a></li><li><a href=/old><span>Old GitHub.io</span></a></li><li><a href=/about><span>About</span></a></li><li><a href=/blog><span>Blog</span></a></li></ul></li></ul></nav></header><div id=content><main><article><header><h1>os</h1></header><br><h3>Posts</h3><ul class=contents><li><a href=/blog/apprentice/tzsp2pcap/><article><p class=heading>Tzsp2pcap</p>Published 18/08/2022
-Updated 10/10/2022<br>This is a very useful tool when working with Mikrotiks. As their built-in sniffer tool has support for TZSP (TaZmen Sniffer Protocol) streaming. This will send all packets that match the filtering options to some destination over TZSP/UDP.
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8'>
+  <meta name='robots' content='index,follow'>
+  
+    <title>Sivert Does Stuff Online! - os</title>
+  
+  
+  
+    
+      <link rel='icon' href='/favicon.2a782c1d4fdbd387db5d712ee87bd8b01eb0cf56bd95198f4cc6a84ccf8bfb7e.png' integrity='sha256-KngsHU/b04fbXXEu6HvYsB6wz1a9lRmPTMaoTM&#43;L&#43;34=' />
+    
+    
+      <link rel="apple-touch-icon" href="/favicon_hu5ee1517d9ee6726a25cfeec6a86e1947_41990_192x192_resize_box_3.3306e29c64ba856a2bd380475dcf6fcf81e835e05927358f6e225bbbdf44032a.png"  integrity='sha256-MwbinGS6hWor04BHXc9vz4HoNeBZJzWPbiJbu99EAyo=' />
+    
+  
+  <meta name='viewport' content='width=device-width,initial-scale=1.0'>
+  <meta name="theme-color" content="#00FF00" />
+  
+  
+  <meta name='twitter:card' content='summary'>
+  <meta property='og:title' content='Sivert Does Stuff Online!' />
+  <meta property='og:url' content='' />
+  <meta property='og:site_name' content='Sivert Does Stuff Online!' />
+  
+  <meta name="generator" content="Hugo 0.106.0">
+  <link rel='alternate' type='application/rss+xml' href='/tags/os/index.xml' title='Sivert Does Stuff Online!' />
+  <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css' crossorigin='anonymous'>
+  
+  
+  
+    <link href='/main.min.15a34a6ce4d3fc26538f8271b2938a96a83603e15a32531e2171ad4eca808ede.css' integrity="sha256-FaNKbOTT/CZTj4JxspOKlqg2A+FaMlMeIXGtTsqAjt4=" rel='stylesheet'>
+  
+  <script defer data-domain="io.sivert.pw" src="https://anal.42069.no/js/script.js"></script>
+</head>
+<body>
+  <header>
+    <nav id='navbar'>
+  <ul class='top-nav'>
+    <li><a href='/'>Sivert Does Stuff Online!</a></li>
+    
+    
+    
+    
+
+<li>
+  <a href='/blog/apprentice'>
+    
+    <span>Apprentice docs</span>
+  </a>
+</li>
+
+    
+    <li id='right'>
+      <ul>
+      
+      
+
+<li>
+  <a href='https://sivert.pw'>
+    
+    <span>My Humble Homepage</span>
+  </a>
+</li>
+
+      
+      
+
+<li>
+  <a href='/old'>
+    
+    <span>Old GitHub.io</span>
+  </a>
+</li>
+
+      
+      
+
+<li>
+  <a href='/about'>
+    
+    <span>About</span>
+  </a>
+</li>
+
+      
+      
+
+<li>
+  <a href='/blog'>
+    
+    <span>Blog</span>
+  </a>
+</li>
+
+      
+      
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </header>
+  <div id='content'>
+    <main>
+      
+      
+<article>
+  <header>
+    <h1>os</h1>
+  </header>
+  
+  
+  <br />
+  <h3>Posts</h3>
+  <ul class='contents'>
+  
+  <li><a href='/blog/apprentice/tzsp2pcap/'>
+    
+<article>
+  <p class="heading">Tzsp2pcap</p>
+  Published 18/08/2022
+  
+  Updated 10/10/2022
+  <br />
+  This is a very useful tool when working with Mikrotiks. As their built-in sniffer tool has support for TZSP (TaZmen Sniffer Protocol) streaming. This will send all packets that match the filtering options to some destination over TZSP/UDP.
 This destination may be some machine running this tzsp2pcap. Allowing you to get a pcap remotely from a Mikrtoik without touching the Mikrotiks disk. This is super useful if the box has traffic as the Mikrotik routers usually has a disk with a size in megabytes.
-Read More...</article></a></li><li><a href=/blog/apprentice/debian/><article><p class=heading>Debian</p>Published 20/06/2022
-Updated 23/08/2022<br>The biggest of the official Debian button logos Debian is a classic free and open source Linux distribution. It&rsquo;s one of the oldest Linux OSes and the basis of many other distros. Most notably Ubuntu.
+  Read More...
+</article>
+  </a></li>
+  
+  <li><a href='/blog/apprentice/debian/'>
+    
+<article>
+  <p class="heading">Debian</p>
+  Published 20/06/2022
+  
+  Updated 23/08/2022
+  <br />
+  The biggest of the official Debian button logos Debian is a classic free and open source Linux distribution. It&rsquo;s one of the oldest Linux OSes and the basis of many other distros. Most notably Ubuntu.
 Debian has three foundational documents. The Debian Social Contract/OG Version, the Debian Constitution and the Debian Free Software Guidelines.
 Debian version code-names are famously named after characters from the Toy Story films. It&rsquo;s unstable rolling release branch is named Sid, who in the Toy Stories regularly destroys his toys.
-Read More...</article></a></li><li><a href=/blog/apprentice/mikrotik/><article><p class=heading>Mikrotik</p>Published 08/06/2022
-Updated 18/08/2022<br>Mikrotik produces networking equipment and software. In 2021, they were the 3rd largest and first private company to reach a value above 1B EUR in their home country Latvia.
+  Read More...
+</article>
+  </a></li>
+  
+  <li><a href='/blog/apprentice/mikrotik/'>
+    
+<article>
+  <p class="heading">Mikrotik</p>
+  Published 08/06/2022
+  
+  Updated 18/08/2022
+  <br />
+  Mikrotik produces networking equipment and software. In 2021, they were the 3rd largest and first private company to reach a value above 1B EUR in their home country Latvia.
 While their RouterOS has a terrible track record of getting hacked. It has a load of cool and useful features built right in. And all those ROS devices that constantly get hacked do so because of known vulnerabilities that would have been patched if only the devices where being updated on a regular basis.
-Read More...</article></a></li><li><a href=/blog/apprentice/meraki/><article><p class=heading>Meraki</p>Published 07/06/2022
-Updated 18/08/2022<br>Meraki is Cisco&rsquo;s cloud managed networking solution. It has everything and more than what most people would need. But of course me being me, I don&rsquo;t like my infrastructure being managed by cloud services.
+  Read More...
+</article>
+  </a></li>
+  
+  <li><a href='/blog/apprentice/meraki/'>
+    
+<article>
+  <p class="heading">Meraki</p>
+  Published 07/06/2022
+  
+  Updated 18/08/2022
+  <br />
+  Meraki is Cisco&rsquo;s cloud managed networking solution. It has everything and more than what most people would need. But of course me being me, I don&rsquo;t like my infrastructure being managed by cloud services.
 I did however work a little with Meraki at SkyLabs, and was pleasantly surprised. After having a couple very bad experiences with our Mikrotik setup script. Setting up a Meraki access point with our captive portal service was super easy!
-Read More...</article></a></li></ul></article></main></div><footer><center><div class=footer-content><p>2020 - 2023 &copy; Sivert V. Sæther</p></div></center></footer></body></html>
+  Read More...
+</article>
+  </a></li>
+  
+  </ul>
+  
+</article>
+
+      
+    </main>
+  </div>
+  <footer>
+  <center>
+  <div class='footer-content'>
+    <p>2020 - 2023 &copy; Sivert V. Sæther</p>
+  </div>
+  
+</center>
+  </footer>
+</body>
+
+</html>
