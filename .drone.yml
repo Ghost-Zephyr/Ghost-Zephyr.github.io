@@ -14,7 +14,7 @@ steps:
     - hugo -e prod --printI18nWarnings --printPathWarnings --printUnusedTemplates --templateMetricsHints
     - ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
     - git clone --branch gh-pages git@github.com:Ghost-Zephyr/Ghost-Zephyr.github.io.git github
-    - cp -r public/* github/
+    - rm github/* && cp -r public/* github/
     - cd github/ && git add -A && git commit -m "Drone CI!~ $(git rev-parse --short HEAD)" && git push
 
 image_pull_secrets:
