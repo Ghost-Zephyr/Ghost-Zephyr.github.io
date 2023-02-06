@@ -5,12 +5,9 @@ name: build and publish
 
 steps:
 - name: build
-  image: build/hugo
-  settings:
-    registry: registry.42069.no
-    username: siv
-    password:
-      from_secret: registry
+  image: registry.42069.no/build/hugo
   commands:
   - hugo -e prod --printI18nWarnings --printPathWarnings --printUnusedTemplates --templateMetricsHints
 
+image_pull_secrets:
+- dockerconfig
