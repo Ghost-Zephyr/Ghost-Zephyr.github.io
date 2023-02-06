@@ -11,10 +11,10 @@ steps:
       from_secret: key
   commands:
     - mkdir ~/.ssh && echo "$KEY" > ~/.ssh/id_rsa && chmod 600 -R ~/.ssh
-    - hugo -e prod --printI18nWarnings --printPathWarnings --printUnusedTemplates --templateMetricsHints
+    - hugo -e prod --printI18nWarnings --printUnusedTemplates --templateMetricsHints
     - ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
     - git clone --branch gh-pages git@github.com:Ghost-Zephyr/Ghost-Zephyr.github.io.git github
-    - rm github/* && cp -r public/* github/
+    - rm -fr github/* && cp -r public/* github/
     - cd github/ && git add -A && git commit -m "Drone CI!~ $(git rev-parse --short HEAD)" && git push
 
 image_pull_secrets:
