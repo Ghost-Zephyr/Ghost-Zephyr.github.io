@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Welcome! on Sivert Does Stuff Online!</title>
+    <link>/</link>
+    <description>Recent content in Welcome! on Sivert Does Stuff Online!</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <managingEditor>gmail@sivert.pw (Sivert V. Sæther)</managingEditor>
+    <webMaster>gmail@sivert.pw (Sivert V. Sæther)</webMaster>
+    <copyright>GPL-3</copyright>
+    <lastBuildDate>Sun, 27 Mar 2022 18:08:24 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Apple CNA (Captive Network Assistant)</title>
+      <link>/blog/captive-network-assistant/</link>
+      <pubDate>Thu, 15 Dec 2022 15:10:59 +0000</pubDate>
+      <author>gmail@sivert.pw (Sivert V. Sæther)</author>
+      <guid>/blog/captive-network-assistant/</guid>
+      <description>Now I may be biased as I&amp;rsquo;ve had to work with captive portals and been annoyed by Apples sand-boxed captive network assistants web browser. Apples CNA sandbox browser does not allow any sort of persistent storage on the device. To the point where localStorage is outright disallowed and cookies are not stored between sessions. It&amp;rsquo;s also not allowed to open new windows/tabs as the browser only has the one window you get and won&amp;rsquo;t allow any attempts to get out of the sandbox by opening a new window or open some app.</description>
+    </item>
+    <item>
+      <title>Tzsp2pcap</title>
+      <link>/blog/apprentice/tzsp2pcap/</link>
+      <pubDate>Thu, 18 Aug 2022 09:57:34 +0000</pubDate>
+      <author>gmail@sivert.pw (Sivert V. Sæther)</author>
+      <guid>/blog/apprentice/tzsp2pcap/</guid>
+      <description>This is a very useful tool when working with Mikrotiks. As their built-in sniffer tool has support for TZSP (TaZmen Sniffer Protocol) streaming. This will send all packets that match the filtering options to some destination over TZSP/UDP.
+This destination may be some machine running this tzsp2pcap. Allowing you to get a pcap remotely from a Mikrtoik without touching the Mikrotiks disk. This is super useful if the box has traffic as the Mikrotik routers usually has a disk with a size in megabytes.</description>
+    </item>
+    <item>
+      <title>Linux Desktop Password Reset</title>
+      <link>/blog/apprentice/linux-password-reset/</link>
+      <pubDate>Thu, 18 Aug 2022 03:10:27 +0000</pubDate>
+      <author>gmail@sivert.pw (Sivert V. Sæther)</author>
+      <guid>/blog/apprentice/linux-password-reset/</guid>
+      <description>Hacking stuff is usually pretty trivial. As long as you&amp;rsquo;ve got physical access that is. And here I&amp;rsquo;ll instruct you on how to reset passwords on a Linux installation. Either by booting a live ISO. Or by plugging the drive with the installation you&amp;rsquo;d like to reset some password(s) on into another Linux machine.
+Realistically, repairing a broken installation is pretty similar. Although be aware that setting up the chroot may require additional steps.</description>
+    </item>
+    <item>
+      <title>Fail2ban</title>
+      <link>/blog/apprentice/fail2ban/</link>
+      <pubDate>Thu, 14 Jul 2022 09:01:03 +0000</pubDate>
+      <author>gmail@sivert.pw (Sivert V. Sæther)</author>
+      <guid>/blog/apprentice/fail2ban/</guid>
+      <description>At SkyLabs I had the surprisingly pleasant experience of configuring fail2ban for a bunch of production servers. What fail2ban simply does is watch log files, match the lines against predefined regex patterns. After a predefined amount of matches for a specific IP, it gets 🔨 banned. The super cool thing about this is that the max retry, and most options may be set globally, but also locally for each &amp;ldquo;jail&amp;rdquo;. These jails are just configs for the filters.</description>
+    </item>
+    <item>
+      <title>SkyLabs</title>
+      <link>/blog/apprentice/security/skylabs/</link>
+      <pubDate>Mon, 04 Jul 2022 13:35:43 +0000</pubDate>
+      <author>gmail@sivert.pw (Sivert V. Sæther)</author>
+      <guid>/blog/apprentice/security/skylabs/</guid>
+      <description>SkyLabs has surprisingly good stability compared to expectations based on the codebase. I&amp;rsquo;m guessing it&amp;rsquo;s a byproduct of Python that let&amp;rsquo;s us fail pretty safely on almost all endpoints. The in-house development is mainly four services, two JS frontends and two Python Flask backends, all web.
+These services are a captive portal, it&amp;rsquo;s API and an admin interface web app and it&amp;rsquo;s API.
+We support lots of interesting authentication methods!~</description>
+    </item>
+    <item>
+      <title>Sircon</title>
+      <link>/blog/apprentice/security/sircon/</link>
+      <pubDate>Mon, 04 Jul 2022 13:12:00 +0000</pubDate>
+      <author>gmail@sivert.pw (Sivert V. Sæther)</author>
+      <guid>/blog/apprentice/security/sircon/</guid>
+      <description>These guys have a few beefy ass physical servers in their own rack in a supposedly EMP and fire safe room in the basement of their offices. Those physical machines run virtual machines that run WHM/cPanel and whatever PHP app the customer would like. But &amp;gt;90% of their customers are non-technical and just only interact with the default WordPress setup and maybe the e-mail service that comes with their cPanel. Most of the people calling in to their support line has problems using their e-mail, and it&amp;rsquo;s usually the end user who fucked up.</description>
+    </item>
+    <item>
+      <title>Debian</title>
+      <link>/blog/apprentice/debian/</link>
+      <pubDate>Mon, 20 Jun 2022 14:10:48 +0000</pubDate>
+      <author>gmail@sivert.pw (Sivert V. Sæther)</author>
+      <guid>/blog/apprentice/debian/</guid>
+      <description>The biggest of the official Debian button logos Debian is a classic free and open source Linux distribution. It&amp;rsquo;s one of the oldest Linux OSes and the basis of many other distros. Most notably Ubuntu.
+Debian has three foundational documents. The Debian Social Contract/OG Version, the Debian Constitution and the Debian Free Software Guidelines.
+Debian version code-names are famously named after characters from the Toy Story films. It&amp;rsquo;s unstable rolling release branch is named Sid, who in the Toy Stories regularly destroys his toys.</description>
+    </item>
+    <item>
+      <title>MSAL</title>
+      <link>/blog/apprentice/msal/</link>
+      <pubDate>Mon, 20 Jun 2022 14:10:19 +0000</pubDate>
+      <author>gmail@sivert.pw (Sivert V. Sæther)</author>
+      <guid>/blog/apprentice/msal/</guid>
+      <description>MSAL stands for Microsoft Authentication Library. It&amp;rsquo;s the replacement for ADAL, the Active Directory Authentication Library. Although Microsoft now definitely pushes cloud hard like most tech companies. So MSAL is focused on Azure AD specifically. Where there is a distinct difference between &amp;ldquo;organizational&amp;rdquo; accounts and normal public Microsoft services account.</description>
+    </item>
+    <item>
+      <title>WHM</title>
+      <link>/blog/apprentice/whm/</link>
+      <pubDate>Mon, 20 Jun 2022 14:07:06 +0000</pubDate>
+      <author>gmail@sivert.pw (Sivert V. Sæther)</author>
+      <guid>/blog/apprentice/whm/</guid>
+      <description>WHM/Web Host Manager is the partner/backend admin panel for cPanel. It&amp;rsquo;s made for making shared web hosting super easy. WHM uses a bunch of server software under the hood for managing DNS, e-mails, web-servers and more. With WHM, it&amp;rsquo;s super easy managing a whole-bunch of Apache &amp;ldquo;virtual hosts&amp;rdquo;. One for each cPanel.
+WHM also supports having WHM &amp;ldquo;partner&amp;rdquo; accounts out of the box! This means that the company doing shared hosting with WHM may have partners that also have access to the WHM.</description>
+    </item>
+    <item>
+      <title>cPanel</title>
+      <link>/blog/apprentice/cpanel/</link>
+      <pubDate>Mon, 20 Jun 2022 14:07:02 +0000</pubDate>
+      <author>gmail@sivert.pw (Sivert V. Sæther)</author>
+      <guid>/blog/apprentice/cpanel/</guid>
+      <description>I think anyone who uses cPanel should be aware of WHM/Web Host Manager. Although cPanel may run completely on its own, but usually you find its running with WHM. Meaning that whoever sells you the cPanel access sets it up through WHM.
+Alone cPanel may be pretty powerful depending on what access you&amp;rsquo;re granted. Often hosting providers will limit you to only access the files of your web-root and settings for additional services like e-mail and DNS.</description>
+    </item>
+    <item>
+      <title>WordPress</title>
+      <link>/blog/apprentice/wordpress/</link>
+      <pubDate>Mon, 20 Jun 2022 14:06:54 +0000</pubDate>
+      <author>gmail@sivert.pw (Sivert V. Sæther)</author>
+      <guid>/blog/apprentice/wordpress/</guid>
+      <description>WordPress is by far the world&amp;rsquo;s most popular Content Management System. And it makes sense with its ease of use. It&amp;rsquo;s famous for letting anyone have a blog setup within 5 minutes.
+For the initial setup you just create an account for the admin panel. And set things like the base URL/domain for the web page.
+After that you&amp;rsquo;re free to explore the /wp-admin and make the content for the page.</description>
+    </item>
+    <item>
+      <title>Docker Fix</title>
+      <link>/blog/apprentice/docker-fix/</link>
+      <pubDate>Mon, 13 Jun 2022 08:42:53 +0000</pubDate>
+      <author>gmail@sivert.pw (Sivert V. Sæther)</author>
+      <guid>/blog/apprentice/docker-fix/</guid>
+      <description>🚧 Work in progress </description>
+    </item>
+    <item>
+      <title>Docker</title>
+      <link>/blog/apprentice/docker/</link>
+      <pubDate>Sat, 11 Jun 2022 17:33:55 +0000</pubDate>
+      <author>gmail@sivert.pw (Sivert V. Sæther)</author>
+      <guid>/blog/apprentice/docker/</guid>
+      <description>Docker is a super container management system that lets you isolate programs and services. This is very useful, both during development and for production deployment. Because all dependencies may be bundled into the &amp;ldquo;docker image&amp;rdquo;.
+And if the program/service is hacked. The adversary will only have access to the container. Which with proper configuration should make it super hard for any adversary to gain persistence.
+Local development When using docker for local development.</description>
+    </item>
+    <item>
+      <title>Mikrotik</title>
+      <link>/blog/apprentice/mikrotik/</link>
+      <pubDate>Wed, 08 Jun 2022 10:34:42 +0000</pubDate>
+      <author>gmail@sivert.pw (Sivert V. Sæther)</author>
+      <guid>/blog/apprentice/mikrotik/</guid>
+      <description>Mikrotik produces networking equipment and software. In 2021, they were the 3rd largest and first private company to reach a value above 1B EUR in their home country Latvia.
+While their RouterOS has a terrible track record of getting hacked. It has a load of cool and useful features built right in. And all those ROS devices that constantly get hacked do so because of known vulnerabilities that would have been patched if only the devices where being updated on a regular basis.</description>
+    </item>
+    <item>
+      <title>Duolingo Xp Exploit</title>
+      <link>/blog/duolingo-xp-exploit/</link>
+      <pubDate>Tue, 07 Jun 2022 22:11:49 +0000</pubDate>
+      <author>gmail@sivert.pw (Sivert V. Sæther)</author>
+      <guid>/blog/duolingo-xp-exploit/</guid>
+      <description>Your browser does not support the video tag! It&amp;rsquo;s possible for super/pro users to instantly complete speaking only lessons on iOS.
+How to reproduce Make sure the Duoling app does not have microphone access. Start a round of &amp;ldquo;Perfect Pronunciation&amp;rdquo; in the &amp;ldquo;Practice Hub&amp;rdquo;. Click continue and when prompted for microphone access, just click cancel. Profit. (Instant perfect lesson!) Summary The bug here seems to be that the first in app prompt for microphone access does nothing, except telling the end user to please give up mic perms.</description>
+    </item>
+    <item>
+      <title>Ansible</title>
+      <link>/blog/apprentice/ansible/</link>
+      <pubDate>Tue, 07 Jun 2022 07:15:24 +0000</pubDate>
+      <author>gmail@sivert.pw (Sivert V. Sæther)</author>
+      <guid>/blog/apprentice/ansible/</guid>
+      <description>Ansible is a cool tool that lets you manage lots of Linux servers and even some other devices. All with just a bunch of yaml. Although not necessarily as it supports a nice load of formats for everything. Yaml being the most common, but &amp;ldquo;inventories&amp;rdquo; are usually ini format. But still you should be able to do everything in json if you really want to.
+Configure ansible.cfg This is the main Ansible config.</description>
+    </item>
+    <item>
+      <title>Meraki</title>
+      <link>/blog/apprentice/meraki/</link>
+      <pubDate>Tue, 07 Jun 2022 07:14:28 +0000</pubDate>
+      <author>gmail@sivert.pw (Sivert V. Sæther)</author>
+      <guid>/blog/apprentice/meraki/</guid>
+      <description>Meraki is Cisco&amp;rsquo;s cloud managed networking solution. It has everything and more than what most people would need. But of course me being me, I don&amp;rsquo;t like my infrastructure being managed by cloud services.
+I did however work a little with Meraki at SkyLabs, and was pleasantly surprised. After having a couple very bad experiences with our Mikrotik setup script. Setting up a Meraki access point with our captive portal service was super easy!</description>
+    </item>
+    <item>
+      <title>Azure App Registration</title>
+      <link>/blog/apprentice/azure-app-registration/</link>
+      <pubDate>Fri, 27 May 2022 15:05:05 +0000</pubDate>
+      <author>gmail@sivert.pw (Sivert V. Sæther)</author>
+      <guid>/blog/apprentice/azure-app-registration/</guid>
+      <description>You can find the App Registrations in Azure under Azure AD or directly by search. Once there you can click the &amp;ldquo;New registration&amp;rdquo; button on the top left. Then you&amp;rsquo;ll need to fill in name, account types and optionally a redirect URI.
+The Azure App Registration page The first thing to do now is &amp;ldquo;Branding &amp;amp; properties&amp;rdquo;&amp;hellip; haha. The app authenticates towards Microsoft with either a certificate or app secrets. So the actual first thing to do is to go over the &amp;ldquo;Authentication&amp;rdquo; tab, just check that all looks good.</description>
+    </item>
+    <item>
+      <title>Handlebars.js</title>
+      <link>/blog/apprentice/handlebars/</link>
+      <pubDate>Wed, 25 May 2022 09:14:23 +0000</pubDate>
+      <author>gmail@sivert.pw (Sivert V. Sæther)</author>
+      <guid>/blog/apprentice/handlebars/</guid>
+      <description>Handlebars.js is a templating engine like jinja2, but entirely in JavaScript.
+Personally I&amp;rsquo;ve only found pug templates very nice to work with as I love the minimal syntax.
+What makes handlebars cool is it&amp;rsquo;s ability to render templates both server and client side, if you&amp;rsquo;re running node.js on the server.
+Running it in the frontend is super easy, check this example from the handlebars docs;
+1 2 3 4 5 6 7 8 &amp;lt;!</description>
+    </item>
+    <item>
+      <title>Matrix, secure and decentralized communications</title>
+      <link>/blog/matrix/</link>
+      <pubDate>Thu, 07 Apr 2022 22:00:52 +0000</pubDate>
+      <author>gmail@sivert.pw (Sivert V. Sæther)</author>
+      <guid>/blog/matrix/</guid>
+      <description>Matrix is in my opinion super cool. It&amp;rsquo;s a community driven chat system that supports end to end encryption and it&amp;rsquo;s even possible to run it peer to peer if all parties host their own matrix &amp;ldquo;homeserver&amp;rdquo;. There are an absolutely insane amount of these &amp;ldquo;homeservers&amp;rdquo;.
+It&amp;rsquo;s recommended you choose one that you trust but any server with the exception of the official matrix.org server should be alright. The official is always under heavy load and will appear even more sluggish than most servers.</description>
+    </item>
+    <item>
+      <title>About</title>
+      <link>/about/</link>
+      <pubDate>Sun, 27 Mar 2022 18:08:24 +0000</pubDate>
+      <author>gmail@sivert.pw (Sivert V. Sæther)</author>
+      <guid>/about/</guid>
+      <description>This webpage is my portfolio webpage and blog. 🌀
+It&amp;rsquo;s build with hugo and hosted on github.io with GitHub Pages! 😎</description>
+    </item>
+  </channel>
+</rss>
