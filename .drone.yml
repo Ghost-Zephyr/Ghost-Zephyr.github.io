@@ -6,26 +6,15 @@ name: build and publish
 steps:
 - name: build
   image: registry.42069.no/build/hugo
-  volumes:
-  - name: public
-    path: /work/public
+  environment:
+    KEY:
+      from_secret: key
   commands:
+  - echo "$KEY" > ~/.ssh/id_rsa
   - hugo -e prod --printI18nWarnings --printPathWarnings --printUnusedTemplates --templateMetricsHints
-
-- name: publish
-  image: plugins/gh-pages
-  volumes:
-  - name: public
-    path: /public
-  settings:
-    pages_directory: /public
-    username: Ghost-Zephyr
-    password: 
-      from_secret: password
-
-volumes:
-- name: public
-  temp: {}
+	- git clone --branch gh-pages git@github.com:Ghost-Zephyr/Ghost-Zephyr.github.io.git github
+  - cp -r public/* github/
+  - cd github/ && git add -A && git commit -m 'Drone CI!~'
 
 image_pull_secrets:
 - registry
