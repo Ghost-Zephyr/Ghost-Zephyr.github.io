@@ -116,7 +116,7 @@
     <h4>Linux Desktop Password Reset</h4>
     
     <p>
-      This article has 369 words.
+      This article has 387 words.
       2 minutes to read.
     </p>
     <p>
@@ -188,6 +188,7 @@ Assuming you mounted the rootfs and potentially the boot/EFI partition to /boot 
 </div>
 </div>
 <p>The options -R and -t for mount are short hands for --rbind and --types respectively.</p>
+<p>NOTE: if you&rsquo;re reinstalling an UEFI boot manager you&rsquo;ll likely need a <code>mount -t efivarfs efivarfs /mnt/sys/firmware/efi/efivars</code> too.</p>
 <h2 id="fixing">Fixing</h2>
 <p>For doing the password reset or other operations on the installation other than simple file edits, you just chroot into the installation.</p>
 
@@ -261,7 +262,7 @@ And to all the stuff you need to.</p>
   <footer>
   <center>
   <div class='footer-content'>
-    <p>2020 - 2023 &copy; Sivert V. Sæther</p>
+    <p>2020 - 2024 &copy; Sivert V. Sæther</p>
   </div>
   
 </center>
